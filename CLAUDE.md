@@ -4,6 +4,17 @@ Context file for any Claude instance (claude.ai project chats or Claude
 Code) working on this codebase. Read this before touching anything.
 (Claude Code reads CLAUDE.md automatically; it also works as AGENTS.md.)
 
+## Documentation map (read what your task needs)
+- CLAUDE.md (this file) — invariants + schemas. Everyone, always.
+- docs/ARCHITECTURE.md — how the pieces fit (diagrams). Platform work.
+- docs/CONTENT_GUIDE.md — writing sessions: methodology, style sheets,
+  QA gate. Content agents start here after this file.
+- Course_Creation_Playbook.md (project files) — designing whole courses
+  from diagnostics. Senior/steering work.
+- docs/use_cases.md — what the repo guarantees, traced to tests.
+- docs/TODO.md — roadmap and ownership.
+- docs/handoff/ — ready-to-paste briefs for outsourced work.
+
 ## What this is
 A self-serve family learning platform at https://www.knocbrac.com/learn/ —
 personalised courses for Jim (maths, "The Ascent"), Grace (money & markets,
@@ -37,11 +48,17 @@ work. This is the prime directive.
    results). Never rely on localStorage alone for anything that must
    survive a device change; never lose work — the client falls back to
    downloading results JSON if the server is unreachable.
-6. Deployment is hand-uploaded to 34sp (Plesk-ish, `httpdocs/`). Dotfiles
-   are silently skipped by some upload tools; Windows editing converts line
-   endings; FTP flattens permissions. After any deploy, verify:
-   `/learn/api/submit.php` in a browser → `{"ok":false,...,"status":
-   "receiver alive (php 5.6.36)..."}`.
+6. Deployment: `python3 tools/deploy.py knocbrac` over SFTP to the host's
+   IP 80.82.113.174 port 22 (old 34sp platform is IP-addressed). Default
+   transport "sftpcli" = system OpenSSH sftp, zero Python deps, SSH-key
+   auth (setup in README). Fallbacks: "sftp" (paramiko+password), "ftp"
+   at ftp.knocbrac.com (site.json _notes).
+   site_url is http:// — the host's TLS cert doesn't cover www.knocbrac.com,
+   so kids' traffic is unencrypted (accepted for now; revisit with 34sp).
+   Old hand-upload traps still apply to any manual work: dotfiles skipped
+   by GUI tools, Windows line endings, flattened permissions. The deploy
+   verifier replaces manual checking: expect "receiver alive (php 5.6.36)"
+   and a matching release.
 7. Kids' first names only in code, content, filenames and results. The
    `/learn/` tree is noindexed (headers + meta + robots.txt at site root);
    `.htaccess` basic-auth exists but is commented out pending the
@@ -116,7 +133,7 @@ The codebase now lives in a git monorepo:
                            proving new transports), sftp (documented stub)
     tools/dev_server.py    local platform (+ receiver) at localhost:8000
     tools/tests/           acceptance suite — run before ANY change ships:
-                           python3 -m unittest discover -s tools/tests -v
+                           python3 tools/run_tests.py  (prints a tally)
     sites/knocbrac/        site.json (committed; no secrets) + learn/ tree
     docs/use_cases.md      the three use cases; every acceptance criterion
                            names its automated test — keep that mapping
@@ -127,8 +144,10 @@ The codebase now lives in a git monorepo:
 - New transports (e.g. rsync for agileintegrator) must pass the pipeline
   test suite with themselves substituted for LocalTransport (byte-identity
   = the proof) before earning a site.json entry.
-- Releases: bump `release` in courses.json; the post-deploy verifier
-  compares it against the live site. Assessments carry their own version.
+- Releases: bump `release` in courses.json AND the ?v= on asset includes
+  in the three app pages together — the "cache" pre-flight check enforces
+  the match, so a mismatch cannot deploy. The post-deploy verifier compares
+  the live release against local. Assessments carry their own version.
 
 ## Current state / roadmap
 - Live: framework r4; ascent w1s1–w1s2 (+w1s3 "soon"); graceco w1s1–w1s2

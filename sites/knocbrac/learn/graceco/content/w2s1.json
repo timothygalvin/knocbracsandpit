@@ -1,0 +1,46 @@
+{
+  "id": "w2s1",
+  "kind": "session",
+  "tag": "Unit 2 · Board meeting 1",
+  "title": "Profit, Properly",
+  "intro": "Unit 2 opens the real books. Every business lives or dies by one line.",
+  "blocks": [
+    { "type": "read", "html": "<p>The most important line in business:</p><p style='font-size:1.2em'><b>PROFIT = money in − money out</b></p><p>Money in is called <b>revenue</b>. Money out is called <b>costs</b>. Grace &amp; Co. now tracks both, every day.</p>" },
+
+    { "type": "q", "id": "b1", "prompt": "Monday. Revenue: £84. Costs: £31. What's the profit?",
+      "hint": "Money in minus money out.",
+      "parts": [ { "id": "a", "label": "Profit (£)", "type": "numeric", "accept": [53] } ] },
+
+    { "type": "q", "id": "b2", "prompt": "Tuesday is quiet. Revenue: £26. Costs: £31. Profit?",
+      "hint": "Money out is bigger than money in. The answer goes below zero — that's called a loss.",
+      "parts": [ { "id": "a", "label": "Profit (£, use a minus sign)", "type": "numeric", "accept": [-5] } ] },
+
+    { "type": "reveal", "button": "What a minus profit means ✨",
+      "html": "<p>−£5 is a <b>loss</b>. The business paid out £5 more than it took in.</p><p>One quiet day is fine. Bosses only panic about the <b>week</b> — and analysts never panic at all. They add up.</p>" },
+
+    { "type": "q", "id": "b3", "prompt": "Work out profit for the rest of the week:<br>Wed: revenue £58, costs £22.<br>Thu: revenue £43, costs £43.<br>Fri: revenue £96, costs £38.",
+      "hint": "One day at a time. Thursday is a strange one — what do you call zero profit?",
+      "parts": [
+        { "id": "a", "label": "Wed profit (£)", "type": "numeric", "accept": [36] },
+        { "id": "b", "label": "Thu profit (£)", "type": "numeric", "accept": [0] },
+        { "id": "c", "label": "Fri profit (£)", "type": "numeric", "accept": [58] } ] },
+
+    { "type": "q", "id": "b4", "prompt": "Boss question. Add up the whole week: Mon £53, Tue −£5, Wed £36, Thu £0, Fri £58. What did Grace & Co. make?",
+      "hint": "Add them all. The Tuesday loss takes £5 away from the total.",
+      "parts": [ { "id": "a", "label": "Week's profit (£)", "type": "numeric", "accept": [142] } ] },
+
+    { "type": "q", "id": "b5", "prompt": "★ Analyst's cut. Of the £142, which single day earned the biggest share — and roughly what fraction of the week's profit was it?",
+      "hint": "Friday made £58 of £142. Is that closer to a quarter, a third, or a half?",
+      "parts": [
+        { "id": "a", "label": "Best day (Mon/Tue/Wed/Thu/Fri)", "type": "text",
+          "accept": ["fri", "friday"] },
+        { "id": "b", "label": "Nearest fraction (quarter, third, or half)", "type": "text",
+          "accept": ["third", "athird", "1/3", "onethird"] } ] },
+
+    { "type": "summit", "html": "<b>📈 Market story for the dinner table:</b> some famous companies run at a LOSS on purpose — for years. Amazon barely made a profit for two decades while it grew huge.<br><br>Board discussion: when might losing money now be a smart plan? And when is it just… losing money? (Hint from your contagion knowledge: it depends who's lending, and how patient they are.)" }
+  ],
+  "done": {
+    "title": "Meeting adjourned ✓",
+    "html": "<p>Revenue, costs, profit, loss — and your first full week of company books, including a loss day handled without blinking (Unit 1's negative numbers, earning their keep).</p><p>Next: <b>The Margin</b> — profit as a percentage, the number that tells you whether £142 is brilliant or barely alive.</p>"
+  }
+}

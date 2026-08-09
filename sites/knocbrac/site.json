@@ -1,17 +1,18 @@
 {
   "transport": "ftp",
   "host": "ftp.knocbrac.com",
-  "user": "knocbraccom",
   "use_tls": true,
+  "user": "knocbraccom",
   "remote_root": "httpdocs",
-  "site_url": "https://www.knocbrac.com",
+  "site_url": "http://www.knocbrac.com",
   "sources": ["learn"],
   "exclude": ["learn/results/*"],
   "init_include": ["learn/results/index.html"],
-  "checks": ["json", "php56", "ids", "manifests"],
+  "checks": ["json", "php56", "ids", "manifests", "schema", "cache"],
   "verify": [
     { "url": "/learn/api/submit.php", "expect": "receiver alive" },
     { "url": "/learn/courses.json", "json_key": "release",
       "matches_local": "learn/courses.json" }
-  ]
+  ],
+  "_notes": "FTP(S) at ftp.knocbrac.com — the proven transport. When SSH keys are set up (README), switch to: transport=sftpcli, host=80.82.113.174, port=22 (drop use_tls). Paramiko variant: transport=sftp."
 }

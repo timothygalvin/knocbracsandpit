@@ -138,8 +138,48 @@ def check_schema(site, base):
             probs.append("%s: kind must be 'session' or 'checkpoint', got %r" % (rp, kind))
     return probs
 
+
+ASSET_REF = re.compile(r'assets/[A-Za-z0-9_.-]+(\?v=[A-Za-z0-9_.-]+)?')
+def check_cache(site, base):
+    """Release integrity: every assets/ include in shipped HTML must carry
+    ?v=<release> matching courses.json, and a Cache-Control policy must
+    exist in .htaccess. Guards the stale-shared.js bug class (the
+    mergedDone TypeError) at pre-flight instead of in a child's browser."""
+    probs = []
+    release = None
+    for p in _walk(site, base):
+        if os.path.basename(p) == "courses.json":
+            try:
+                release = json.load(open(p, encoding="utf-8")).get("release")
+            except Exception:
+                pass
+            break
+    if release is None:
+        return []  # no registry in this site — check not applicable
+    for p in _walk(site, base):
+        if not p.endswith(".html"):
+            continue
+        rp = os.path.relpath(p, base).replace("\\", "/")
+        if "/results/" in "/" + rp:
+            continue  # receiver-owned page, not shipped by deploy
+        src = open(p, encoding="utf-8", errors="replace").read()
+        for m in ASSET_REF.finditer(src):
+            ver = m.group(1)
+            if ver is None:
+                probs.append("%s: unversioned asset include %r — add ?v=%s"
+                             % (rp, m.group(0), release))
+            elif ver != "?v=" + str(release):
+                probs.append("%s: %r does not match release %r"
+                             % (rp, m.group(0), release))
+    ht = os.path.join(base, site.get("sources", ["learn"])[0], ".htaccess")
+    if os.path.exists(ht) and "Cache-Control" not in open(ht, encoding="utf-8").read():
+        probs.append(".htaccess has no Cache-Control policy — stale-asset "
+                     "protection missing")
+    return probs
+
 CHECKS = {"json": check_json, "php56": check_php56, "ids": check_ids,
-          "manifests": check_manifests, "schema": check_schema}
+          "manifests": check_manifests, "schema": check_schema,
+          "cache": check_cache}
 
 # ============================================================ transports
 class Transport(object):
@@ -170,14 +210,14 @@ class FtpTransport(Transport):
                                   % (self.site["user"], self.site["host"])))
         if self.site.get("use_tls", True):
             try:
-                self.ftp = FTP_TLS(self.site["host"], timeout=30)
+                self.ftp = FTP_TLS(timeout=30); self.ftp.connect(self.site["host"], int(self.site.get("port", 21)))
                 self.ftp.login(self.site["user"], pwd)
                 self.ftp.prot_p()
                 say("✓ connected (FTPS)")
                 return
             except Exception as e:
                 say("… FTPS failed (%s), trying plain FTP" % e)
-        self.ftp = FTP(self.site["host"], timeout=30)
+        self.ftp = FTP(timeout=30); self.ftp.connect(self.site["host"], int(self.site.get("port", 21)))
         self.ftp.login(self.site["user"], pwd)
         say("✓ connected (FTP — note: credentials travel unencrypted)")
     def ensure_dir(self, remote_dir):
@@ -207,20 +247,101 @@ class LocalTransport(Transport):
         shutil.copyfile(local_path, dst)
 
 class SftpTransport(Transport):
-    """STUB — new platform (agileintegrator.com). Two sane routes:
+    """SFTP over SSH (paramiko). Used by knocbrac.com (IP-addressed, port
+    22 — see the FileZilla profile this mirrors) and ready for
+    agileintegrator.com. Auth: key_file if configured, else password from
+    KB_DEPLOY_PASSWORD / site.json / prompt.
 
-    A) paramiko SFTP: connect with key_file/agent, sftp.mkdir in
-       ensure_dir (tolerate existing), sftp.put in put().
-    B) rsync-over-ssh (preferred if available): collect files in put(),
-       flush once in close() via
-         rsync -az --files-from=<list> <site_dir>/ user@host:<remote_root>/
-    Either way: prove it per docs/use_cases.md UC3.4 before first use."""
+    Host-key policy is trust-on-first-use (AutoAddPolicy): fine for a
+    hobby host you also reach with FileZilla; tighten to a known_hosts
+    check if the threat model ever grows.
+
+    Logic (ensure_dir/put) is proven by tools/tests/test_transports.py
+    against a fake endpoint per UC3.4; first live run is the shakedown.
+
+    A future rsync-over-ssh transport remains the better bulk option for
+    the new platform; it must pass the same proof before use."""
     def connect(self):
-        raise NotImplementedError(
-            "SFTP transport is a stub — implement per docstring (paramiko or "
-            "rsync-over-ssh), then prove it with tools/tests/test_pipeline.py.")
+        try:
+            import paramiko
+        except ImportError:
+            raise DeployError("sftp transport needs paramiko — install with: "
+                              "pip install paramiko")
+        kw = dict(hostname=self.site["host"],
+                  port=int(self.site.get("port", 22)),
+                  username=self.site["user"], timeout=30)
+        key = self.site.get("key_file")
+        if key:
+            kw["key_filename"] = os.path.expanduser(key)
+        else:
+            kw["password"] = (os.environ.get("KB_DEPLOY_PASSWORD")
+                              or self.site.get("password")
+                              or getpass.getpass("Password for %s@%s: "
+                                                 % (self.site["user"], self.site["host"])))
+        self.ssh = paramiko.SSHClient()
+        self.ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        self.ssh.connect(**kw)
+        self.sftp = self.ssh.open_sftp()
+        say("✓ connected (SFTP, port %s)" % kw["port"])
+    def ensure_dir(self, remote_dir):
+        try:
+            self.sftp.stat(remote_dir)
+        except IOError:
+            try:
+                self.sftp.mkdir(remote_dir)
+            except IOError:
+                pass  # created concurrently or no permission — surfaces on put
+    def put(self, local_path, remote_path):
+        self.sftp.put(local_path, remote_path)
+    def close(self):
+        try:
+            self.sftp.close(); self.ssh.close()
+        except Exception:
+            pass
 
-TRANSPORTS = {"ftp": FtpTransport, "local": LocalTransport, "sftp": SftpTransport}
+class SftpCliTransport(Transport):
+    """SFTP via the system OpenSSH client (`sftp` — preinstalled on macOS,
+    Linux, and Windows 10+). ZERO Python dependencies. Requires SSH key
+    auth (batch mode disables password prompts by design) — see README for
+    the one-time key setup. ensure_dir/put collect into a batch script;
+    close() flushes it in a single `sftp -b` run. Commands are prefixed
+    with '-' where failure is expected-and-fine (mkdir of existing dirs)."""
+    def connect(self):
+        import shutil as _sh
+        if not _sh.which("sftp"):
+            raise DeployError("system `sftp` not found — install OpenSSH "
+                              "client, or use transport 'sftp' (paramiko)")
+        self._batch = []
+        self._nfiles = 0
+    def ensure_dir(self, remote_dir):
+        self._batch.append("-mkdir %s" % remote_dir)
+    def put(self, local_path, remote_path):
+        self._batch.append('put "%s" "%s"' % (local_path, remote_path))
+        self._nfiles += 1
+    def close(self):
+        if not getattr(self, "_batch", None):
+            return
+        import tempfile
+        fd, bpath = tempfile.mkstemp(suffix=".sftp"); os.close(fd)
+        try:
+            with open(bpath, "w", encoding="utf-8") as fh:
+                fh.write("\n".join(self._batch) + "\n")
+            cmd = ["sftp", "-b", bpath,
+                   "-P", str(self.site.get("port", 22)),
+                   "-o", "BatchMode=yes",
+                   "%s@%s" % (self.site["user"], self.site["host"])]
+            say("… flushing %d file(s) in one sftp batch" % self._nfiles)
+            r = subprocess.run(cmd, capture_output=True, timeout=600)
+            if r.returncode != 0:
+                raise DeployError(
+                    "sftp batch failed (is your SSH key installed on the "
+                    "server? see README):\n" + r.stderr.decode(errors="replace")[-800:])
+            say("✓ sftp batch complete")
+        finally:
+            os.remove(bpath)
+
+TRANSPORTS = {"ftp": FtpTransport, "local": LocalTransport,
+              "sftp": SftpTransport, "sftpcli": SftpCliTransport}
 
 # ============================================================ pipeline core
 def load_site(name):

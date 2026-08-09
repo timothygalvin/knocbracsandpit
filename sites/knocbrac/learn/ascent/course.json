@@ -21,14 +21,31 @@
         {
           "id": "w1s3",
           "title": "Summit Puzzle: The Mine Lift",
-          "time": "about 30 min",
-          "soon": true
+          "time": "about 30 min"
         }
       ]
     },
     {
       "title": "Unit 2 · The Pattern Machine",
-      "sessions": []
+      "sessions": [
+        {
+          "id": "w2s1",
+          "title": "The Sequence Detective",
+          "time": "about 40 min"
+        },
+        {
+          "id": "w2s2",
+          "title": "The Position Machine",
+          "time": "about 40 min",
+          "soon": true
+        },
+        {
+          "id": "w2s3",
+          "title": "Summit Puzzle: The Staircase",
+          "time": "about 30 min",
+          "soon": true
+        }
+      ]
     },
     {
       "title": "Unit 3 · The Proportion Problem",

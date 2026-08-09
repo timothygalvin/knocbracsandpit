@@ -8,6 +8,15 @@ const KB = {
   qs: k => new URLSearchParams(location.search).get(k),
   el: s => document.querySelector(s),
 
+  beacon(msg) {   /* fire-and-forget diagnostics to the receiver log */
+    try {
+      fetch(KB.root + "api/submit.php", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ clientlog: String(msg).slice(0, 480) })
+      }).catch(() => {});
+    } catch (e) { /* never let diagnostics break the app */ }
+  },
+
   toast(msg, ms = 2600) {
     let t = KB.el("#toast");
     if (!t) { t = document.createElement("div"); t.id = "toast"; t.className = "toast"; document.body.appendChild(t); }
@@ -37,6 +46,14 @@ const KB = {
       document.body.classList.toggle("big");
       localStorage.setItem("kb:bigtext", document.body.classList.contains("big") ? "1" : "0");
     };
+
+/* uncaught errors on the tablets report themselves to the family log */
+window.addEventListener("error", e =>
+  KB.beacon("JS error: " + e.message + " @ " + (e.filename || "?") + ":" + (e.lineno || "?") +
+            " on " + location.pathname + location.search));
+window.addEventListener("unhandledrejection", e =>
+  KB.beacon("Unhandled rejection: " + String(e.reason).slice(0, 200) +
+            " on " + location.pathname + location.search));
     document.body.appendChild(b);
     if (localStorage.getItem("kb:bigtext") === "1") document.body.classList.add("big");
   },
@@ -120,6 +137,8 @@ const KB = {
         return { ok: true, file: j.file, emailed: j.emailed };
       } catch (e) { err = e; }
     }
+    KB.beacon("submitResults exhausted all endpoints on " + location.pathname +
+              " — last error: " + String(err));
     {
       /* offline / server issue: download instead so nothing is lost */
       const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });

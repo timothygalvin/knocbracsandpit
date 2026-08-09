@@ -1,6 +1,6 @@
 {
   "site": "Knocbrac Learning",
-  "release": "r3",
+  "release": "r6",
   "courses": [
     {
       "id": "ascent",
@@ -8,7 +8,12 @@
       "title": "The Ascent",
       "tagline": "A mathematical expedition",
       "icon": "🏔️",
-      "theme": { "accent": "#0E7C6B", "soft": "#E2F0ED", "warm": "#F2A93B", "bigText": false }
+      "theme": {
+        "accent": "#0E7C6B",
+        "soft": "#E2F0ED",
+        "warm": "#F2A93B",
+        "bigText": false
+      }
     },
     {
       "id": "graceco",
@@ -16,7 +21,12 @@
       "title": "Grace & Co.",
       "tagline": "Money, markets and smart thinking",
       "icon": "🍋",
-      "theme": { "accent": "#1E7A46", "soft": "#E4F1E8", "warm": "#C9930A", "bigText": true }
+      "theme": {
+        "accent": "#1E7A46",
+        "soft": "#E4F1E8",
+        "warm": "#C9930A",
+        "bigText": true
+      }
     }
   ]
 }

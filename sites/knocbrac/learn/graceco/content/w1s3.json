@@ -1,0 +1,45 @@
+{
+  "id": "w1s3",
+  "kind": "session",
+  "tag": "Unit 1 · Market story",
+  "title": "The Sale-Sign Trick",
+  "intro": "Shops spend millions on signs. Today you learn to read them like an analyst.",
+  "blocks": [
+    { "type": "read", "html": "<p>Remember the dinner-table puzzle?</p><p>Shop A: a top for <b>£50 with 10% off</b>.<br>Shop B: the same top for <b>£45, no discount</b>.</p><p>Time to settle it with numbers.</p>" },
+
+    { "type": "q", "id": "s1", "prompt": "Work out what you actually pay in Shop A.",
+      "hint": "10% of £50 is £5. Take it off the price.",
+      "parts": [
+        { "id": "a", "label": "Shop A price (£)", "type": "numeric", "accept": [45] },
+        { "id": "b", "label": "So which shop is cheaper? (A, B, or same)", "type": "text",
+          "accept": ["same", "thesame", "equal", "neither", "tie", "nodifference"] } ] },
+
+    { "type": "reveal", "button": "So why does the sign work? ✨",
+      "html": "<p>Both shops charge £45. But the <b>10% OFF</b> sign makes Shop A <i>feel</i> cheaper — your brain sees a bargain before it does any maths.</p><p>Shops know most customers never check. <b>You always will.</b> That's the analyst's edge.</p>" },
+
+    { "type": "q", "id": "s2", "prompt": "Two coats, both marked £100.<br>Shop A: <b>30% off</b>.<br>Shop B: <b>£25 off</b>.",
+      "hint": "Shop A: 30% of £100 is £30 off. Compare what you pay in each.",
+      "parts": [
+        { "id": "a", "label": "Shop A price (£)", "type": "numeric", "accept": [70] },
+        { "id": "b", "label": "Shop B price (£)", "type": "numeric", "accept": [75] },
+        { "id": "c", "label": "Which shop wins? (A or B)", "type": "text", "accept": ["a", "shopa"] } ] },
+
+    { "type": "read", "html": "<p>Now the other classic sign: <b>“WAS £80 — NOW £60”</b>.</p><p>Analysts always ask: <b>what percentage off is that, really?</b></p><p>Money off: £80 − £60 = £20.<br>As a fraction of the old price: 20 out of 80 = a quarter.<br>So it's a <b>25% discount</b>. Now you can check any sign in any shop.</p>" },
+
+    { "type": "q", "id": "s3", "prompt": "★ A jacket's sign says: <b>WAS £120 — NOW £90</b>. What percentage off is that?",
+      "hint": "Money off first: £120 − £90 = £30. What fraction of £120 is £30?",
+      "parts": [ { "id": "a", "label": "Discount (%)", "type": "numeric", "accept": [25] } ] },
+
+    { "type": "q", "id": "s4", "prompt": "★ Sneaky one. A game says <b>WAS £50 — NOW £40</b>. The shop claims “25% OFF!”. Is the sign telling the truth?",
+      "hint": "£10 off. What fraction of £50 is £10? Compare with what the sign claims.",
+      "parts": [
+        { "id": "a", "label": "The real discount (%)", "type": "numeric", "accept": [20] },
+        { "id": "b", "label": "Is the sign honest? (yes/no)", "type": "text", "accept": ["no", "nope", "false", "lying", "notrue"] } ] },
+
+    { "type": "summit", "html": "<b>📈 Your first field assignment, analyst:</b> this week, find one real sale sign — a shop window, a website, anywhere. Write down the WAS and NOW prices, work out the true percentage off, and report to the board at dinner:<br><br>1. What did the sign want you to feel?<br>2. What was the real discount?<br>3. Verdict: honest sign, or trick?" }
+  ],
+  "done": {
+    "title": "UNIT 1 COMPLETE 🍋✓",
+    "html": "<p>The Percentage Toolkit is yours: 10%, 5%, 1%, 20%, 25%, 50%, 75%, combinations — and now the analyst's move: working out the percentage from the prices, which is how you catch a shop bending the truth. Three weeks ago you told me percentages were your struggle. Look at you now.</p><p>Next: <b>Unit 2 — Sales &amp; Margins</b>. Grace &amp; Co. starts making real money. Coming very soon.</p>"
+  }
+}

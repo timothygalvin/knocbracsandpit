@@ -31,7 +31,7 @@ class ChecksTree(unittest.TestCase):
 
     # UC1.1
     def test_valid_tree_passes(self):
-        for name in self.site["checks"] + ["schema"]:
+        for name in dict.fromkeys(self.site["checks"] + ["schema", "cache"]):
             self.assertEqual(D.CHECKS[name](self.site, self.base), [],
                              "check %r flagged the known-good tree" % name)
 
@@ -86,6 +86,37 @@ class ChecksTree(unittest.TestCase):
         probs = D.check_schema(self.site, self.base)
         self.assertTrue(any("dance_party" in p_ for p_ in probs))
         self.assertTrue(any("no accept/range" in p_ for p_ in probs))
+
+    # UC3.6 — the mergedDone bug class: stale assets vs fresh pages
+    def test_unversioned_asset_detected(self):
+        rel = json.load(open(self.path("learn", "courses.json")))["release"]
+        p = self.path("learn", "app", "course.html")
+        src = open(p).read()
+        open(p, "w").write(src.replace("?v=" + rel, "", 1))  # strip one version tag
+        probs = D.check_cache(self.site, self.base)
+        self.assertTrue(any("unversioned" in x for x in probs), probs)
+
+    def test_version_mismatch_detected(self):
+        import json as J
+        p = self.path("learn", "courses.json")
+        reg = J.load(open(p)); reg["release"] = "r99"; J.dump(reg, open(p, "w"))
+        probs = D.check_cache(self.site, self.base)
+        self.assertTrue(any("does not match release" in x for x in probs), probs)
+
+    def test_missing_cache_header_detected(self):
+        p = self.path("learn", ".htaccess")
+        src = open(p).read()
+        open(p, "w").write(src.replace("Cache-Control", "X-Nothing"))
+        probs = D.check_cache(self.site, self.base)
+        self.assertTrue(any("Cache-Control" in x for x in probs), probs)
+
+    def test_receiver_results_page_exempt(self):
+        # the receiver-generated results/index.html is allowed unversioned refs
+        p = self.path("learn", "results", "index.html")
+        self.assertIn("assets/base.css", open(p).read())
+        self.assertEqual([x for x in D.check_cache(self.site, self.base)
+                          if "results" in x], [])
+
 
 if __name__ == "__main__":
     unittest.main()

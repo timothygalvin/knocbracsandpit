@@ -4,7 +4,7 @@ Three shared use cases, each with acceptance criteria (AC) that are
 executable: every AC names the automated test that verifies it. Run the
 whole suite with:
 
-    python3 -m unittest discover -s tools/tests -v
+    python3 tools/run_tests.py          # with pass/fail/skip tally\n    python3 -m unittest discover -s tools/tests -v   # plain unittest also works
 
 Tests degrade honestly: anything needing an optional binary (php-cgi,
 node) reports SKIPPED with a reason rather than passing vacuously.
@@ -46,11 +46,18 @@ for every site/transport; only the transport differs.
 | 3.3 | Protected paths (learn/results/*) are never touched by deploy; --init adds only the declared placeholders. | test_pipeline.LocalDeploy.test_results_protected |
 | 3.4 | A deploy through any transport produces a target byte-identical to the deployable set (transport equivalence — this is how rsync/SFTP get *proven* before first use). | test_pipeline.LocalDeploy.test_local_deploy_byte_identical |
 | 3.5 | Post-deploy verification checks the live receiver and that the live release matches local. | verify() probes in site.json (exercised manually against the live site; logic covered by test_pipeline.LocalDeploy.test_verify_probe_logic) |
+| 3.6 | Release integrity: every shipped HTML asset include is version-locked to the courses.json release, and a Cache-Control policy exists — a stale cached script can never run against a fresh page (the mergedDone TypeError class). | test_checks: test_unversioned_asset_detected / test_version_mismatch_detected / test_missing_cache_header_detected / test_receiver_results_page_exempt |
 
-### Transport proof procedure (the "prove it" for rsync/SFTP)
+### Transport proof procedure (the "prove it" ritual)
 1. Implement the transport against the `Transport` contract in deploy.py.
-2. Point it at a scratch target (a temp dir over ssh-to-localhost, or a
-   scratch dir on the new platform).
-3. Run the same test_pipeline suite with the new transport substituted:
-   it must pass 3.1–3.4 unchanged, and the byte-identity check (3.4) is
-   the proof. Only then does it earn a site.json entry.
+2. Prove the transport LOGIC: add/extend tools/tests/test_transports.py so
+   the full pipeline runs through the real transport class against a fake
+   endpoint, asserting byte-identity (3.4) and protection (3.3).
+3. First live run against the real host is the shakedown (--dry-run, then
+   deploy, then the verifier). Only after 1–3 does it earn a site.json.
+
+Status: ftp — proven + live. sftpcli (system OpenSSH, zero deps,
+key-auth; knocbrac default) — batch logic proven by
+test_transports.SftpCliProof. sftp (paramiko, password auth fallback) —
+logic proven by test_transports.SftpProof. rsync-over-ssh — future option
+for the new platform; must pass the same ritual.

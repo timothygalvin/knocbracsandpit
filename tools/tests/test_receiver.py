@@ -75,6 +75,23 @@ class Receiver(unittest.TestCase):
         j = json.loads(body)
         self.assertFalse(j["ok"])
 
+    def test_client_beacon_and_logtail(self):
+        _h, body = self.post({"clientlog": "JS error: test beacon from unit test"})
+        self.assertTrue(json.loads(body)["ok"])
+        # beacon must not create a results file
+        self.assertEqual([f for f in os.listdir(self.results) if f.endswith(".json")], [])
+        # a real save gets logged too
+        self.post(self._payload())
+        _h, body = self.call("GET", query="logtail=1")
+        j = json.loads(body)
+        self.assertTrue(j["ok"])
+        joined = "\n".join(j["lines"])
+        self.assertIn("test beacon", joined)
+        self.assertIn("SAVE graceco-w1s1", joined)
+        # the log file defends itself from web execution
+        log = open(os.path.join(self.base, "learn", "api", "receiver.log.php")).read()
+        self.assertTrue(log.startswith("<?php exit; ?>"))
+
     # UC2.5 — every response is HTTP 200 (ErrorDocument-proof)
     def test_all_responses_are_200(self):
         for head, _b in [self.call("GET"),

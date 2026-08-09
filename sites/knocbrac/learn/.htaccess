@@ -2,6 +2,11 @@
 # Search engines: stay away (works without any setup)
 <IfModule mod_headers.c>
   Header set X-Robots-Tag "noindex, nofollow"
+  # Pages, scripts and content must always revalidate — a cached stale
+  # shared.js against a fresh course.html caused the mergedDone TypeError.
+  <FilesMatch "\.(html|js|json|css)$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
 </IfModule>
 
 # ---- PASSWORD: temporarily disabled ----

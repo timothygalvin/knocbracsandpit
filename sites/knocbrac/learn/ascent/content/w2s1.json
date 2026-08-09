@@ -1,0 +1,50 @@
+{
+  "id": "w2s1",
+  "kind": "session",
+  "tag": "Unit 2 · Session 1",
+  "title": "The Sequence Detective",
+  "intro": "New zone. Patterns hide rules — your job is to catch them.",
+  "blocks": [
+    { "type": "read", "html": "<p>A <b>sequence</b> is a list of numbers following a rule. The detective's first move is always the same: <b>find the gap between neighbours</b> — the <i>common difference</i>.</p><p>5, 8, 11, 14, … → the gap is <b>+3</b>, every time. (Check it twice. On your diagnostic, a sequence exactly like this one got away from you by a miscounted gap. Not today.)</p>" },
+
+    { "type": "q", "id": "d1", "prompt": "For each sequence, find the common difference and the next term.<br><b>7, 12, 17, 22, …</b>",
+      "hint": "12 − 7 = ? Check it holds for the next pair too.",
+      "parts": [
+        { "id": "a", "label": "Common difference", "type": "numeric", "accept": [5] },
+        { "id": "b", "label": "Next term", "type": "numeric", "accept": [27] } ] },
+
+    { "type": "q", "id": "d2", "prompt": "Detectives handle going DOWN too: <b>40, 33, 26, 19, …</b>",
+      "hint": "The gap is negative — Unit 1 skills to the rescue.",
+      "parts": [
+        { "id": "a", "label": "Common difference", "type": "numeric", "accept": [-7] },
+        { "id": "b", "label": "Next term", "type": "numeric", "accept": [12] } ] },
+
+    { "type": "q", "id": "d3", "prompt": "Rematch time. The diagnostic sequence returns: <b>5, 8, 11, 14, …</b>",
+      "hint": "Gap first: 8 − 5. Then one step past 14.",
+      "parts": [
+        { "id": "a", "label": "Common difference", "type": "numeric", "accept": [3] },
+        { "id": "b", "label": "Next term", "type": "numeric", "accept": [17] } ] },
+
+    { "type": "reveal", "button": "The detective's shortcut ✨",
+      "html": "<p>What's the <b>20th term</b> of 5, 8, 11, 14, …? Counting up 20 steps is for amateurs.</p><p>Think about the journey: from the 1st term to the 20th term is <b>19 jumps</b> of +3.</p><p>So: 5 + 19 × 3 = 5 + 57 = <b>62</b>.</p><p>Start + (jumps × gap). One line, any position, no counting. That's the shortcut the 20th-term question wanted on your diagnostic.</p>" },
+
+    { "type": "q", "id": "d4", "prompt": "Use the shortcut on <b>7, 12, 17, 22, …</b>",
+      "hint": "From 1st to 10th is 9 jumps. From 1st to 50th is 49 jumps.",
+      "parts": [
+        { "id": "a", "label": "10th term", "type": "numeric", "accept": [52] },
+        { "id": "b", "label": "50th term", "type": "numeric", "accept": [252] } ] },
+
+    { "type": "q", "id": "d5", "prompt": "★ Boss case. Sequence: <b>100, 94, 88, 82, …</b> Where is it after 30 terms — and here's the detective question: does it ever pass through zero <i>exactly</i>?",
+      "hint": "30th term: 100 + 29 × (−6). For zero: how many −6 jumps from 100 would land exactly on 0? Does 100 divide by 6?",
+      "parts": [
+        { "id": "a", "label": "30th term", "type": "numeric", "accept": [-74] },
+        { "id": "b", "label": "Does it hit zero exactly? (yes/no)", "type": "text",
+          "accept": ["no", "nope", "never", "false"] } ] },
+
+    { "type": "summit", "html": "<b>🏔️ For the dinner table:</b> your shortcut is <i>start + jumps × gap</i>. Suppose the position is called <b>n</b> — the 1st, the 2nd, the <i>n</i>th. Can you write the shortcut for 5, 8, 11, 14 using n instead of a number?<br><br>If you get something like <b>5 + (n−1) × 3</b>, try tidying it up. What does it collapse to? Show Dad — next session, that little formula becomes a machine." }
+  ],
+  "done": {
+    "title": "Case closed ✓",
+    "html": "<p>Common differences (up AND down), the jumps shortcut, and a boss case with a genuine number-theory sting. The 20th-term question that stumped the diagnostic is now a one-liner.</p><p>Next: <b>The Position Machine</b> — the nth term proper, where your dinner-table formula gets a name and starts doing real work.</p>"
+  }
+}

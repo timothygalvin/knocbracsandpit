@@ -1,0 +1,39 @@
+{
+  "id": "w1s3",
+  "kind": "session",
+  "tag": "Unit 1 · Summit Puzzle",
+  "title": "The Mine Lift",
+  "intro": "One big problem. Everything from this unit, underground.",
+  "blocks": [
+    { "type": "read", "html": "<p>The old Zawadzki Mine has a winding tower at level <b>+5</b>, ground at <b>0</b>, and shafts down to level <b>−8</b>. One lift serves the whole mine, all day long.</p><p>You're the lift engineer. Every question is real lift work — and it's all the directed-number maths you built this week.</p>" },
+
+    { "type": "q", "id": "L1", "prompt": "The lift is at level −3. It goes up 5 levels. Where is it now?",
+      "hint": "Start at −3 on the shaft, climb 5.",
+      "parts": [ { "id": "a", "label": "Level", "type": "numeric", "accept": [2] } ] },
+
+    { "type": "q", "id": "L2", "prompt": "From ground level (0): down 6, up 2, down 3. Where does it end up?",
+      "hint": "One move at a time: 0 → −6 → −4 → −7.",
+      "parts": [ { "id": "a", "label": "Level", "type": "numeric", "accept": [-7] } ] },
+
+    { "type": "q", "id": "L3", "prompt": "It's −2°C at the surface, but the mine gets 3° warmer for every level you go down. What's the temperature at level −5?",
+      "hint": "5 levels down means 5 lots of 3° warmer: −2 + 15.",
+      "parts": [ { "id": "a", "label": "Temperature (°C)", "type": "numeric", "accept": [13] } ] },
+
+    { "type": "q", "id": "L4", "prompt": "Boss shift. The lift starts at the very bottom, level −8, and makes five moves: <b>+6, −4, +9, −2, +3</b>. Where does it finish?",
+      "hint": "Track it move by move: −8 → −2 → −6 → +3 → +1 → …",
+      "parts": [ { "id": "a", "label": "Final level", "type": "numeric", "accept": [4] } ] },
+
+    { "type": "reveal", "button": "The engineer's secret ✨",
+      "html": "<p>The cable counter doesn't care about up or down — it counts <b>every level travelled</b>, in either direction.</p><p>Mathematicians call this the <b>absolute value</b>: the size of a move, ignoring its sign. They write |−4| = 4. You've just met a Year 8 idea, working in a mine.</p>" },
+
+    { "type": "q", "id": "L5", "prompt": "★ Same five moves: +6, −4, +9, −2, +3. How many levels of travel does the cable counter record in total?",
+      "hint": "Add the sizes, ignore the signs: 6 + 4 + 9 + 2 + 3.",
+      "parts": [ { "id": "a", "label": "Total levels travelled", "type": "numeric", "accept": [24] } ] },
+
+    { "type": "summit", "html": "<b>🏔️ For the dinner table:</b> design your own lift journey and challenge Dad to solve it — but here's the engineering constraint: it must start at −8, finish exactly at 0, use exactly <b>five moves</b>, and the cable counter must read exactly <b>20</b>.<br><br>Is it even possible? (Think about what the five moves must add up to, and what their sizes must add up to. Two conditions, one journey…)" }
+  ],
+  "done": {
+    "title": "UNIT 1 COMPLETE 🏔️✓",
+    "html": "<p>The Negative Zone is climbed. Adding, subtracting, multiplying, dividing — through zero and back — plus a first look at absolute value. Three weeks ago the diagnostic caught you on −8 + 15 − (−6). Today you run a mine with it.</p><p>Next: <b>Unit 2 — The Pattern Machine</b>. Sequences, the nth term, and turning your equation instinct into full algebra. Coming very soon.</p>"
+  }
+}

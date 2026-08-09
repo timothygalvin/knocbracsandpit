@@ -9,6 +9,20 @@ header('Content-Type: application/json');
 header('Cache-Control: no-store');
 header('X-Robots-Tag: noindex, nofollow');
 
+$KB_LOG = __DIR__ . '/receiver.log.php';
+function kb_log($event) {
+    global $KB_LOG;
+    if (!file_exists($KB_LOG)) {
+        @file_put_contents($KB_LOG, "<?php exit; ?>\n"); /* web access shows nothing */
+    }
+    if (@filesize($KB_LOG) > 200000) {           /* simple rotation */
+        @rename($KB_LOG, $KB_LOG . '.1');
+        @file_put_contents($KB_LOG, "<?php exit; ?>\n");
+    }
+    @file_put_contents($KB_LOG,
+        date('Y-m-d H:i:s') . ' | ' . $event . "\n", FILE_APPEND);
+}
+
 function kb_get($arr, $key, $default) {
     return (is_array($arr) && isset($arr[$key])) ? $arr[$key] : $default;
 }
@@ -32,6 +46,19 @@ if (!is_dir($RESULTS)) @mkdir($RESULTS, 0755, true);
 
 $method = kb_get($_SERVER, 'REQUEST_METHOD', '');
 if ($method !== 'POST') {
+    if (isset($_GET['logtail'])) {
+        /* grown-up diagnostics: last ~120 log lines */
+        $lines = array();
+        if (file_exists($KB_LOG)) {
+            $all = file($KB_LOG, FILE_IGNORE_NEW_LINES);
+            if (is_array($all)) {
+                array_shift($all);                 /* drop the php guard line */
+                $lines = array_slice($all, -120);
+            }
+        }
+        echo json_encode(array('ok' => true, 'lines' => $lines));
+        exit;
+    }
     if (isset($_GET['progress'])) {
         /* which sessions has this course already submitted results for?
            filenames are course-session-kind-date-time.json (no hyphens
@@ -63,7 +90,16 @@ if ($raw === false || strlen($raw) > 300000) {
 }
 $data = json_decode($raw, true);
 if (!is_array($data)) {
+    kb_log('ERROR invalid JSON (' . strlen($raw) . ' bytes)');
     echo json_encode(array('ok' => false, 'error' => 'invalid JSON'));
+    exit;
+}
+
+/* client-side error beacon: log it, save no results file */
+if (isset($data['clientlog'])) {
+    kb_log('CLIENT ' . substr(preg_replace('/\s+/', ' ',
+        strval($data['clientlog'])), 0, 500));
+    echo json_encode(array('ok' => true, 'logged' => true));
     exit;
 }
 
@@ -75,6 +111,7 @@ $fname   = $course . '-' . $session . '-' . $kind . '-' . date('Ymd-His') . '.js
 $written = @file_put_contents($RESULTS . '/' . $fname,
     json_encode($data, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
 if ($written === false) {
+    kb_log('ERROR cannot write ' . $fname . ' (results permissions?)');
     echo json_encode(array('ok' => false,
         'error' => 'cannot write to results folder (check its permissions: 755, or 775 if needed)'));
     exit;
@@ -136,4 +173,6 @@ $headers = 'From: Knocbrac Learning <' . $FROM . ">\r\n"
          . 'Content-Type: text/plain; charset=utf-8';
 $emailed = @mail($NOTIFY, $subject, $body, $headers);
 
+kb_log('SAVE ' . $fname . ' | ' . $correct . '/' . $total . ' correct | emailed='
+       . ($emailed ? 'yes' : 'NO'));
 echo json_encode(array('ok' => true, 'file' => $fname, 'emailed' => (bool)$emailed));

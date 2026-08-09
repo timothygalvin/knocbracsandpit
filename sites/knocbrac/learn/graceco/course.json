@@ -21,14 +21,31 @@
         {
           "id": "w1s3",
           "title": "Market Story: The Sale-Sign Trick",
-          "time": "about 30 min",
-          "soon": true
+          "time": "about 30 min"
         }
       ]
     },
     {
       "title": "Unit 2 · Sales & Margins",
-      "sessions": []
+      "sessions": [
+        {
+          "id": "w2s1",
+          "title": "Profit, Properly",
+          "time": "about 35 min"
+        },
+        {
+          "id": "w2s2",
+          "title": "The Margin",
+          "time": "about 35 min",
+          "soon": true
+        },
+        {
+          "id": "w2s3",
+          "title": "Market Story: Losing Money on Purpose",
+          "time": "about 30 min",
+          "soon": true
+        }
+      ]
     },
     {
       "title": "Unit 3 · The Bank",
