@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Knocbrac Learning</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/base.css">
+</head>
+<body>
+<div class="wrap" id="main">
+  <div class="card"><h1>Knocbrac Learning</h1><p class="sub">Loading the courses…</p></div>
+</div>
+<script src="assets/shared.js"></script>
+<script>
+(async ()=>{
+  const main = KB.el("#main");
+  try{
+    const reg = await KB.registry();
+    const cards = await Promise.all(reg.courses.map(async c=>{
+      let prog = "";
+      try{
+        const course = await KB.course(c.id);
+        const all = course.units.flatMap(u=>u.sessions);
+        const doneMap = await KB.mergedDone(c.id);
+        const done = Object.keys(doneMap).filter(id=>all.some(s=>s.id===id)).length;
+        prog = done===0 ? "Ready to begin" : done+" of "+all.length+" sessions done";
+      }catch{ prog = "Coming soon"; }
+      return `<a class="coursecard" style="--cc:${c.theme.accent}" href="app/course.html?c=${c.id}">
+        <span class="cicon">${c.icon}</span>
+        <h2>${c.title}</h2>
+        <div>${c.student}'s course — ${c.tagline}</div>
+        <div class="prog">${prog}</div>
+      </a>`;
+    }));
+    main.innerHTML = `<h1 style="margin-top:8px">Knocbrac Learning</h1>
+      <p class="sub">Pick your course.</p>
+      ${cards.join("")}
+      <p class="grownup"><a href="results/">Grown-up zone: results folder</a></p>`;
+  }catch(err){
+    main.innerHTML = `<div class="card"><h2>Can't load the course list</h2>
+      <p>Open this page through the website (not as a file), then refresh.</p>
+      <p class="sub">${String(err)}</p></div>`;
+  }
+})();
+</script>
+</body>
+</html>

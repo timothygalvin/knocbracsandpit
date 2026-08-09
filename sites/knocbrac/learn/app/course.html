@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Course</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+<body>
+<div class="wrap" id="main"><div class="card"><p class="sub">Loading…</p></div></div>
+<script src="../assets/shared.js"></script>
+<script>
+(async ()=>{
+  const main = KB.el("#main");
+  const cid = KB.qs("c");
+  try{
+    const reg = await KB.registry();
+    const meta = reg.courses.find(x=>x.id===cid);
+    if(!meta) throw new Error("Unknown course: "+cid);
+    KB.applyTheme(meta.theme); KB.mountTextToggle();
+    document.title = meta.title;
+    const course = await KB.course(cid);
+    const done = await KB.mergedDone(cid);
+    const flat = course.units.flatMap(u=>u.sessions);
+    const firstOpen = flat.findIndex(s=>!done[s.id] && !s.soon);
+    let i = -1;
+    const units = course.units.map(u=>{
+      const rows = u.sessions.map(s=>{
+        i++;
+        const isDone = !!done[s.id];
+        let state = isDone ? "done" : (firstOpen<0 || i===firstOpen ? "next" : (i<firstOpen ? "" : "locked"));
+        if(s.soon && !isDone) state = "locked";
+        const mark = isDone ? "✓" : (s.kind==="checkpoint" ? "★" : (i+1));
+        const meta = s.soon ? "Coming soon" : `${s.kind==="checkpoint"?"Checkpoint":"Session"} · ${s.time||"about 35 min"}`;
+        return `<a class="sess ${state}" href="session.html?c=${cid}&s=${s.id}">
+          <span class="dot">${mark}</span>
+          <span><b>${s.title}</b><div class="meta">${meta}</div></span>
+        </a>`;
+      }).join("");
+      return `<div class="unit">${u.title}</div>${rows}`;
+    }).join("");
+    main.innerHTML = `<span class="tag">${meta.icon} ${meta.title}</span>
+      <h1>${course.map.heading.replace("{student}", meta.student)}</h1>
+      <p class="sub">${course.map.blurb}</p>
+      ${units}
+      <p class="grownup"><a href="../index.html">← All courses</a></p>`;
+  }catch(err){
+    main.innerHTML = `<div class="card"><h2>Can't load this course</h2><p class="sub">${String(err)}</p>
+      <p><a href="../index.html">← Back to all courses</a></p></div>`;
+  }
+})();
+</script>
+</body>
+</html>

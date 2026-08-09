@@ -1,0 +1,39 @@
+{
+  "id": "w1s1",
+  "kind": "session",
+  "tag": "Unit 1 · Session 1",
+  "title": "Below Zero",
+  "intro": "New territory today: the numbers that live underneath zero.",
+  "blocks": [
+    { "type": "read", "html": "<p>The summit of Everest is <b>+8,849 m</b>. The shore of the Dead Sea is <b>−430 m</b> — below sea level. A freezer runs at <b>−18°C</b>. And if you have £5 but owe your sister £8, your true wealth is <b>−£3</b>.</p><p>Negative numbers aren't weird maths — they're <b>positions below a zero line</b>. Every move on them is a move up or down that line.</p>" },
+
+    { "type": "q", "id": "n1", "prompt": "The temperature is 3°C. Overnight it drops by 8 degrees. What is it in the morning?",
+      "hint": "Start at 3 on a number line and take 8 steps down. You pass zero on the way.",
+      "parts": [ { "id": "a", "label": "Morning temperature (°C)", "type": "numeric", "accept": [-5] } ] },
+
+    { "type": "q", "id": "n2", "prompt": "Work these out (think 'up and down the line'):",
+      "hint": "−4 + 9 means: start at −4, climb 9. 6 − 10 means: start at 6, drop 10.",
+      "parts": [
+        { "id": "a", "label": "−4 + 9", "type": "numeric", "accept": [5] },
+        { "id": "b", "label": "6 − 10", "type": "numeric", "accept": [-4] } ] },
+
+    { "type": "reveal", "button": "The debt trick ✨",
+      "html": "<p><b>What does it mean to subtract a negative?</b></p><p>Your wealth is £10, but that includes a debt: you owe Grace £3. Now suppose the debt is <i>cancelled</i> — someone takes the −£3 away.</p><p>Are you richer or poorer? <b>Richer.</b> Taking away a debt makes you better off. So:</p><p style='font-size:1.2em'><b>10 − (−3) = 10 + 3 = 13</b></p><p>Subtracting a negative is the same as adding. Not a rule to memorise — a fact about debts.</p>" },
+
+    { "type": "q", "id": "n3", "prompt": "Use the debt trick:",
+      "hint": "Taking away a negative = adding. 7 − (−3) = 7 + 3. And −2 − (−6) = −2 + 6.",
+      "parts": [
+        { "id": "a", "label": "7 − (−3)", "type": "numeric", "accept": [10] },
+        { "id": "b", "label": "−2 − (−6)", "type": "numeric", "accept": [4] } ] },
+
+    { "type": "q", "id": "n4", "prompt": "Now the boss move — this exact question was on your diagnostic. Time for the rematch: <b>−8 + 15 − (−6)</b>",
+      "hint": "Left to right: −8 + 15 first. Then subtract the negative — which means add 6.",
+      "parts": [ { "id": "a", "label": "Answer", "type": "numeric", "accept": [13] } ] },
+
+    { "type": "summit", "html": "<b>🏔️ For the dinner table:</b> a diver is at −12 m. She rises 5 m, sinks 9 m, then rises 20 m. Where is she now — and is she wet or dry?<br><br>And a mystery to sleep on: you now know what <i>subtracting</i> a negative does. But what should <b>−4 × −6</b> be? Try this pattern and see where it forces you:<br>3 × −6 = −18<br>2 × −6 = −12<br>1 × −6 = −6<br>0 × −6 = 0<br>−1 × −6 = ?<br>The answers are climbing by 6 each line… Next session, the mystery gets solved." }
+  ],
+  "done": {
+    "title": "Rope-length climbed ✓",
+    "html": "<p>You can now do something most of Year 5 can't: move up and down through zero, and subtract debts.</p><p>Next session: <b>The Minus-Times-Minus Mystery</b> — where the pattern you just saw at the dinner table pays off.</p>"
+  }
+}

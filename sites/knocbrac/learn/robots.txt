@@ -1,0 +1,4 @@
+# UPLOAD THIS FILE TO THE SITE ROOT (www.knocbrac.com/robots.txt),
+# not inside /learn/ — robots.txt only works at the root.
+User-agent: *
+Disallow: /learn/

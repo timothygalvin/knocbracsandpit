@@ -1,0 +1,52 @@
+{
+  "id": "w1s2",
+  "kind": "session",
+  "tag": "Unit 1 · Board meeting 2",
+  "title": "Halve It, Tenth It",
+  "intro": "You own the 10% machine. Today we bolt on more gears.",
+  "blocks": [
+    { "type": "read", "html": "<p>Your gears so far:</p><p><b>10%</b> — divide by 10.<br><b>5%</b> — halve the 10%.<br><b>1%</b> — divide the 10% by 10.<br><b>20%</b> — double the 10%.</p><p>Quick warm-up before the new gears.</p>" },
+
+    { "type": "q", "id": "h1", "prompt": "Takings today: £140.",
+      "hint": "10%: slide the digits — 140 → 14. Then halve for 5%.",
+      "parts": [
+        { "id": "a", "label": "10% of £140", "type": "numeric", "accept": [14] },
+        { "id": "b", "label": "5% of £140", "type": "numeric", "accept": [7] } ] },
+
+    { "type": "reveal", "button": "New gear: 25% ✨",
+      "html": "<p><b>25% is a quarter.</b></p><p>To find a quarter: <b>halve it, then halve it again.</b></p><p>25% of £80: half is £40, half again is <b>£20</b>.</p><p>No percent machine needed — just two halvings.</p>" },
+
+    { "type": "q", "id": "h2", "prompt": "Use the double-halving trick:",
+      "hint": "Halve. Then halve again.",
+      "parts": [
+        { "id": "a", "label": "25% of £60", "type": "numeric", "accept": [15] },
+        { "id": "b", "label": "25% of £36", "type": "numeric", "accept": [9] } ] },
+
+    { "type": "reveal", "button": "New gears: 50% and 75% ✨",
+      "html": "<p><b>50% is a half.</b> One halving. Done.</p><p><b>75% is three quarters.</b> Find the quarter, then times it by 3.<br>75% of £40: quarter is £10, so 75% is <b>£30</b>.</p>" },
+
+    { "type": "q", "id": "h3", "prompt": "Two more:",
+      "hint": "50%: halve. 75%: quarter it, then × 3.",
+      "parts": [
+        { "id": "a", "label": "50% of £64", "type": "numeric", "accept": [32] },
+        { "id": "b", "label": "75% of £40", "type": "numeric", "accept": [30] } ] },
+
+    { "type": "q", "id": "h4", "prompt": "Build strange percentages out of your gears — like Lego:",
+      "hint": "15% = 10% + 5%. 30% = 10% three times.",
+      "parts": [
+        { "id": "a", "label": "15% of £60", "type": "numeric", "accept": [9] },
+        { "id": "b", "label": "30% of £120", "type": "numeric", "accept": [36] } ] },
+
+    { "type": "q", "id": "h5", "prompt": "Boss question — the SALE. A £36 jacket is 25% off. (This one was on your diagnostic. You have the gears now.)",
+      "hint": "First find 25% of £36 — halve it, halve it again. Then take that off the price.",
+      "parts": [
+        { "id": "a", "label": "Money off (£)", "type": "numeric", "accept": [9] },
+        { "id": "b", "label": "New price (£)", "type": "numeric", "accept": [27] } ] },
+
+    { "type": "summit", "html": "<b>📈 Market story for the dinner table:</b> why is everything priced <b>£9.99</b> instead of £10?<br><br>One penny can't matter to the shop… so why do they all do it? Work out what a customer's brain sees first, then ask Dad if it works on him. (Be honest: does it work on you?)" }
+  ],
+  "done": {
+    "title": "Meeting adjourned ✓",
+    "html": "<p>10, 5, 1, 20, 25, 50, 75 — and combinations. You can now build nearly any percentage in your head, which is more than most adults in the shop can do.</p><p>Next: <b>Market Story: The Sale-Sign Trick</b> — where the shops' favourite psychology gets taken apart.</p>"
+  }
+}

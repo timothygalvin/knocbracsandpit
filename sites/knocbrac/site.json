@@ -1,0 +1,17 @@
+{
+  "transport": "ftp",
+  "host": "ftp.knocbrac.com",
+  "user": "knocbraccom",
+  "use_tls": true,
+  "remote_root": "httpdocs",
+  "site_url": "https://www.knocbrac.com",
+  "sources": ["learn"],
+  "exclude": ["learn/results/*"],
+  "init_include": ["learn/results/index.html"],
+  "checks": ["json", "php56", "ids", "manifests"],
+  "verify": [
+    { "url": "/learn/api/submit.php", "expect": "receiver alive" },
+    { "url": "/learn/courses.json", "json_key": "release",
+      "matches_local": "learn/courses.json" }
+  ]
+}

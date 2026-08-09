@@ -1,0 +1,46 @@
+{
+  "id": "graceco",
+  "map": {
+    "heading": "{student}'s company HQ",
+    "blurb": "Ten weeks to build the business. Each session is one board meeting. Finish a session and the next one opens."
+  },
+  "units": [
+    {
+      "title": "Unit 1 · The Percentage Toolkit",
+      "sessions": [
+        {
+          "id": "w1s1",
+          "title": "The 10% Machine",
+          "time": "about 35 min"
+        },
+        {
+          "id": "w1s2",
+          "title": "Halve It, Tenth It",
+          "time": "about 35 min"
+        },
+        {
+          "id": "w1s3",
+          "title": "Market Story: The Sale-Sign Trick",
+          "time": "about 30 min",
+          "soon": true
+        }
+      ]
+    },
+    {
+      "title": "Unit 2 · Sales & Margins",
+      "sessions": []
+    },
+    {
+      "title": "Unit 3 · The Bank",
+      "sessions": []
+    },
+    {
+      "title": "Unit 4 · The Trading Floor",
+      "sessions": []
+    },
+    {
+      "title": "Unit 5 · The Analyst's Desk",
+      "sessions": []
+    }
+  ]
+}

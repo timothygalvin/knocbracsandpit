@@ -1,0 +1,19 @@
+# ---- Knocbrac Learning ----
+# Search engines: stay away (works without any setup)
+<IfModule mod_headers.c>
+  Header set X-Robots-Tag "noindex, nofollow"
+</IfModule>
+
+# ---- PASSWORD: temporarily disabled ----
+# When you have the absolute path from 34sp, uncomment the block below,
+# create .htpasswd (see .htpasswd.example), and set the path.
+#
+# AuthType Basic
+# AuthName "Knocbrac Learning"
+# AuthUserFile /REPLACE/WITH/ABSOLUTE/PATH/TO/learn/.htpasswd
+# Require valid-user
+
+# Never serve the password file itself (harmless while disabled)
+<Files ".htpasswd">
+  Require all denied
+</Files>

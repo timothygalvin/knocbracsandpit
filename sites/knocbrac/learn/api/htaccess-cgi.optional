@@ -1,0 +1,10 @@
+# OPTIONAL — only needed if you ever want the Python CGI receiver
+# (submit.py) to run in this folder. The PHP receiver (submit.php)
+# needs nothing. On some hosts this file CAUSES a 500 for the whole
+# directory — that is why it ships disabled. To enable: rename it
+# to  .htaccess
+Options +ExecCGI
+AddHandler cgi-script .py
+<Files "submit.py">
+  Require all granted
+</Files>

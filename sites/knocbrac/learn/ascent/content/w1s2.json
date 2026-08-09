@@ -1,0 +1,48 @@
+{
+  "id": "w1s2",
+  "kind": "session",
+  "tag": "Unit 1 · Session 2",
+  "title": "The Minus-Times-Minus Mystery",
+  "intro": "You've seen the pattern. Today it forces the answer.",
+  "blocks": [
+    { "type": "read", "html": "<p>At the dinner table you met this pattern:</p><p style='font-size:1.15em'>3 × −6 = −18<br>2 × −6 = −12<br>1 × −6 = −6<br>0 × −6 = 0<br>−1 × −6 = ?</p><p>Look at the answers: −18, −12, −6, 0… they're <b>climbing by 6 every line</b>. The pattern doesn't care what we think should happen next. It just keeps climbing.</p>" },
+
+    { "type": "q", "id": "m1", "prompt": "Follow the pattern one more step each time:",
+      "hint": "The answers climb by 6 each line: −6, 0, then… keep climbing.",
+      "parts": [
+        { "id": "a", "label": "−1 × −6", "type": "numeric", "accept": [6] },
+        { "id": "b", "label": "−2 × −6", "type": "numeric", "accept": [12] } ] },
+
+    { "type": "reveal", "button": "Why it MUST be positive ✨",
+      "html": "<p>The pattern says minus times minus is <b>positive</b> — and the debt story agrees.</p><p>−4 × −6 means: <b>take away four debts of £6</b>.</p><p>Every debt removed makes you £6 richer. Remove four of them and you're <b>£24 richer</b>: +24.</p><p>So the rule isn't a rule at all. It's two facts pointing the same way:</p><p><b>minus × plus = minus</b> (four debts of £6 = −£24)<br><b>minus × minus = plus</b> (removing them = +£24)</p>" },
+
+    { "type": "q", "id": "m2", "prompt": "The rematch — this exact question beat you on the diagnostic. Not today:",
+      "hint": "Minus times minus is plus. Then 4 × 6.",
+      "parts": [ { "id": "a", "label": "(−4) × (−6)", "type": "numeric", "accept": [24] } ] },
+
+    { "type": "q", "id": "m3", "prompt": "Mixed signs — check the sign first, then multiply:",
+      "hint": "Different signs → negative answer. Same signs → positive answer.",
+      "parts": [
+        { "id": "a", "label": "(−5) × 3", "type": "numeric", "accept": [-15] },
+        { "id": "b", "label": "(−7) × (−7)", "type": "numeric", "accept": [49] } ] },
+
+    { "type": "reveal", "button": "Division follows for free ✨",
+      "html": "<p>Division is just multiplication in reverse, so <b>the same sign facts hold</b>:</p><p>(−24) ÷ (−6): what times −6 makes −24? It's <b>4</b> — same signs, positive.</p><p>18 ÷ (−3): what times −3 makes 18? It's <b>−6</b> — different signs, negative.</p>" },
+
+    { "type": "q", "id": "m4", "prompt": "Use it:",
+      "hint": "Same signs → positive. Different signs → negative.",
+      "parts": [
+        { "id": "a", "label": "(−30) ÷ (−5)", "type": "numeric", "accept": [6] },
+        { "id": "b", "label": "28 ÷ (−4)", "type": "numeric", "accept": [-7] } ] },
+
+    { "type": "q", "id": "m5", "prompt": "Boss move. Three negatives walk into a bar: <b>(−2) × (−3) × (−4)</b>",
+      "hint": "Do it two at a time: (−2) × (−3) first — that's positive. Then × (−4).",
+      "parts": [ { "id": "a", "label": "Answer", "type": "numeric", "accept": [-24] } ] },
+
+    { "type": "summit", "html": "<b>🏔️ For the dinner table:</b> people say “two wrongs don't make a right” — but in maths, two minuses <i>do</i> make a plus. Explain to Dad, using debts, why removing debts makes you richer.<br><br>Then the sting in the tail: why did <b>three</b> minuses in the boss question make a minus again? What would four make? Is there a pattern for any number of minuses?" }
+  ],
+  "done": {
+    "title": "Mystery solved ✓",
+    "html": "<p>Negatives: added, subtracted, multiplied and divided. That's the entire Year 7 directed-numbers toolkit, and you built the hardest rule yourself from a pattern.</p><p>Next: <b>Summit Puzzle: The Mine Lift</b> — one big problem to spend a whole session on.</p>"
+  }
+}

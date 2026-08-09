@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Session</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/base.css">
+</head>
+<body>
+<div class="wrap" id="main"><div class="card"><p class="sub">Loading…</p></div></div>
+<script src="../assets/shared.js"></script>
+<script>
+let META, COURSE, CID, SID, DOC, state;
+
+function key(q,p){ return q+"."+p; }
+
+function renderPractice(){
+  const main = KB.el("#main");
+  const blocks = DOC.blocks.map((b,bi)=>{
+    if(b.type==="read") return `<div class="block">${b.html}</div>`;
+    if(b.type==="reveal") return `<div class="block reveal" id="rv${bi}">
+        <button class="btn ghost" onclick="document.getElementById('rv${bi}').classList.add('open');this.style.display='none'">${b.button||"Show me ✨"}</button>
+        <div class="reveal-body">${b.html}</div></div>`;
+    if(b.type==="summit") return `<div class="block"><div class="summitbox">${b.html}</div></div>`;
+    if(b.type==="q"){
+      const parts = b.parts.map(p=>{
+        const k = key(b.id,p.id), val = state.answers[k]??"";
+        return `<div class="part"><label for="${k}">${p.label}</label>
+          <input type="text" id="${k}" data-key="${k}" value="${String(val).replace(/"/g,'&quot;')}" autocomplete="off" inputmode="text"></div>`;
+      }).join("");
+      return `<div class="block q" id="q-${b.id}">
+        <div class="qhead">${b.prompt}</div>
+        <div class="parts">${parts}</div>
+        <div class="checkrow">
+          <button class="btn ghost" onclick="checkQ('${b.id}')">Check ✔</button>
+          <span class="verdict" id="v-${b.id}"></span>
+        </div>
+        <div class="hint" id="h-${b.id}" style="display:none"></div>
+      </div>`;
+    }
+    return "";
+  }).join("");
+  main.innerHTML = `<span class="tag">${META.icon} ${META.title} · ${DOC.tag||""}</span>
+    <h1>${DOC.title}</h1>
+    ${DOC.intro?`<p class="sub">${DOC.intro}</p>`:""}
+    <div class="card">${blocks}</div>
+    <div class="btnrow">
+      <a class="btn quiet" href="course.html?c=${CID}">← Course map</a>
+      <button class="btn primary" onclick="finishSession()">Finish session ✓</button>
+    </div>`;
+  bindInputs();
+  for(const b of DOC.blocks) if(b.type==="q" && state.checked[b.id]) showVerdict(b, false);
+}
+
+function bindInputs(){
+  document.querySelectorAll("[data-key]").forEach(el=>
+    el.addEventListener("input", e=>{
+      state.answers[e.target.dataset.key]=e.target.value;
+      KB.saveWork(CID,SID,state);
+    }));
+}
+
+function checkQ(qid){
+  const b = DOC.blocks.find(x=>x.id===qid);
+  state.checked[qid]=(state.checked[qid]||0)+1;
+  showVerdict(b, true);
+  KB.saveWork(CID,SID,state);
+}
+
+function showVerdict(b, fresh){
+  const marks = b.parts.map(p=>KB.markPart(p, state.answers[key(b.id,p.id)]));
+  const v = KB.el("#v-"+b.id), h = KB.el("#h-"+b.id);
+  if(marks.every(m=>m==="correct")){
+    v.textContent = pick(["Nailed it! ✔","Correct ✔","That's it ✔","Bang on ✔"]);
+    v.className="verdict ok"; h.style.display="none";
+  } else if(marks.some(m=>m==="blank")){
+    v.textContent = "Fill in the box first"; v.className="verdict try";
+  } else {
+    v.textContent = pick(["Not yet — try again","Close — have another go","Check it once more"]);
+    v.className="verdict try";
+    if(b.hint && state.checked[b.id]>=2){ h.innerHTML = "💡 " + b.hint; h.style.display="block"; }
+    if(state.checked[b.id]>=3){ h.innerHTML = "💡 " + (b.hint||"") + "<br>It's fine to move on — this one will come back later."; h.style.display="block"; }
+  }
+}
+function pick(a){ return a[Math.floor(Math.random()*a.length)]; }
+
+function finishSession(){
+  KB.markDone(CID,SID);
+  const qs = DOC.blocks.filter(b=>b.type==="q");
+  const detail = qs.map(b=>({q:b.id, tries:state.checked[b.id]||0,
+    parts:b.parts.map(p=>({part:p.id, raw:state.answers[key(b.id,p.id)]||"", mark:KB.markPart(p,state.answers[key(b.id,p.id)])}))}));
+  KB.submitResults({course:CID, student:META.student, kind:"session", session:SID,
+    title:DOC.title, when:new Date().toISOString(), detail})
+    .then(r=> KB.toast(r.ok ? "Session saved to the family folder ✓" : "Saved to this tablet — will sync from the website next time"));
+  const main = KB.el("#main");
+  main.innerHTML = `<div class="card"><span class="tag">${META.icon} ${META.title}</span>
+    <h2>${DOC.done && DOC.done.title ? DOC.done.title : "Session complete!"}</h2>
+    ${DOC.done ? DOC.done.html : ""}
+    <div class="btnrow"><a class="btn primary" href="course.html?c=${CID}">Back to the course map →</a></div></div>`;
+  window.scrollTo({top:0});
+}
+
+/* ---------- checkpoint mode: paged, no instant feedback, skip allowed ---------- */
+function renderCheckpoint(){
+  const main = KB.el("#main");
+  const page = state.cursor||0;
+  const secs = DOC.sections;
+  if(page>=secs.length) return renderCheckpointResults();
+  const sec = secs[page];
+  const qs = sec.questions.map(q=>{
+    const skipped = state.skipped[q.id];
+    const parts = q.parts.map(p=>{
+      const k=key(q.id,p.id), val=state.answers[k]??"";
+      if(p.type==="text" && !p.accept)
+        return `<div class="part" style="flex:1 1 100%"><label for="${k}">${p.label}</label>
+          <textarea id="${k}" data-key="${k}">${val}</textarea></div>`;
+      return `<div class="part"><label for="${k}">${p.label}</label>
+        <input type="text" id="${k}" data-key="${k}" value="${String(val).replace(/"/g,'&quot;')}" autocomplete="off"></div>`;
+    }).join("");
+    return `<div class="block q ${skipped?'skipped':''}">
+      <div class="qhead">${q.prompt}</div>
+      <div class="parts">${parts}</div>
+      <div><button class="skipbtn" onclick="toggleSkip('${q.id}')">${skipped?"Un-skip — I'll have a go":"Skip for now"}</button></div>
+    </div>`;
+  }).join("");
+  main.innerHTML = `<span class="tag">${META.icon} ${DOC.title} · part ${page+1} of ${secs.length}</span>
+    <h1>${sec.name}</h1>
+    ${sec.intro?`<p class="sub">${sec.intro}</p>`:""}
+    <div class="card">${qs}</div>
+    <div class="btnrow">
+      ${page>0?`<button class="btn ghost" onclick="cpGo(-1)">← Back</button>`:""}
+      <button class="btn primary" onclick="cpGo(1)">${page===secs.length-1?"Finish →":"Next →"}</button>
+    </div>`;
+  bindInputs();
+}
+function toggleSkip(qid){ state.skipped[qid]=!state.skipped[qid]; KB.saveWork(CID,SID,state); renderCheckpoint(); }
+function cpGo(d){ state.cursor=(state.cursor||0)+d; KB.saveWork(CID,SID,state); renderCheckpoint(); window.scrollTo({top:0}); }
+
+function renderCheckpointResults(){
+  const detail = DOC.sections.flatMap(sec=>sec.questions.map(q=>({
+    q:q.id, level:q.level, skipped:!!state.skipped[q.id],
+    parts:q.parts.map(p=>({part:p.id,label:p.label,raw:state.answers[key(q.id,p.id)]||"",
+      mark: state.skipped[q.id] ? "skipped" : KB.markPart(p, state.answers[key(q.id,p.id)])}))
+  })));
+  const total = detail.reduce((n,d)=>n+d.parts.filter(p=>p.mark==="correct").length,0);
+  KB.markDone(CID,SID);
+  const payload = {course:CID, student:META.student, kind:"checkpoint", session:SID,
+    title:DOC.title, when:new Date().toISOString(), detail};
+  const main = KB.el("#main");
+  main.innerHTML = `<div class="card"><span class="tag">${META.icon} ${DOC.title}</span>
+    <h2>All done — great work!</h2>
+    <p>${total} answers landed. The full picture goes to the family folder for your next course block.</p>
+    <div class="btnrow">
+      <button class="btn primary" id="sendbtn">Send results 📤</button>
+      <a class="btn quiet" href="course.html?c=${CID}">Back to the course map</a>
+    </div></div>`;
+  KB.el("#sendbtn").onclick = async (e)=>{
+    e.target.disabled = true; e.target.textContent = "Sending…";
+    const r = await KB.submitResults(payload);
+    e.target.textContent = r.ok ? "Sent ✓" : "Saved to tablet ✓";
+    KB.toast(r.ok ? "Results are in the family folder ✓" : "No connection to the site — results downloaded to this tablet instead");
+  };
+}
+
+(async ()=>{
+  CID = KB.qs("c"); SID = KB.qs("s");
+  try{
+    const reg = await KB.registry();
+    META = reg.courses.find(x=>x.id===CID);
+    if(!META) throw new Error("Unknown course "+CID);
+    KB.applyTheme(META.theme); KB.mountTextToggle();
+    COURSE = await KB.course(CID);
+    DOC = await KB.json(KB.root + CID + "/content/" + SID + ".json");
+    document.title = DOC.title;
+    state = KB.loadWork(CID,SID) || {answers:{}, checked:{}, skipped:{}, cursor:0};
+    if(DOC.kind==="checkpoint") renderCheckpoint(); else renderPractice();
+  }catch(err){
+    const missing = /404/.test(String(err));
+    KB.el("#main").innerHTML = missing
+      ? `<div class="card"><h2>This one isn't written yet ✍️</h2>
+         <p>The next session is on its way — check back soon.</p>
+         <p><a class="btn primary" href="course.html?c=${CID}">← Back to the course map</a></p></div>`
+      : `<div class="card"><h2>Can't load this session</h2>
+         <p class="sub">${String(err)}</p><p><a href="course.html?c=${CID}">← Back to the course</a></p></div>`;
+  }
+})();
+</script>
+</body>
+</html>
