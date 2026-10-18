@@ -1,0 +1,343 @@
+{
+  "id": "diag",
+  "kind": "checkpoint",
+  "title": "The Suitcase",
+  "sections": [
+    {
+      "id": "s1",
+      "name": "Words you've already got",
+      "intro": "You've been to Spain. Some words came home with you.<br>This whole thing is built to be too hard to finish — that's on purpose.<br>Skip anything you don't know. A skip tells us where to start. It is never a fail.<br>One more thing: just type the word. No full stops, and don't worry about accents.",
+      "questions": [
+        {
+          "id": "s1q1", "level": "A0",
+          "prompt": "You walk into a café in Spain. The lady behind the counter smiles and says <b>«¡Hola!»</b>",
+          "parts": [
+            { "id": "a", "label": "hola means…", "type": "text",
+              "accept": ["hello", "hi", "hiya", "hey", "hello!", "hi!", "hello there"],
+              "_working": "hola = hello/hi, the universal Spanish greeting. Accept list carries hi/hiya/hey plus exclamation-mark variants because normText strips spaces but NOT punctuation, so a typed 'hello!' would otherwise miss. Any other near-answer lands as review, never wrong." }
+          ]
+        },
+        {
+          "id": "s1q2", "level": "A0",
+          "prompt": "Someone hands you an ice-cream. You want to say thank you.<br>What's the Spanish word?",
+          "parts": [
+            { "id": "a", "label": "thank you in Spanish", "type": "text",
+              "accept": ["gracias", "grasias", "grathias", "gracias!", "grazias", "gracias señor", "gracias senor"],
+              "_working": "gracias = thank you. This is production (Spanish out, not English in) so the accept list is deliberately loose on spelling: grasias/grathias/grazias are phonetic spellings a 10-year-old plausibly types. Spelling is NEVER graded for Grace (style sheet) — anything else falls to review for a kind human read." }
+          ]
+        },
+        {
+          "id": "s1q3", "level": "A0",
+          "prompt": "Time to leave the café. The lady says <b>«¡Adiós!»</b>",
+          "parts": [
+            { "id": "a", "label": "adiós means…", "type": "text",
+              "accept": ["goodbye", "bye", "good bye", "bye bye", "see you", "goodbye!", "bye!", "cheerio"],
+              "_working": "adiós = goodbye. Accept list: bye/bye bye/see you/cheerio cover the natural English ways a child says it; spaces are stripped by the engine so 'good bye' and 'goodbye' both land. Punctuated variants included." }
+          ]
+        },
+        {
+          "id": "s1q4", "level": "A0",
+          "prompt": "You want to ask for something politely. In Spanish you add <b>«por favor»</b>.",
+          "parts": [
+            { "id": "a", "label": "por favor means…", "type": "text",
+              "accept": ["please", "please!"],
+              "_working": "por favor = please. One clear answer; a paraphrase like 'politely' goes to review and still counts as understanding on the human read." }
+          ]
+        },
+        {
+          "id": "s1q5", "level": "A0",
+          "prompt": "The two little words you'll use most in Spain:",
+          "parts": [
+            { "id": "a", "label": "sí means…", "type": "text",
+              "accept": ["yes", "yeah", "yep", "yes!"],
+              "_working": "sí = yes. (With the accent it's 'yes'; without, 'si' means 'if' — but we only ask for the English, so the trap is avoided entirely.)" },
+            { "id": "b", "label": "no means…", "type": "text",
+              "accept": ["no", "nope", "no!"],
+              "_working": "no = no. A guaranteed win, placed deliberately — the diagnostic opens with early wins per Grace's style sheet." }
+          ]
+        },
+        {
+          "id": "s1q6", "level": "A1",
+          "prompt": "Your turn to speak. How do you say <b>hello</b> in Spanish?",
+          "parts": [
+            { "id": "a", "label": "hello in Spanish", "type": "text",
+              "accept": ["hola", "ola", "holla", "olla", "hola!"],
+              "_working": "hola. First Spanish-production moment. ola/holla/olla are the obvious misspellings (silent h, double l) — all accepted because spelling is never graded for Grace. Diagnostic of: can she produce, not just recognise." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s2",
+      "name": "The café menu",
+      "intro": "Spanish hides hundreds of words you already know.<br>Read the menu like a detective.",
+      "questions": [
+        {
+          "id": "s2q1", "level": "A0",
+          "prompt": "Three things on the menu. What would you get if you ordered each one?",
+          "parts": [
+            { "id": "a", "label": "«chocolate»", "type": "text",
+              "accept": ["chocolate", "hot chocolate", "choclate", "chocolat"],
+              "_working": "chocolate = chocolate (in a café, usually hot chocolate — both accepted). Cognate: tests whether she spots that Spanish and English share words, the single most useful beginner instinct." },
+            { "id": "b", "label": "«limonada»", "type": "text",
+              "accept": ["lemonade", "lemonaid", "limonade", "lemon drink", "lemon juice"],
+              "_working": "limonada = lemonade. Cognate with one letter shifted (i for e). lemonaid/limonade are child-plausible spellings; 'lemon drink/juice' shows the meaning landed, which is what's being tested." },
+            { "id": "c", "label": "«tomate»", "type": "text",
+              "accept": ["tomato", "tomatoe", "tomatos", "a tomato"],
+              "_working": "tomate = tomato. Third cognate; by now the pattern (Spanish ≈ English with a vowel twist) should be visible. The reveal in Unit 1 will name this pattern — her diagnostic answers tell us whether she found it alone." }
+          ]
+        },
+        {
+          "id": "s2q2", "level": "A1",
+          "prompt": "These three are NOT lookalikes. You'd only know them if Spain left them with you.",
+          "parts": [
+            { "id": "a", "label": "«helado»", "type": "text",
+              "accept": ["ice cream", "icecream", "ice-cream", "an ice cream", "ices"],
+              "_working": "helado = ice cream. Not a cognate; a Spain-holiday word if ever there was one. normText strips spaces so 'ice cream' ≡ 'icecream'; the hyphen variant is listed separately because hyphens are NOT stripped." },
+            { "id": "b", "label": "«agua»", "type": "text",
+              "accept": ["water", "a water", "still water"],
+              "_working": "agua = water. Core survival vocabulary; tests retention from trips. (Related to 'aqua' — a child who answers 'aqua' goes to review and gets credit on the human read.)" },
+            { "id": "c", "label": "«leche»", "type": "text",
+              "accept": ["milk", "some milk"],
+              "_working": "leche = milk. Café con leche is everywhere in Spain; diagnostic of incidental pick-up. Expected to be missed — that's information, not failure." }
+          ]
+        },
+        {
+          "id": "s2q3", "level": "A1",
+          "prompt": "You're hot and thirsty in the café. Ask for water — one Spanish word does it.",
+          "parts": [
+            { "id": "a", "label": "water in Spanish", "type": "text",
+              "accept": ["agua", "aqua", "agwa", "awa", "agua por favor", "agua porfavor"],
+              "_working": "agua. Production of the word she just read (if she got s2q2b, this tests short-term carry; if she skipped it, genuine recall). aqua/agwa/awa are phonetic spellings — accepted, spelling never graded. 'agua por favor' accepted because adding the politeness is MORE right, not less." }
+          ]
+        },
+        {
+          "id": "s2q4", "level": "A1+",
+          "prompt": "A fancy one from the drinks list: <b>«zumo de naranja»</b>.<br>Clue: you've probably seen «naranja» on a Fanta bottle in Spain.",
+          "parts": [
+            { "id": "a", "label": "zumo de naranja is…", "type": "text",
+              "accept": ["orange juice", "orangejuice", "orange jucie", "juice orange", "oj"],
+              "_working": "zumo de naranja = orange juice (zumo = juice, naranja = orange). The Fanta clue is fair play — Fanta Naranja is genuinely what she'd have seen poolside. Diagnostic of: using a real-world anchor plus a clue to crack an unknown phrase. 'juice' alone or 'orange' alone falls to review (half-credit on the human read)." }
+          ]
+        },
+        {
+          "id": "s2q5", "level": "A2",
+          "prompt": "The meal is over. You say: <b>«La cuenta, por favor.»</b><br>What did you just ask for?",
+          "parts": [
+            { "id": "a", "label": "la cuenta is…", "type": "text",
+              "accept": ["the bill", "bill", "the check", "check", "the bill please", "to pay", "the money"],
+              "_working": "la cuenta = the bill. Genuinely A2 restaurant vocabulary — expected to be out of reach, included because (a) the ramp must top out beyond her and (b) it's a money word: if anyone her age knows it, it's the Grace & Co. analyst. 'to pay'/'the money' accepted as meaning-level hits." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s3",
+      "name": "Numbers and euros",
+      "intro": "Numbers are money, and you speak money.<br>Type the number as digits — like 7.",
+      "questions": [
+        {
+          "id": "s3q1", "level": "A0",
+          "prompt": "Four Spanish numbers. Type each one as a digit.",
+          "parts": [
+            { "id": "a", "label": "«uno»", "type": "numeric", "accept": [1],
+              "_working": "uno = 1. (Everyone's played Uno — a deliberate gimme to open the section.)" },
+            { "id": "b", "label": "«dos»", "type": "numeric", "accept": [2],
+              "_working": "dos = 2." },
+            { "id": "c", "label": "«cinco»", "type": "numeric", "accept": [5],
+              "_working": "cinco = 5. (Cinco de Mayo turns up in cartoons; mild cultural pick-up test.)" },
+            { "id": "d", "label": "«diez»", "type": "numeric", "accept": [10],
+              "_working": "diez = 10. Rounds out 1–10 coverage. Numeric parts dodge the spelling question entirely — right number = right answer." }
+          ]
+        },
+        {
+          "id": "s3q2", "level": "A1",
+          "prompt": "Now say them yourself — in Spanish this time.",
+          "parts": [
+            { "id": "a", "label": "3 in Spanish", "type": "text",
+              "accept": ["tres", "trez", "tress", "treys", "trays"],
+              "_working": "tres = 3. Production. trez/tress/treys/trays are phonetic spellings — all accepted (never grade spelling)." },
+            { "id": "b", "label": "9 in Spanish", "type": "text",
+              "accept": ["nueve", "nuebe", "nwebe", "nueve", "nuave", "nueva"],
+              "_working": "nueve = 9. Harder than tres (not met in games). nuebe/nwebe/nuave are phonetic tries; 'nueva' is the classic mix-up with 'new' — accepted at diagnostic stage because the sound is right and spelling is never graded." }
+          ]
+        },
+        {
+          "id": "s3q3", "level": "A1+",
+          "prompt": "You're buying an ice-cream. The man says: <b>«Cuatro euros.»</b><br>How many euros does he want?",
+          "parts": [
+            { "id": "a", "label": "euros", "type": "numeric", "accept": [4],
+              "_working": "cuatro = 4. First number-in-the-wild: hearing a number inside a real sentence about money. The engine strips currency symbols, and a typed '4 euros' parses to 4, so every sensible format lands." }
+          ]
+        },
+        {
+          "id": "s3q4", "level": "A1+",
+          "prompt": "The teens. <b>«quince»</b> — type the number.",
+          "parts": [
+            { "id": "a", "label": "quince", "type": "numeric", "accept": [15],
+              "_working": "quince = 15. Teens are where Spanish numbers stop being guessable (once, doce, trece…). Expected miss for a beginner; a hit here means the trips taught more than we thought and Unit 1 numbers can start higher." }
+          ]
+        },
+        {
+          "id": "s3q5", "level": "A2",
+          "prompt": "Last one, properly hard. You find <b>«cien euros»</b> on the pavement. Type the number to see how rich you are.",
+          "parts": [
+            { "id": "a", "label": "cien euros is how many euros?", "type": "numeric", "accept": [100],
+              "_working": "cien = 100. Deliberately out of reach (A2) — the ramp must end above her head, and the framing keeps a miss fun rather than crushing. A hit would be remarkable and would move the whole numbers plan up a band." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s4",
+      "name": "How Spanish fits together",
+      "intro": "Spanish words wear jackets: «el» or «la».<br>And some sentences hide their meaning in plain sight.<br>This page is meant to be the hard one. Skips welcome.",
+      "questions": [
+        {
+          "id": "s4q1", "level": "A1",
+          "prompt": "«el» and «la» both mean <b>the</b>. Every Spanish word picks one and sticks with it.<br>«playa» means beach. Which jacket does it wear? Type <b>el</b> or <b>la</b>.",
+          "parts": [
+            { "id": "a", "label": "el playa or la playa?", "type": "text",
+              "accept": ["la", "la playa"],
+              "_working": "la playa — words ending in -a are almost always feminine (la). She has no way to KNOW this; the question tests instinct/exposure. A wrong 'el' lands as review, not incorrect (text parts never mark wrong), which is exactly the kind treatment the style sheet demands. Diagnostic of: any feel for gender at all; expect none, and that's fine — it calibrates Unit 1." }
+          ]
+        },
+        {
+          "id": "s4q2", "level": "A1",
+          "prompt": "A girl in the pool says to you: <b>«Me llamo Carmen.»</b><br>What is she telling you?",
+          "parts": [
+            { "id": "a", "label": "she's telling you…", "type": "text",
+              "accept": ["her name", "her name is carmen", "my name is carmen", "she is called carmen", "shes called carmen", "she's called carmen", "name", "what she is called", "im carmen", "i'm carmen", "i am carmen", "that she is carmen"],
+              "_working": "Me llamo Carmen = 'I'm called Carmen' / 'my name is Carmen'. The single most useful phrase for a sociable 10-year-old in a Spanish pool. Accept list covers both the third-person report ('her name is…') and direct translation ('my name is…') plus apostrophe variants, since apostrophes are NOT stripped by the engine. Anything else → review." }
+          ]
+        },
+        {
+          "id": "s4q3", "level": "A1+",
+          "prompt": "Carmen says: <b>«Tengo diez años.»</b><br>There's a number hiding in it. What is she telling you?",
+          "parts": [
+            { "id": "a", "label": "she's telling you…", "type": "text",
+              "accept": ["her age", "age", "she is 10", "shes 10", "she's 10", "i am 10", "im 10", "i'm 10", "10 years old", "she is 10 years old", "that she is 10", "how old she is"],
+              "_working": "Tengo diez años = 'I have ten years' = I'm 10. Two clues planted: she met diez = 10 in s3q1d, and the prompt flags a hidden number. Diagnostic of: combining a known word with context to crack a new structure — the exact skill the reveal pattern trains. Numeric-ish variants listed with and without apostrophes." }
+          ]
+        },
+        {
+          "id": "s4q4", "level": "A1+",
+          "prompt": "Your turn. Spain doesn't say 'I am 10' — it says <b>'I have 10 years'</b>.<br>Carmen just showed you how. Say it back, about yourself.",
+          "parts": [
+            { "id": "a", "label": "'I have 10 years' in Spanish", "type": "text",
+              "accept": ["tengo diez años", "tengo diez anos", "tengo 10 años", "tengo 10 anos", "tengo dies anos", "tengo diaz anos", "tengo diez anios", "yo tengo diez años", "yo tengo diez anos", "yo tengo 10 años", "yo tengo 10 anos"],
+              "_working": "tengo diez años (optionally with yo). The model sentence is two questions up on the SAME page — this tests pattern-copying, not memory, which is the fairest possible production ask for a beginner. Accepts: ñ→n (tablet keyboards hide ñ), digits for diez, dies/diaz/anios misspellings, optional yo. Spaces are stripped by the engine so word-spacing can't hurt her. Everything else → review, where 'tengo...' anything scores as a hit on the human read." }
+          ]
+        },
+        {
+          "id": "s4q5", "level": "A2",
+          "prompt": "Last one on this page — a question you'll want on every trip:<br><b>«¿Dónde está la playa?»</b>",
+          "parts": [
+            { "id": "a", "label": "what's being asked?", "type": "text",
+              "accept": ["where is the beach", "wheres the beach", "where's the beach", "where the beach is", "where beach", "where is beach"],
+              "_working": "¿Dónde está la playa? = Where is the beach? (dónde = where, está = is, la playa = the beach — she met la playa in s4q1). A2 structure, expected out of reach; the la playa echo gives a fighting chance. Question marks aren't needed in the ANSWER (English), so the ¿?-punctuation trap doesn't arise." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s5",
+      "name": "The postcard",
+      "intro": "A whole postcard, all in Spanish.<br>Read it like a detective — you know more than you think.<br>Answer in English.",
+      "questions": [
+        {
+          "id": "s5q1", "level": "A1",
+          "prompt": "<div style='background:var(--soft);border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px;margin:4px 0 10px'><p style='margin:0 0 6px'><b>¡Hola Grace!</b></p><p style='margin:0 0 6px'>Estoy en Málaga con mi familia.</p><p style='margin:0 0 6px'>Hace sol y hace calor.</p><p style='margin:0 0 6px'>Por la mañana voy a la playa.</p><p style='margin:0 0 6px'>Como helado de chocolate todos los días.</p><p style='margin:0 0 6px'>Mi hermano juega al fútbol en la plaza.</p><p style='margin:0'><b>¡Hasta pronto! Carmen</b></p></div>It's from Carmen — the girl from the pool. First: which city is she in?",
+          "parts": [
+            { "id": "a", "label": "Carmen is in…", "type": "text",
+              "accept": ["malaga", "málaga", "in malaga", "malaga spain", "malaga, spain"],
+              "_working": "Estoy en Málaga = I'm in Málaga. Proper-noun spotting — the gentlest possible way into reading a real text. Accent and no-accent spellings both listed (the engine does NOT normalise accents; está ≠ esta, so á must be covered explicitly)." }
+          ]
+        },
+        {
+          "id": "s5q2", "level": "A1+",
+          "prompt": "«Hace sol y hace calor.» What's the weather doing? One or two words will do.",
+          "parts": [
+            { "id": "a", "label": "the weather is…", "type": "text",
+              "accept": ["sunny", "hot", "sunny and hot", "hot and sunny", "sun", "sunny hot", "its sunny", "it's sunny", "its hot", "it's hot", "warm", "sunny warm"],
+              "_working": "hace sol = it's sunny, hace calor = it's hot. Either half earns the mark — the accept list takes sunny OR hot alone, both together in either order, warm, and it's/its variants (apostrophes not stripped). Diagnostic of: cracking formulaic weather phrases from context (sol → solar → sun is a reachable hop)." }
+          ]
+        },
+        {
+          "id": "s5q3", "level": "A1+",
+          "prompt": "What does Carmen eat every single day? (Look for words you met on the menu page.)",
+          "parts": [
+            { "id": "a", "label": "every day she eats…", "type": "text",
+              "accept": ["chocolate ice cream", "chocolate icecream", "ice cream", "icecream", "ice-cream", "chocolate ice-cream", "helado", "helado de chocolate", "chocolate"],
+              "_working": "Como helado de chocolate todos los días = I eat chocolate ice cream every day. Rewards the menu page directly: helado and chocolate both reappear (continuity pattern, inside one checkpoint). Accepts English in any completeness, the Spanish word itself, and hyphen/space variants." }
+          ]
+        },
+        {
+          "id": "s5q4", "level": "A2",
+          "prompt": "«Por la mañana voy a la playa.» WHEN does Carmen go to the beach?",
+          "parts": [
+            { "id": "a", "label": "she goes in the…", "type": "text",
+              "accept": ["morning", "in the morning", "the morning", "every morning", "mornings", "am"],
+              "_working": "por la mañana = in the morning. A2 because nothing in the sentence is guessable from English — mañana must simply be known (or cracked from 'mañana mañana' pop-culture exposure, which counts). Expected miss; a hit upgrades the reading band." }
+          ]
+        },
+        {
+          "id": "s5q5", "level": "A2",
+          "prompt": "Hardest question on the postcard: WHO plays football in the square?",
+          "parts": [
+            { "id": "a", "label": "football is played by…", "type": "text",
+              "accept": ["her brother", "brother", "carmens brother", "carmen's brother", "the brother", "her bother", "mi hermano", "hermano"],
+              "_working": "Mi hermano juega al fútbol = my brother plays football. hermano (brother) is unguessable without exposure; fútbol is a gimme cognate that confirms the sentence topic. So the question isolates exactly one unknown — clean diagnostic design. 'her bother' is a typo pattern worth catching; Spanish answers accepted too." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "s6",
+      "name": "Last page — about you",
+      "intro": "No wrong answers on this page.<br>This page steers your whole course, so be honest.",
+      "questions": [
+        {
+          "id": "s6q1", "level": "survey",
+          "prompt": "Score each page for FUN. 1 = no thanks, 5 = loved it.",
+          "parts": [
+            { "id": "a", "label": "Words you've already got (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, strand 1. Any value 1–5 marks correct (range), because there is no wrong feeling. Playbook: the survey drives tailoring as much as scores do; ability–enjoyment gaps are read both ways in the rubric." },
+            { "id": "b", "label": "The café menu (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, strand 2 (vocabulary/cognates)." },
+            { "id": "c", "label": "Numbers and euros (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, strand 3 (numbers). Watch this one: a high score here plus her analyst identity suggests a money-in-Spanish thread for the course." },
+            { "id": "d", "label": "How Spanish fits together (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, strand 4 (grammar). Low skill + high joy here would mean: lead Unit 1 with sentence-building anyway." },
+            { "id": "e", "label": "The postcard (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, strand 5 (reading)." }
+          ]
+        },
+        {
+          "id": "s6q2", "level": "survey",
+          "prompt": "Which question was your favourite — and why?",
+          "parts": [
+            { "id": "a", "label": "favourite question", "type": "text",
+              "_working": "Free text, no accept list → textarea, marked 'review' by design: a human reads it. Playbook: the learner's own words are gold (Grace named percentages herself last time and it became Unit 1)." }
+          ]
+        },
+        {
+          "id": "s6q3", "level": "survey",
+          "prompt": "What do you want to be able to DO in Spanish?<br>Order your own food? Chat to kids in the pool? Read the menu? Something else?",
+          "parts": [
+            { "id": "a", "label": "I want to…", "type": "text",
+              "_working": "Free text review. This answer picks Unit 1's scenario. The three suggestions in the prompt are the three likeliest answers (food / social / reading) and each maps to a ready unit shape in the rubric — but her own fourth answer outranks all three if she gives one." }
+          ]
+        },
+        {
+          "id": "s6q4", "level": "survey",
+          "prompt": "Empty the suitcase! Any Spanish words you remember from your trips that didn't come up here? Pile them in.",
+          "parts": [
+            { "id": "a", "label": "words I've got", "type": "text",
+              "_working": "Free text review. Directly measures what the trips left behind beyond our question set — the true size of the suitcase. Every word she lists becomes an early-win anchor in Unit 1 (continuity pattern: 'your word, earning its keep')." }
+          ]
+        }
+      ]
+    }
+  ]
+}

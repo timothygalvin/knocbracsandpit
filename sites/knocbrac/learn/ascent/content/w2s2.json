@@ -3,77 +3,64 @@
   "kind": "session",
   "tag": "Unit 2 · Session 2",
   "title": "The Position Machine",
-  "intro": "Last session you found a shortcut. Today it becomes a machine.",
+  "intro": "Last session you found a shortcut. Today it gets a name and becomes a machine.",
   "blocks": [
-    { "type": "read", "html": "<p>At the dinner table you were set this: write the shortcut for <b>5, 8, 11, 14, …</b> using <b>n</b> for the position.</p><p>Start + jumps × gap — and from the 1st term to the <i>n</i>th term is <b>(n − 1)</b> jumps. So:</p><p style='font-size:1.2em'>term = 5 + (n − 1) × 3</p><p>One thing to be clear about before we go further. <b>n is not a mystery number waiting to be solved.</b> It's a slot. Feed the machine 7 and it hands you the 7th term. Feed it 100 and it hands you the 100th. Any position you like — that's the whole point of it.</p>" },
+    { "type": "read", "html": "<p>At the dinner table you were set this: write the shortcut for <b>5, 8, 11, 14, …</b> using <b>n</b> for the position.</p><p>Start + jumps × gap — and from the 1st term to the <i>n</i>th term is <b>(n − 1)</b> jumps. So:</p><p style='font-size:1.2em'>term = 5 + (n − 1) × 3</p><p>One thing to be clear about before anything else. <b>n is not a mystery number waiting to be solved.</b> It is a slot. Feed the machine 7 and it hands you the 7th term. Feed it 100 and it hands you the 100th. Any position you like — that is the entire point of it.</p>" },
 
-    { "type": "q", "id": "m1", "prompt": "Feed the formula <b>term = 5 + (n − 1) × 3</b> two positions:",
-      "hint": "Careful with the jumps — they're one less than the position. For n = 4 that's 5 + 3 × 3.",
+    { "type": "q", "id": "p1", "prompt": "Feed the formula <b>term = 5 + (n − 1) × 3</b> two positions:",
+      "hint": "Careful with the jumps — there is one fewer jump than the position. For n = 4 that is 5 + 3 × 3.",
       "parts": [
         { "id": "a", "label": "n = 4 (check it against the list)", "type": "numeric", "accept": [14],
-          "_working": "n = 4 → 5 + (4 − 1) × 3 = 5 + 3 × 3 = 5 + 9 = 14. Cross-check: the sequence is listed as 5, 8, 11, 14 — the 4th term is 14. The formula agrees with the list, which is the point of asking." },
+          "_working": "n = 4 → 5 + (4 − 1) × 3 = 5 + 9 = 14. Cross-check: the sequence is listed as 5, 8, 11, 14, so the 4th term is 14. The formula agrees with the list, which is why this part is here — it earns trust in the machine before the machine is asked to do anything clever." },
         { "id": "b", "label": "n = 100", "type": "numeric", "accept": [302],
-          "_working": "n = 100 → 5 + (100 − 1) × 3 = 5 + 99 × 3 = 5 + 297 = 302. (99 × 3: 100 × 3 = 300, less one 3 = 297.)" } ] },
+          "_working": "n = 100 → 5 + 99 × 3 = 5 + 297 = 302. (99 × 3: three hundreds less one 3.) Remember this number — it comes back in the reveal as a one-line check." } ] },
 
     { "type": "reveal", "button": "Tidy the machine up ✨",
-      "html": "<p>5 + (n − 1) × 3 works, but it's clumsy. Multiply out the bracket:</p><p>(n − 1) × 3 = <b>3n − 3</b></p><p>So term = 5 + 3n − 3 = <b>3n + 2</b>.</p><p>Test it before you trust it: n = 1 → 3 + 2 = <b>5</b> ✓. n = 4 → 12 + 2 = <b>14</b> ✓. n = 100 → 300 + 2 = <b>302</b> ✓ — the number you just got the long way.</p><p>Now look <i>inside</i> the rule. The <b>3</b> is the gap. The <b>+2</b> is where the sequence would have been at position zero, one step before it started.</p><p>This is called the <b>nth term</b>, and it is the entire sequence written in five characters.</p>" },
+      "html": "<p>5 + (n − 1) × 3 works, but it is clumsy. Multiply out the bracket:</p><p>(n − 1) × 3 = <b>3n − 3</b></p><p>So term = 5 + 3n − 3 = <b>3n + 2</b>.</p><p>Test it before trusting it. n = 1 → 3 + 2 = <b>5</b> ✓. n = 4 → 12 + 2 = <b>14</b> ✓. n = 100 → 300 + 2 = <b>302</b> ✓ — the number you just worked out the long way, in one line.</p><p>Now look <i>inside</i> the rule, because this is the part worth keeping.</p><p>The <b>3</b> is the gap.<br>The <b>+2</b> is where the sequence would have been at position zero — one step before it started.</p><p>This is called the <b>nth term</b>, and it is an entire sequence written in five characters.</p>" },
 
-    { "type": "q", "id": "m2", "prompt": "The machine, in one line: <b>n → × 3 → + 2 → term</b>. Run it.",
+    { "type": "q", "id": "p2", "prompt": "The machine, in one line: <b>n → × 3 → + 2 → term</b>. Run it.",
       "hint": "Multiply the position by 3, then add 2. No counting.",
       "parts": [
         { "id": "a", "label": "7th term", "type": "numeric", "accept": [23],
-          "_working": "3 × 7 + 2 = 21 + 2 = 23. Cross-check by counting on: 5, 8, 11, 14, 17, 20, 23 — the 7th is 23. ✓" },
+          "_working": "3 × 7 + 2 = 23. Cross-check by counting on: 5, 8, 11, 14, 17, 20, 23 — the 7th is 23 ✓." },
         { "id": "b", "label": "40th term", "type": "numeric", "accept": [122],
-          "_working": "3 × 40 + 2 = 120 + 2 = 122." } ] },
+          "_working": "3 × 40 + 2 = 120 + 2 = 122. Counting there would take all afternoon, which is the point." } ] },
 
-    { "type": "reveal", "button": "Run the machine backwards ✨",
-      "html": "<p>A machine you can run in reverse is worth twice as much.</p><p>Forwards: position → <b>× 3</b> → <b>+ 2</b> → term.<br>Backwards: term → <b>− 2</b> → <b>÷ 3</b> → position.</p><p>Is 62 in this sequence? 62 − 2 = 60, and 60 ÷ 3 = <b>20</b>. Yes — it's the 20th term. That's last session's answer, reached from the other end.</p><p>And here's the sharp bit: if the division <b>doesn't come out whole</b>, the number isn't in the sequence at all. Not \"I couldn't find it\" — it <i>cannot</i> be there. You've just proved something, which is a different and better thing than checking it.</p>" },
+    { "type": "read", "html": "<p>So far the rule has been handed to you. Now you make one, and it is only ever two moves.</p><p><b>Move 1 — the gap goes in front of n.</b> A gap of 5 means the rule starts <b>5n</b>.<br><b>Move 2 — step back one gap from the first term.</b> That lands on the zeroth term, which is what you add on.</p><p>Watch it done on <b>7, 12, 17, 22, …</b></p><p>The gap is 5, so the rule starts <b>5n</b>. Stepping back from 7 by 5 lands on <b>2</b>. Rule: <b>5n + 2</b>.</p><p>Then check on a term from the middle, never the first one: n = 3 → 15 + 2 = 17 ✓.</p><p>That is the whole method. Two moves and a check.</p>" },
 
-    { "type": "q", "id": "m3", "prompt": "Run 3n + 2 backwards:",
-      "hint": "Undo in reverse order: take off the 2 first, then divide by 3. A leftover means it isn't in the sequence.",
+    { "type": "q", "id": "p3", "prompt": "Your turn, one move at a time. The sequence is <b>4, 10, 16, 22, …</b>",
+      "hint": "Move 1 is the gap between neighbours. Move 2 steps back one gap from the 4.",
       "parts": [
-        { "id": "a", "label": "47 is which term?", "type": "numeric", "accept": [15],
-          "_working": "47 − 2 = 45; 45 ÷ 3 = 15. So 47 is the 15th term. Forward check: 3 × 15 + 2 = 45 + 2 = 47. ✓" },
-        { "id": "b", "label": "Is 100 in the sequence? (yes/no)", "type": "text",
-          "accept": ["no", "nope", "never", "false", "not in it", "no it isn't", "no it isnt", "it isn't", "it isnt", "not a term", "no way"],
-          "_working": "100 − 2 = 98; 98 ÷ 3 = 32.66… — not a whole number, so 100 cannot be a term. The terms either side are 3 × 32 + 2 = 98 and 3 × 33 + 2 = 101; 100 falls in the gap. Answer: no." } ] },
-
-    { "type": "read", "html": "<p>Up to now the rule has been handed to you. Now you write it. It's two moves, and they never change:</p><p><b>1. The gap goes in front of n.</b> Gap of 5 → the rule starts <b>5n</b>.<br><b>2. Step back one gap from the first term.</b> That gives the zeroth term — the bit you add on.</p><p>On <b>7, 12, 17, 22, …</b>: the gap is 5, so <b>5n</b>. Step back from 7 by 5 and you land on 2. Rule: <b>5n + 2</b>.</p><p>Always check on a term from the middle, never the first one: n = 3 → 15 + 2 = 17 ✓.</p>" },
-
-    { "type": "q", "id": "m4", "prompt": "Your turn — write the nth term for each. (Tidied up, typed like <b>5n+2</b>.)",
-      "hint": "Gap first — that's the number in front of n. Then step back one gap from the first term to see what to add or take away.",
-      "parts": [
-        { "id": "a", "label": "4, 10, 16, 22, …", "type": "text",
+        { "id": "a", "label": "The gap", "type": "numeric", "accept": [6],
+          "_working": "10 − 4 = 6, and 16 − 10 = 6, and 22 − 16 = 6 — constant, so this is a straight-line sequence and the method applies." },
+        { "id": "b", "label": "The zeroth term (step back one gap from 4)", "type": "numeric", "accept": [-2],
+          "_working": "4 − 6 = −2. Unit 1's negatives earning their keep: the zeroth term is allowed to be below zero even though no term of the sequence is." },
+        { "id": "c", "label": "So the rule is… (type it like 5n+2)", "type": "text",
           "accept": ["6n-2", "6n−2", "6*n-2", "6*n−2", "n*6-2", "n*6−2", "-2+6n", "−2+6n"],
-          "_working": "Gap: 10 − 4 = 6 (and 16 − 10 = 6, 22 − 16 = 6 — constant ✓). So the rule starts 6n. Zeroth term: step back one gap from 4 → 4 − 6 = −2. Rule: 6n − 2. Middle check: n = 3 → 18 − 2 = 16 ✓; n = 4 → 24 − 2 = 22 ✓. Accept list covers the × / * forms (the engine turns both into x) and the reversed order −2 + 6n, with both hyphen-minus and the unicode minus a tablet keyboard may produce." },
-        { "id": "b", "label": "1, 8, 15, 22, …", "type": "text",
-          "accept": ["7n-6", "7n−6", "7*n-6", "7*n−6", "n*7-6", "n*7−6", "-6+7n", "−6+7n"],
-          "_working": "Gap: 8 − 1 = 7 (15 − 8 = 7, 22 − 15 = 7 ✓). So 7n. Zeroth term: 1 − 7 = −6. Rule: 7n − 6. Middle check: n = 3 → 21 − 6 = 15 ✓; n = 4 → 28 − 6 = 22 ✓. (Both sequences in this question reach 22 at their 4th term by different routes — worth noticing.)" } ] },
+          "_working": "Gap 6 in front of n, zeroth term −2 added on: 6n − 2. Middle check: n = 3 → 18 − 2 = 16 ✓, and n = 4 → 24 − 2 = 22 ✓. Accept covers the × and * forms (the engine maps both to x) and the reversed order, with hyphen-minus and unicode minus both listed because a tablet keyboard can produce either." } ] },
 
-    { "type": "q", "id": "m5", "prompt": "Boss rematch. The sequence that beat you on the diagnostic, for the last time: <b>5, 8, 11, 14, …</b> You've had its next term and its 20th term. Now take the whole thing.",
-      "hint": "You tidied this rule up earlier in the session. For 500, run the machine backwards: take off the 2, then divide by 3.",
-      "parts": [
-        { "id": "a", "label": "The nth term rule (like 5n+2)", "type": "text",
-          "accept": ["3n+2", "3*n+2", "n*3+2", "2+3n", "3n + 2"],
-          "_working": "Gap: 8 − 5 = 3, so 3n. Zeroth term: 5 − 3 = 2. Rule: 3n + 2. Middle check: n = 3 → 9 + 2 = 11 ✓. Accept covers ×/* variants (engine maps both to x) and the reversed 2 + 3n." },
-        { "id": "b", "label": "500 is which term?", "type": "numeric", "accept": [166],
-          "_working": "Backwards: 500 − 2 = 498; 498 ÷ 3 = 166 exactly, so 500 IS in the sequence, at position 166. Forward check: 3 × 166 + 2 = 498 + 2 = 500. ✓ (498 ÷ 3: 480 ÷ 3 = 160, 18 ÷ 3 = 6, so 166.)" } ] },
-
-    { "type": "q", "id": "m6", "prompt": "★ Last session's boss case is still standing: <b>100, 94, 88, 82, …</b> — the one that never lands exactly on zero. Give it a rule, then find where it finally goes negative.",
-      "hint": "The gap is −6, so the rule starts −6n. Step back one gap from 100 for the zeroth term. Then hunt for the first position where the answer drops below 0.",
+    { "type": "q", "id": "p4", "prompt": "Boss rematch. The sequence that beat you on the diagnostic is back, and you have everything you need: <b>5, 8, 11, 14, …</b>",
+      "hint": "You watched this rule get tidied up earlier in the session. Then feed the position straight into it.",
       "parts": [
         { "id": "a", "label": "The nth term rule", "type": "text",
-          "accept": ["106-6n", "106−6n", "106-6*n", "106−6*n", "-6n+106", "−6n+106", "-6*n+106", "−6*n+106"],
-          "_working": "Gap: 94 − 100 = −6, so the rule starts −6n. Zeroth term: step back one gap from 100 → 100 − (−6) = 106 (Unit 1's subtracting-a-negative, earning its keep). Rule: 106 − 6n. Checks: n = 1 → 106 − 6 = 100 ✓; n = 4 → 106 − 24 = 82 ✓; n = 30 → 106 − 180 = −74, which matches the 30th term from last session ✓. Accept covers both orderings and both minus characters." },
-        { "id": "b", "label": "Position of the first negative term", "type": "numeric", "accept": [18],
-          "_working": "Want 106 − 6n < 0, i.e. 6n > 106, i.e. n > 17.67. The first whole position past that is n = 18. Check the one before: n = 17 → 106 − 102 = +4, still positive ✓." },
-        { "id": "c", "label": "…and what is that term?", "type": "numeric", "accept": [-2],
-          "_working": "n = 18 → 106 − 6 × 18 = 106 − 108 = −2. (It also confirms last session's answer: the sequence steps 4 → −2, straight over zero without touching it, because 106 doesn't divide by 6.)" } ] },
+          "accept": ["3n+2", "3*n+2", "n*3+2", "2+3n", "3n + 2"],
+          "_working": "Gap 8 − 5 = 3, zeroth term 5 − 3 = 2, so 3n + 2 — the rule derived in the reveal, now reproduced from the method rather than recalled. Middle check: n = 3 → 11 ✓." },
+        { "id": "b", "label": "The 50th term", "type": "numeric", "accept": [152],
+          "_working": "3 × 50 + 2 = 150 + 2 = 152. Three weeks ago this sequence got away from you over a single next-term; now its 50th term is one line." } ] },
 
-    { "type": "summit", "html": "<b>🏔️ For the dinner table:</b> two routes up the same crag. Height in metres after <b>n</b> pitches:<br><br><b>Route A:</b> 3n + 2<br><b>Route B:</b> 4n − 1<br><br>B starts lower and climbs faster, so somewhere the two must be level. Find the pitch where the climbers are at exactly the same height — and how high that is.<br><br>Then hand Dad the harder version: give him <i>any</i> two rules like these. Do the routes always meet? What has to be true about the two gaps for them never to? And can the meeting point land somewhere useless — like pitch 2½?" }
+    { "type": "q", "id": "p5", "prompt": "★ Optional, and a genuinely different trick — skip it with a clear conscience if you have had enough for today.<br><br>A machine you can run <i>backwards</i> is worth twice as much. Forwards is position → × 3 → + 2 → term. So backwards must be term → <b>− 2</b> → <b>÷ 3</b> → position.<br><br>Worked for you first: is 62 in the sequence? 62 − 2 = 60, and 60 ÷ 3 = <b>20</b>. Yes — 62 is the 20th term.<br><br>Now you try, the same two steps each time.",
+      "hint": "Take off the 2, then divide by 3. If the division does not come out whole, the number simply is not in the sequence.",
+      "parts": [
+        { "id": "a", "label": "47 is which term?", "type": "numeric", "accept": [15],
+          "_working": "47 − 2 = 45, and 45 ÷ 3 = 15, so 47 is the 15th term. Forward check: 3 × 15 + 2 = 47 ✓." },
+        { "id": "b", "label": "Is 100 in the sequence? (yes/no)", "type": "text",
+          "accept": ["no", "nope", "never", "false", "not in it", "no it isn't", "no it isnt", "it isn't", "it isnt", "not a term", "no way"],
+          "_working": "100 − 2 = 98, and 98 ÷ 3 = 32.66… — not whole, so 100 cannot be a term. The terms either side are 3 × 32 + 2 = 98 and 3 × 33 + 2 = 101, so 100 falls in the gap. Answer: no. Note this is a PROOF, not a failed search — a better thing than checking, and the reason this ★ exists at all." } ] },
+
+    { "type": "summit", "html": "<b>🏔️ For the dinner table:</b> two routes up the same crag. Height in metres after <b>n</b> pitches:<br><br><b>Route A:</b> 3n + 2<br><b>Route B:</b> 4n − 1<br><br>Route B starts lower and climbs faster, so somewhere the two must be level. Find the pitch where the climbers are at exactly the same height — and how high that is.<br><br>Then hand Dad the harder version: give him <i>any</i> two rules like these. Do the routes always meet? What has to be true about the two gaps for them never to? And can the meeting point land somewhere useless — like pitch 2½?" }
   ],
   "done": {
     "title": "Machine built ✓",
-    "html": "<p>The nth term: named, built, tidied, written from scratch, and run in reverse. You can jump to the 1000th term without counting, and you can <i>prove</i> a number isn't in a sequence at all — not just fail to find it. Proof is Year 9 work and you did it with a division.</p><p>Next: <b>Summit Puzzle: The Staircase</b> — one problem, one session, and a pattern that breaks your brand new machine. (It survives. You'll need a different idea.)</p>"
+    "html": "<p>The nth term: named, tidied, and then built from scratch by a method you can use on any straight-line sequence — gap in front of n, step back one gap, check in the middle.</p><p>The sequence that beat the diagnostic now gives up its 50th term in one line.</p><p>Next: <b>Summit Puzzle: The Staircase</b> — one problem, one session, and a pattern that breaks this machine completely. (It survives. You will need a different idea.)</p>"
   }
 }

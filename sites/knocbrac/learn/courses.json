@@ -1,6 +1,6 @@
 {
   "site": "Knocbrac Learning",
-  "version": "r7",
+  "version": "r12",
   "requires_code": "1",
   "courses": [
     {
@@ -27,6 +27,32 @@
         "soft": "#E4F1E8",
         "warm": "#C9930A",
         "bigText": true
+      }
+    },
+    {
+      "id": "gracees",
+      "student": "Grace",
+      "title": "¡Vamos!",
+      "tagline": "Grace's ticket to Spain",
+      "icon": "☀️",
+      "theme": {
+        "accent": "#BC4B28",
+        "soft": "#FBEDE6",
+        "warm": "#E0A32E",
+        "bigText": true
+      }
+    },
+    {
+      "id": "vozvrat",
+      "student": "Timothy",
+      "title": "The Return",
+      "tagline": "Возвращение — back to the city, back to the language",
+      "icon": "🧳",
+      "theme": {
+        "accent": "#3A5A80",
+        "soft": "#E9EFF5",
+        "warm": "#B88A3C",
+        "bigText": false
       }
     }
   ]

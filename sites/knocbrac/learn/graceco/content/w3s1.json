@@ -1,0 +1,67 @@
+{
+  "id": "w3s1",
+  "kind": "session",
+  "tag": "Unit 3 · Board meeting 1",
+  "title": "Rent on Money",
+  "intro": "Grace & Co. opens its first bank account. Money, it turns out, has a price.",
+  "blocks": [
+    { "type": "read", "html": "<p>Think about renting a house.</p><p>You do not own it. Somebody else does.</p><p>They let you use it, and you pay them for the privilege. That payment is called rent.</p><p>Money works exactly the same way.</p><p>If you use somebody else's money, you pay them rent for it.</p><p>That rent has a different name. It is called <b>interest</b>.</p><p style='font-size:1.2em'><b>Interest is rent on money.</b></p><p>Two things decide how much rent you pay.</p><p>The first is the <b>amount</b> of money.</p><p>The second is the <b>rate</b> — a percentage, for each year you keep it.</p><p>And here is the part most people never think about.</p><p>It runs in <b>both directions</b>.</p><p>When you put money in a bank, the bank is borrowing it from <i>you</i>.</p><p>So the bank pays <i>you</i> rent.</p><p>Every percentage gear you own already works on this. Nothing new to learn. Only a new name for it.</p>" },
+
+    { "type": "q", "id": "i1", "prompt": "Grace & Co. puts <b>£200</b> into a savings account. The bank pays <b>10%</b> a year.",
+      "hint": "The bank is renting your £200. The rent is 10% of it. Your 10% gear: divide by 10.",
+      "parts": [
+        { "id": "a", "label": "Interest the bank pays you after year 1 (£)", "type": "numeric", "accept": [20],
+          "_working": "10% of £200. Her 10% gear is divide by 10: 200 ÷ 10 = £20. Deliberately the easiest gear she owns, as the early win." },
+        { "id": "b", "label": "Total in the account after year 1 (£)", "type": "numeric", "accept": [220],
+          "_working": "The original £200 is still hers, and the £20 of interest is added on top: 200 + 20 = £220. Establishes the shape 'amount plus interest', which is what next session compounds." } ] },
+
+    { "type": "q", "id": "i2", "prompt": "A different bank, a different rate. This one holds <b>£300</b> and pays <b>5%</b> a year.",
+      "hint": "Find 10% first, then halve it — that is your 5% gear from Unit 1.",
+      "parts": [
+        { "id": "a", "label": "Interest the bank pays you after year 1 (£)", "type": "numeric", "accept": [15],
+          "_working": "5% of £300. Her halving gear: 10% of 300 = £30, half of that = £15." },
+        { "id": "b", "label": "Total in the account after year 1 (£)", "type": "numeric", "accept": [315],
+          "_working": "300 + 15 = £315." } ] },
+
+    { "type": "reveal", "button": "The same £20, two different feelings ✨",
+      "html": "<p>Go back to that first account.</p><p>You saved £200 at 10%. The bank paid you <b>£20</b>.</p><p>That £20 felt good. It was income.</p><p>Now turn the desk around.</p><p>Imagine you <b>borrow</b> £200 from the bank instead, at the same 10%.</p><p>Now <i>you</i> are the one using somebody else's money.</p><p>So you pay the rent. You pay the bank <b>£20</b>.</p><p>Look carefully at what changed.</p><p>The amount did not change. Still £200.</p><p>The rate did not change. Still 10%.</p><p>The interest did not change. Still £20.</p><p>The only thing that changed is <b>which side of the desk you sit on</b>.</p><p>That is the whole of banking in one sentence.</p><p>An analyst never asks whether interest is good or bad. An analyst asks: <b>am I the saver here, or the borrower?</b></p>" },
+
+    { "type": "q", "id": "i3", "prompt": "Now you are the borrower. Grace & Co. borrows <b>£400</b> to buy a lemonade cart. The rate is <b>25%</b> a year.",
+      "hint": "25% is a quarter. Halve it, then halve it again — your quarter gear. Then remember you still owe the £400 itself.",
+      "parts": [
+        { "id": "a", "label": "Interest you pay after year 1 (£)", "type": "numeric", "accept": [100],
+          "_working": "25% of £400. Her double-halving gear from w1s2: half of 400 is 200, half again is £100." },
+        { "id": "b", "label": "Total you must hand back after year 1 (£)", "type": "numeric", "accept": [500],
+          "_working": "The borrowed £400 plus £100 of rent on it: 400 + 100 = £500. Worth her noticing that a quarter-rate means paying back five pounds for every four borrowed." } ] },
+
+    { "type": "read", "html": "<p>One small word in that rate is doing a lot of work.</p><p>The word is <b>year</b>.</p><p>25% a year does not mean £100 once and then you are done.</p><p>It means £100 of rent for <i>each year</i> you keep the money.</p><p>Keep it two years and the bank wants rent twice.</p><p>Interest is not a fee. It is rent for <b>time</b>.</p><p>So the longer you borrow, the more you pay. And the longer you save, the more you earn.</p><p>Hold on to that. It is the whole of the next board meeting.</p>" },
+
+    { "type": "q", "id": "i4", "prompt": "Boss question. Grace & Co. is doing both at once.<br><br>The company has <b>£600</b> sitting in a savings account, earning <b>5%</b> a year.<br><br>It also has a <b>£200</b> loan on the cart, costing <b>20%</b> a year.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Amount</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Rate each year</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Savings account</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£600</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>5%</td></tr><tr><td style='padding:9px 11px'>Loan on the cart</td><td style='padding:9px 11px;text-align:right'>£200</td><td style='padding:9px 11px;text-align:right'>20%</td></tr></table></div>You are saving three times as much as you borrowed. So you must be winning. Check it.",
+      "hint": "Work out the two rents separately. For the savings, 5% of £600. For the loan, 20% of £200. Then compare the two.",
+      "parts": [
+        { "id": "a", "label": "Interest the bank pays you after year 1 (£)", "type": "numeric", "accept": [30],
+          "_working": "5% of £600: 10% of 600 = £60, half of that = £30." },
+        { "id": "b", "label": "Interest you pay on the loan after year 1 (£)", "type": "numeric", "accept": [40],
+          "_working": "20% of £200: 10% of 200 = £20, doubled = £40." },
+        { "id": "c", "label": "Overall, is Grace & Co. up or down this year? (up or down)", "type": "text",
+          "accept": ["down", "down.", "worse", "worse off", "losing", "loss", "out of pocket", "down overall", "its down", "it's down"],
+          "_working": "Earned £30, paid £40. More rent went out than came in, so the company is £10 DOWN — despite saving three times as much as it borrowed. The lesson: a high rate on a small debt beats a low rate on big savings. This is the same shape as the w2s2 trap, where a big margin on a small business lost to a small margin on a big one. Accept list is wide because 'worse off' and 'losing' are equally right answers." } ] },
+
+    { "type": "q", "id": "i5", "prompt": "★ Analyst's question. This time you are told the rent, and you have to work out the rate.<br><br>You saved <b>£400</b> for a year, and the bank paid you <b>£20</b> of interest.<br><br>Your friend saved <b>£200</b> for a year, and her bank also paid her <b>£20</b>.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Amount saved</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Interest after year 1</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>You</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£400</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£20</td></tr><tr><td style='padding:9px 11px'>Your friend</td><td style='padding:9px 11px;text-align:right'>£200</td><td style='padding:9px 11px;text-align:right'>£20</td></tr></table></div>You both got £20. So which of you has the better bank?",
+      "hint": "You did this with margins. Compare the interest to the amount it came from, then turn that into a percentage.",
+      "parts": [
+        { "id": "a", "label": "Your rate (%)", "type": "numeric", "accept": [5, 0.05],
+          "_working": "£20 out of £400 = 20/400 = 1/20 = 5%. Gear check: 10% of 400 is 40, so 5% is 20 ✓. Accept carries the decimal twin 0.05 because the engine reads a typed \"5%\" as 0.05 — without it, a right answer with a % sign marks wrong." },
+        { "id": "b", "label": "Your friend's rate (%)", "type": "numeric", "accept": [10, 0.1],
+          "_working": "£20 out of £200 = 20/200 = 1/10 = 10%. Decimal twin 0.1 included for the same reason." },
+        { "id": "c", "label": "Better bank? (you or your friend)", "type": "text",
+          "accept": ["friend", "my friend", "friends", "friend's", "her", "hers", "the friend", "friend's bank", "my friends"],
+          "_working": "The friend. Same £20 of rent, but out of half the money, so her rate is twice as good. Exactly the margin move from w2s2 wearing a new costume: the pounds tell you how much, the percentage tells you how good." } ] },
+
+    { "type": "summit", "html": "<b>📈 Market story for the dinner table:</b><br><br>Go and look at a real bank.<br><br>It will pay you about <b>2%</b> a year on your savings.<br><br>It will charge somebody else about <b>6%</b> a year on a loan.<br><br>It is renting the very same money. Your money, in fact.<br><br>So the board question is this: <b>what is the 4% in the middle for?</b><br><br>(You already have the word for that gap. You learned it two meetings ago.)<br><br>Think about what a bank has to pay for out of that 4% — buildings, staff, cash machines — and what happens to the money when somebody borrows and never pays it back.<br><br>Then the field assignment, analyst. Ask Dad two questions and bring the answers back:<br><br>1. What rate does his savings account actually pay?<br>2. What rate does a credit card charge?<br><br>Be ready for the second number to be a lot bigger than you expect." }
+  ],
+  "done": {
+    "title": "Meeting adjourned ✓",
+    "html": "<p>Interest: rent on money.</p><p>You can work out what a saver earns, what a borrower pays, and the rate itself when you are only told the rent.</p><p>And you found the trap — a high rate on a small loan can quietly beat a low rate on big savings.</p><p>Next: <b>The Snowball</b> — what happens when you leave the money alone for a second year, and the bank starts charging rent on the rent.</p>"
+  }
+}

@@ -133,6 +133,11 @@ window.addEventListener("unhandledrejection", e =>
   parseNumeric(raw) {
     if (raw == null) return null;
     let s = String(raw).trim().toLowerCase()
+      /* every dash a keyboard or a copy-paste can produce becomes the plain
+         hyphen parseFloat understands. Our own prompts print the TRUE minus
+         (U+2212), so a child copying the sign out of the question used to be
+         marked wrong on every negative answer — 16 parts across 8 sessions. */
+      .replace(/[−‒–—―⁃﹣－]/g, "-")
       .replace(/[£$€,]/g, "").replace(/(cm2|cm²|cm|kg|g|ml|degrees|deg|°|p\b)/g, "").trim();
     if (s === "") return null;
     let pct = false;

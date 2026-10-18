@@ -1,0 +1,503 @@
+{
+  "id": "diag",
+  "kind": "checkpoint",
+  "title": "Walking the Old Streets",
+  "sections": [
+    {
+      "id": "v1",
+      "name": "The signs are still readable",
+      "intro": "You're back. Before anything else — a walk through the old neighbourhood, taking stock of what survived the rusty year.<br><br>Ground rules: this diagnostic is built to be too hard to finish — the top of every section is deliberately out of reach, and a skip is data, not defeat. Do it in short sittings; your work saves automatically and will be here when you return. You'll need a Russian keyboard enabled for some answers (Settings → Keyboard — and yes, typing Cyrillic is part of the job you're training for). Spelling with е for ё is always accepted. No punctuation needed anywhere.",
+      "questions": [
+        {
+          "id": "v1q1", "level": "A0",
+          "prompt": "Off the plane, into the city. Read the signs — answer in English.",
+          "parts": [
+            { "id": "a", "label": "«БАНК»", "type": "text",
+              "accept": ["bank", "a bank", "the bank"],
+              "_working": "БАНК = bank. Pure decoding of friendly letters (Б А Н К all near-Latin or familiar). Opens with guaranteed wins — the section measures rust in reading speed, not knowledge." },
+            { "id": "b", "label": "«МЕТРО»", "type": "text",
+              "accept": ["metro", "the metro", "subway", "underground", "tube", "metro station"],
+              "_working": "МЕТРО = metro. All English equivalents accepted (subway/underground/tube)." },
+            { "id": "c", "label": "«КАФЕ»", "type": "text",
+              "accept": ["cafe", "café", "a cafe", "coffee shop", "coffee house"],
+              "_working": "КАФЕ = café. Accent and plain-e variants both listed — the engine does not normalise accents, so café ≠ cafe as strings." },
+            { "id": "d", "label": "«ТАКСИ»", "type": "text",
+              "accept": ["taxi", "a taxi", "cab", "taxis"],
+              "_working": "ТАКСИ = taxi. Four-for-four here = alphabet fully intact; hesitation shows up later in the harder letters, not these." }
+          ]
+        },
+        {
+          "id": "v1q2", "level": "A1",
+          "prompt": "Now the letters that betray tourists — the false friends and the genuinely Cyrillic ones.",
+          "parts": [
+            { "id": "a", "label": "«РЕСТОРАН»", "type": "text",
+              "accept": ["restaurant", "a restaurant", "resturant", "restaraunt"],
+              "_working": "РЕСТОРАН = restaurant. Р=R and С=S are the classic false friends; reading this fluently means the Latin-lookalike trap is long dead. English misspellings of 'restaurant' accepted — English orthography is not under test." },
+            { "id": "b", "label": "«ВЫХОД»", "type": "text",
+              "accept": ["exit", "way out", "the exit", "the way out", "exit sign"],
+              "_working": "ВЫХОД = exit/way out. Contains ы and х — no Latin crutches at all, and it's THE survival sign. A miss here is a real (small) gap, not rust." },
+            { "id": "c", "label": "«ЦЕНТР»", "type": "text",
+              "accept": ["centre", "center", "city centre", "city center", "the centre", "the center", "town centre", "town center"],
+              "_working": "ЦЕНТР = centre. Ц is unguessable from Latin; otherwise near-cognate. UK and US spellings both accepted." },
+            { "id": "d", "label": "«ВОКЗАЛ»", "type": "text",
+              "accept": ["station", "train station", "railway station", "rail station", "the station", "terminal"],
+              "_working": "ВОКЗАЛ = (railway) station — famously derived from London's Vauxhall. Not decodable: you either know it or you don't, which makes it the bridge from script-reading into vocabulary proper. Expected hit for someone who lived there two years." }
+          ]
+        },
+        {
+          "id": "v1q3", "level": "A1",
+          "prompt": "Reverse gear — and a keyboard check. Type these INTO Cyrillic. (If your Russian keyboard isn't set up yet, do it now; the rest of the walk needs it.)",
+          "parts": [
+            { "id": "a", "label": "internet →", "type": "text",
+              "accept": ["интернет"],
+              "_working": "интернет. Doubles as the Cyrillic-keyboard shakedown before the grammar sections demand it. One canonical spelling; anything else → review (a human can tell a typo from a gap)." },
+            { "id": "b", "label": "vodka →", "type": "text",
+              "accept": ["водка"],
+              "_working": "водка. Second keyboard rep, zero vocabulary load, and the first wink at the bar thread of this course." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v2",
+      "name": "People — meeting and knowing them",
+      "intro": "The whole point of the return: the people. This section maps the vocabulary of getting to know someone.",
+      "questions": [
+        {
+          "id": "v2q1", "level": "A1",
+          "prompt": "Into English:",
+          "parts": [
+            { "id": "a", "label": "«друг»", "type": "text",
+              "accept": ["friend", "a friend", "male friend", "mate"],
+              "_working": "друг = friend. Core A1; the anchor word of the course's social thread." },
+            { "id": "b", "label": "«работа»", "type": "text",
+              "accept": ["work", "job", "a job", "the work", "the job"],
+              "_working": "работа = work/job. Both English senses accepted. The business thread's anchor word." },
+            { "id": "c", "label": "«город»", "type": "text",
+              "accept": ["city", "town", "a city", "a town", "the city", "the town"],
+              "_working": "город = city/town (covers both English words; Russian doesn't split them at A1)." },
+            { "id": "d", "label": "«дом»", "type": "text",
+              "accept": ["house", "home", "a house", "building", "block of flats", "apartment building"],
+              "_working": "дом = house/home (and colloquially an apartment block). All senses accepted." }
+          ]
+        },
+        {
+          "id": "v2q2", "level": "A2",
+          "prompt": "Warmer now — the words conversations are made of:",
+          "parts": [
+            { "id": "a", "label": "«встреча»", "type": "text",
+              "accept": ["meeting", "a meeting", "meet up", "meetup", "a meet", "appointment", "date"],
+              "_working": "встреча = meeting (social or business — both live in this course; 'date' and 'appointment' accepted as context-dependent readings)." },
+            { "id": "b", "label": "«сосед»", "type": "text",
+              "accept": ["neighbour", "neighbor", "a neighbour", "a neighbor", "the neighbour", "the neighbor"],
+              "_working": "сосед = neighbour. UK/US spellings. The Return's courtyard world makes this one load-bearing later." },
+            { "id": "c", "label": "«разговор»", "type": "text",
+              "accept": ["conversation", "a conversation", "talk", "a talk", "chat", "a chat", "discussion"],
+              "_working": "разговор = conversation/talk. The course's stated goal is literally this word — worth knowing on day zero whether it's already in stock." },
+            { "id": "d", "label": "«вопрос»", "type": "text",
+              "accept": ["question", "a question", "the question", "issue", "matter"],
+              "_working": "вопрос = question (also 'issue/matter' in business register — accepted)." }
+          ]
+        },
+        {
+          "id": "v2q3", "level": "A2",
+          "prompt": "Into Russian (Cyrillic, dictionary form is fine):",
+          "parts": [
+            { "id": "a", "label": "friend →", "type": "text",
+              "accept": ["друг", "подруга", "приятель", "друзья"],
+              "_working": "друг (подруга female, приятель looser, друзья plural — all accepted; the question tests retrieval, not which register he reaches for)." },
+            { "id": "b", "label": "name →", "type": "text",
+              "accept": ["имя", "название"],
+              "_working": "имя (a person's name). название (a thing's name) accepted at diagnostic stage — the distinction is itself a nice future teaching point, and reaching for either shows retrieval." },
+            { "id": "c", "label": "to meet / get to know someone →", "type": "text",
+              "accept": ["познакомиться", "знакомиться", "встретиться", "встретить", "встречаться", "познакомится", "знакомится"],
+              "_working": "познакомиться (get acquainted) is the target; знакомиться (imperfective), встретить(ся)/встречаться (to meet up) all accepted — the знакомиться/встретиться distinction is exactly the kind of nuance the course will teach, so any of the family counts today. Misspelled -тся/-ться variants accepted (that trap bites natives)." }
+          ]
+        },
+        {
+          "id": "v2q4", "level": "B1",
+          "prompt": "Top of the people ramp — the nuance shelf. Into English:",
+          "parts": [
+            { "id": "a", "label": "«знакомый» (as a noun: мой знакомый)", "type": "text",
+              "accept": ["acquaintance", "an acquaintance", "someone i know", "a person i know", "contact", "a contact"],
+              "_working": "знакомый = acquaintance — the person between stranger and друг. B1 because the word's force is relational nuance, not dictionary lookup. A hit means the social-register ladder survived the rust." },
+            { "id": "b", "label": "«собеседник»", "type": "text",
+              "accept": ["conversation partner", "interlocutor", "the person you are talking to", "person you're talking to", "person you are talking to", "the other person in a conversation"],
+              "_working": "собеседник = interlocutor/conversation partner. Deliberately near the ceiling; it's also quietly the course's mascot word — the thing Timothy wants to BE in a bar." },
+            { "id": "c", "label": "«общаться»", "type": "text",
+              "accept": ["to socialise", "to socialize", "socialise", "socialize", "to communicate", "communicate", "to chat", "to talk", "to hang out", "to mix with people", "to interact"],
+              "_working": "общаться = to socialise/communicate/spend time talking with people. No single English equivalent — hence the wide accept list; any of the senses shows the word is alive." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v3",
+      "name": "The bar and the street",
+      "intro": "Friday night vocabulary. This is where the course is ultimately headed, so let's see today's stock.",
+      "questions": [
+        {
+          "id": "v3q1", "level": "A1",
+          "prompt": "Into English:",
+          "parts": [
+            { "id": "a", "label": "«пиво»", "type": "text",
+              "accept": ["beer", "a beer", "the beer", "lager"],
+              "_working": "пиво = beer. If any word survived two years in Russia, it's this one." },
+            { "id": "b", "label": "«вино»", "type": "text",
+              "accept": ["wine", "a wine", "the wine"],
+              "_working": "вино = wine. Near-cognate (vino)." },
+            { "id": "c", "label": "«счёт»", "type": "text",
+              "accept": ["bill", "the bill", "check", "the check", "account", "an account", "tab", "the tab"],
+              "_working": "счёт = the bill (in a bar), also 'account' in business Russian — both accepted, and the double meaning is a future bridge between the bar thread and the business thread. Shown with ё; he answers in English so the ё/е issue doesn't arise here." },
+            { "id": "d", "label": "«улица»", "type": "text",
+              "accept": ["street", "a street", "the street", "road", "outside"],
+              "_working": "улица = street ('on улица' idiomatically = outside, accepted)." }
+          ]
+        },
+        {
+          "id": "v3q2", "level": "A2",
+          "prompt": "Getting around and getting served:",
+          "parts": [
+            { "id": "a", "label": "«заказать»", "type": "text",
+              "accept": ["to order", "order", "to book", "book", "to reserve", "reserve", "ordering"],
+              "_working": "заказать = to order (food/drink) or book (a table/taxi) — both senses accepted. The single most useful bar verb." },
+            { "id": "b", "label": "«рядом»", "type": "text",
+              "accept": ["nearby", "near", "close", "close by", "next to", "beside", "near here", "around here"],
+              "_working": "рядом = nearby/next to. High-frequency spatial word; Dima uses it in the reading section («бар рядом с офисом») — a deliberate plant so section 6 rewards section 3." },
+            { "id": "c", "label": "«налево»", "type": "text",
+              "accept": ["left", "to the left", "on the left", "turn left"],
+              "_working": "налево = (to the) left. Directions vocabulary — street navigation strand." },
+            { "id": "d", "label": "«ещё»", "type": "text",
+              "accept": ["more", "another", "still", "yet", "one more", "again", "else"],
+              "_working": "ещё = more/another/still/yet — famously context-dependent; ANY of its senses accepted. In a bar it means 'another one', which is why it's in this section." }
+          ]
+        },
+        {
+          "id": "v3q3", "level": "A2",
+          "prompt": "Your round. Into Russian (Cyrillic):",
+          "parts": [
+            { "id": "a", "label": "beer →", "type": "text",
+              "accept": ["пиво"],
+              "_working": "пиво. Production counterpart of v3q1a — recognising and retrieving are different muscles, and the gap between them is a key diagnostic readout for a rusty speaker (recognition usually survives; retrieval rusts first)." },
+            { "id": "b", "label": "please →", "type": "text",
+              "accept": ["пожалуйста", "пожалуйста!", "пожалуста"],
+              "_working": "пожалуйста. The misspelling пожалуста (dropped й) is extremely common even among learners who SAY it perfectly — accepted, since what's tested is retrieval of the word, not its orthography. Anything else → review." },
+            { "id": "c", "label": "the bill, please →", "type": "text",
+              "accept": ["счёт пожалуйста", "счет пожалуйста", "счёт, пожалуйста", "счет, пожалуйста", "можно счёт", "можно счет", "можно счёт пожалуйста", "можно счет пожалуйста", "принесите счёт пожалуйста", "принесите счет пожалуйста"],
+              "_working": "счёт, пожалуйста — with е-for-ё variants (the engine treats ё and е as different characters, so both spellings are listed for every ё word) and comma/no-comma variants (punctuation is NOT stripped by normText). можно счёт / принесите счёт are more idiomatic upgrades — accepted with extra credit noted at review." }
+          ]
+        },
+        {
+          "id": "v3q4", "level": "B1",
+          "prompt": "Top shelf. Into English:",
+          "parts": [
+            { "id": "a", "label": "«двор»", "type": "text",
+              "accept": ["courtyard", "yard", "the courtyard", "the yard", "court"],
+              "_working": "двор = courtyard — THE unit of Russian urban social life, and the planned setting of this course's first unit. B1 as vocabulary; a hit means he lived in one, which is better than any textbook." },
+            { "id": "b", "label": "«здание»", "type": "text",
+              "accept": ["building", "a building", "the building"],
+              "_working": "здание = building. Neutral B1 filler on the ramp — included so the top of this strand isn't all culture-loaded words." },
+            { "id": "c", "label": "«закуска»", "type": "text",
+              "accept": ["snack", "appetizer", "appetiser", "starter", "a snack", "snacks", "bar snack", "food you eat with drinks", "zakuski"],
+              "_working": "закуска = the food that accompanies drinks — appetiser/starter/bar snack all accepted, plus the loanword 'zakuski'. Culturally load-bearing for the bar thread (drinking without закуска is practically illegal)." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v4",
+      "name": "Cases — the old enemy",
+      "intro": "You said the grammar broke you. Let's map exactly where it broke — ending by ending. Type ONLY the missing word (the dictionary form is in brackets). е for ё is fine; expect the top of this page to be out of reach.",
+      "questions": [
+        {
+          "id": "v4q1", "level": "A1",
+          "prompt": "Where you live. «Я живу в ____ (Москва)»",
+          "parts": [
+            { "id": "a", "label": "the missing word", "type": "text",
+              "accept": ["москве"],
+              "_working": "в + prepositional: Москва → Москве (-а → -е). The first case every learner meets and the one most likely to have survived. Diagnostic of: baseline case machinery present at all." }
+          ]
+        },
+        {
+          "id": "v4q2", "level": "A1+",
+          "prompt": "Where you're heading, and who you spot there.",
+          "parts": [
+            { "id": "a", "label": "«Я иду в ____ (бар)»", "type": "text",
+              "accept": ["бар"],
+              "_working": "в + accusative of direction: бар is masculine inanimate, so accusative = nominative — the word does NOT change. Knowing when NOT to decline is real knowledge; a learner who writes баре here is applying the location case to a direction (the classic в+prep/в+acc confusion, worth catching early)." },
+            { "id": "b", "label": "«Я вижу ____ (Анна)»", "type": "text",
+              "accept": ["анну"],
+              "_working": "Accusative of a feminine animate: Анна → Анну (-а → -у). Pairs with part a to test whether accusative is understood as a system (changes here, doesn't change there) rather than a memorised ending." }
+          ]
+        },
+        {
+          "id": "v4q3", "level": "A2",
+          "prompt": "The genitive earns its keep: of-phrases and not-having.",
+          "parts": [
+            { "id": "a", "label": "«бутылка ____ (вино)»", "type": "text",
+              "accept": ["вина"],
+              "_working": "Genitive after a quantity word: вино → вина (-о → -а). 'A bottle OF wine' — the genitive's friendliest job, and bar-relevant." },
+            { "id": "b", "label": "«У меня нет ____ (работа)»", "type": "text",
+              "accept": ["работы"],
+              "_working": "нет + genitive: работа → работы (-а → -ы). 'I don't have a job' — thematically pointed for a returner job-hunting in the city. нет-genitive is the construction learners report hating most; its presence/absence here steers the whole grammar unit order." }
+          ]
+        },
+        {
+          "id": "v4q4", "level": "B1",
+          "prompt": "Dative and instrumental — the cases that rust first.",
+          "parts": [
+            { "id": "a", "label": "«Я звоню ____ (друг)»", "type": "text",
+              "accept": ["другу"],
+              "_working": "звонить + dative: друг → другу. 'I'm calling my friend' — social thread. Dative after звонить/помогать/говорить is a B1 reflex; rust shows here before it shows in prep/acc." },
+            { "id": "b", "label": "«Я работаю ____ (архитектор)»", "type": "text",
+              "accept": ["архитектором"],
+              "_working": "работать + instrumental for profession: архитектор → архитектором (-ом). Chosen because it is literally the sentence Timothy will say in every Russian introduction for the rest of his life — 'I work as an architect.' If exactly one ending from this page gets drilled into permanence, it should be this one." }
+          ]
+        },
+        {
+          "id": "v4q5", "level": "B1+",
+          "prompt": "The wall itself: genitive plural, where every learner's confidence goes to die.",
+          "parts": [
+            { "id": "a", "label": "«пять ____ (друг)»", "type": "text",
+              "accept": ["друзей"],
+              "_working": "Numbers 5+ take genitive plural: друг → друзей (irregular stem друз- + -ей). Deliberately brutal: irregular plural AND gen-pl in one word. A hit here would genuinely surprise and would move the grammar ceiling up a band." },
+            { "id": "b", "label": "«много ____ (люди)»", "type": "text",
+              "accept": ["людей"],
+              "_working": "много + genitive plural: люди → людей. 'Many people' — unavoidable in any conversation about a party, a bar, a company. Suppletive plural (человек/люди) makes it a fair B1+ ceiling marker." }
+          ]
+        },
+        {
+          "id": "v4q6", "level": "B1+",
+          "prompt": "Full agreement, two words at once: «Мы говорим о ____ ____ (новая работа)» — about the new job.",
+          "parts": [
+            { "id": "a", "label": "both missing words", "type": "text",
+              "accept": ["новой работе", "о новой работе"],
+              "_working": "о + prepositional with adjective agreement: новая работа → (о) новой работе — adjective -ая → -ой, noun -а → -е, both at once. Adjective–noun agreement under a case is the B1+ summit of this strand; partial credit (one of two endings right) is visible at review since the raw answer is stored. The redundant о-included variant is accepted (people retype the preposition)." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v5",
+      "name": "Verbs — getting things moving",
+      "intro": "Conjugation, past tense, verbs of motion, and the famous aspect problem. Where a choice is offered in brackets, type the one that fits.",
+      "questions": [
+        {
+          "id": "v5q1", "level": "A1",
+          "prompt": "Present tense, first person and third:",
+          "parts": [
+            { "id": "a", "label": "«Я ____ (работать) в Москве»", "type": "text",
+              "accept": ["работаю"],
+              "_working": "работать → я работаю (1st conjugation, -ю). Baseline conjugation check." },
+            { "id": "b", "label": "«Она ____ (говорить) по-русски»", "type": "text",
+              "accept": ["говорит"],
+              "_working": "говорить → она говорит (2nd conjugation, -ит). Covers the other conjugation class, so the two parts together test whether the two-conjugation system itself is intact." }
+          ]
+        },
+        {
+          "id": "v5q2", "level": "A1+",
+          "prompt": "Last night. «Вчера я ____ (быть) в баре»",
+          "parts": [
+            { "id": "a", "label": "the missing word", "type": "text",
+              "accept": ["был", "была"],
+              "_working": "Past tense of быть, masculine: был. была also accepted (the gender-agreement slip is a different, smaller error than failing to form the past at all — the review read distinguishes them; the raw answer is stored either way)." }
+          ]
+        },
+        {
+          "id": "v5q3", "level": "A2",
+          "prompt": "Verbs of motion — walking or riding?",
+          "parts": [
+            { "id": "a", "label": "«Сейчас я ____ на работу пешком (иду / еду)»", "type": "text",
+              "accept": ["иду"],
+              "_working": "On foot (пешком), right now → идти: иду. The иду/еду split is foot vs vehicle. Note the frame is 'сейчас' (right now, one direction) deliberately — a habitual frame like 'every day' would demand the multidirectional хожу, which is a different lesson and would make the question unfair as a binary choice." },
+            { "id": "b", "label": "«Завтра я ____ в Петербург на поезде (иду / еду)»", "type": "text",
+              "accept": ["еду"],
+              "_working": "By train (на поезде) → ехать: еду. (Present tense for a planned trip tomorrow is idiomatic Russian, like English 'tomorrow I'm going'.) Together with part a: does the foot/vehicle axis survive? It's the gateway to the whole motion-verb system, a flagged B1 nightmare that the course must sequence carefully." }
+          ]
+        },
+        {
+          "id": "v5q4", "level": "B1",
+          "prompt": "Aspect — the one that broke you. Pick the verb that fits.",
+          "parts": [
+            { "id": "a", "label": "«Вчера я наконец ____ эту книгу (читал / прочитал)»", "type": "text",
+              "accept": ["прочитал", "прочитала"],
+              "_working": "наконец (finally) signals completion → perfective: прочитал. THE diagnostic aspect question: 'finally' forces the perfective, no ambiguity. Feminine form accepted (as v5q2)." },
+            { "id": "b", "label": "«Я ____ письмо два часа (писал / написал)»", "type": "text",
+              "accept": ["писал", "писала"],
+              "_working": "Duration (два часа, for two hours) forces the imperfective: писал. Mirror image of part a — the pair tests whether aspect is understood as completion-vs-process rather than guessed. Both right = the concept survived; both wrong or inconsistent = aspect gets its own unit, early." }
+          ]
+        },
+        {
+          "id": "v5q5", "level": "B1",
+          "prompt": "Future, perfective flavour: «Когда я закончу, я ____ тебе (позвоню / звоню)»",
+          "parts": [
+            { "id": "a", "label": "the verb that fits", "type": "text",
+              "accept": ["позвоню"],
+              "_working": "'When I finish, I'll call you' — one-off future action → perfective future: позвоню. The bare present звоню cannot carry this meaning after an explicit когда-clause. Tests whether perfective-present-form = future is understood — a structural B1 insight, not vocabulary." }
+          ]
+        },
+        {
+          "id": "v5q6", "level": "B1+",
+          "prompt": "The summit: unreal mood. «Если бы у меня было время, я ____ с тобой (пойти)» — if I had time, I'd go with you.",
+          "parts": [
+            { "id": "a", "label": "the missing words", "type": "text",
+              "accept": ["пошёл бы", "пошел бы", "бы пошёл", "бы пошел", "пошла бы", "бы пошла"],
+              "_working": "Conditional: past form + бы → пошёл бы. Accepted: е-for-ё spellings (standing rule), either word order (both грамотный), feminine forms (as v5q2). Deliberately out of reach — if he nails the conditional cold after a rusty year, the course's grammar ceiling moves from B1 to B2 and the plan changes." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v6",
+      "name": "A message from Dima",
+      "intro": "Your phone buzzes. It's Dima — an old friend from the first time round. Read it all, then answer in English. The message starts easy and gets harder: that's the ramp.",
+      "questions": [
+        {
+          "id": "v6q1", "level": "A1",
+          "prompt": "<div style='background:var(--soft);border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px;margin:4px 0 10px'><p style='margin:0 0 6px'>Привет! Это Дима. Ты правда снова в Москве? Отлично!</p><p style='margin:0 0 6px'>Я теперь работаю в компании, которая делает платформу для данных.</p><p style='margin:0 0 6px'>Работа интересная, но времени всегда мало.</p><p style='margin:0 0 6px'>В пятницу после работы мы идём в бар рядом с офисом.</p><p style='margin:0 0 6px'>Приходи — познакомлю тебя с коллегами.</p><p style='margin:0'>Если не сможешь в пятницу, напиши, когда тебе удобно.</p></div>First pass, easy ones:",
+          "parts": [
+            { "id": "a", "label": "Who wrote the message?", "type": "text",
+              "accept": ["dima", "дима", "dima an old friend", "my friend dima", "friend dima"],
+              "_working": "Это Дима = It's Dima. Name-spotting across scripts; answer accepted in either script." },
+            { "id": "b", "label": "Where does he suggest meeting?", "type": "text",
+              "accept": ["a bar", "bar", "the bar", "in a bar", "at a bar", "a bar near his office", "bar near the office", "the bar near the office", "a bar near the office"],
+              "_working": "мы идём в бар = we're going to a bar. A1: бар is known from section 3 (deliberate plant). Location detail (near the office) optional — any bar-shaped answer lands." }
+          ]
+        },
+        {
+          "id": "v6q2", "level": "A2",
+          "prompt": "Second pass:",
+          "parts": [
+            { "id": "a", "label": "When is the bar trip?", "type": "text",
+              "accept": ["friday", "on friday", "friday after work", "friday evening", "after work on friday", "this friday"],
+              "_working": "В пятницу после работы = on Friday after work. пятница (Friday) + после работы (after work) — either or both accepted. A2 time expressions." },
+            { "id": "b", "label": "What does Dima's company make?", "type": "text",
+              "accept": ["a data platform", "data platform", "a platform for data", "platform for data", "data platforms", "a software platform for data", "data software"],
+              "_working": "компании, которая делает платформу для данных = a company that makes a data platform. платформа is a cognate; данные (data) is the key unlock — and the word Timothy's entire professional life orbits, planted here to test whether his own field's Russian vocabulary is in stock. (It also quietly announces the course's business setting.)" }
+          ]
+        },
+        {
+          "id": "v6q3", "level": "B1",
+          "prompt": "Third pass — between the lines:",
+          "parts": [
+            { "id": "a", "label": "What does he complain about?", "type": "text",
+              "accept": ["no time", "lack of time", "not enough time", "never enough time", "too little time", "little time", "he has no time", "not much time", "never has time"],
+              "_working": "времени всегда мало = there's always too little time. Requires parsing времени (genitive of время after мало) — a case form doing semantic work. B1 reading: the grammar IS the meaning here." },
+            { "id": "b", "label": "What does he promise to do at the bar?", "type": "text",
+              "accept": ["introduce you to his colleagues", "introduce me to his colleagues", "introduce you to colleagues", "introduce me to colleagues", "introduce his colleagues", "introductions", "introduce you to the colleagues", "to introduce me to his colleagues", "meet his colleagues", "to meet his colleagues"],
+              "_working": "познакомлю тебя с коллегами = I'll introduce you to my colleagues. Perfective future of знакомиться's transitive sibling + instrumental plural — but the VOCAB was planted in v2q3c, so a reader can crack it from the known stem знаком-. Tests exactly that: leveraging a known root to read an unknown form. Wide accept list; paraphrases land at review." }
+          ]
+        },
+        {
+          "id": "v6q4", "level": "B1+",
+          "prompt": "Last line, hardest line: «Если не сможешь в пятницу, напиши, когда тебе удобно.» What is Dima asking you to do, exactly?",
+          "parts": [
+            { "id": "a", "label": "if Friday doesn't work, you should…", "type": "text",
+              "accept": ["write when it suits you", "text him when convenient", "write when convenient", "say when suits you", "tell him when is convenient", "tell him when suits", "write and say when is good for you", "message him when you are free", "text when you can", "suggest another time", "say when works for you", "tell him when works"],
+              "_working": "Если не сможешь… напиши, когда тебе удобно = If you can't make Friday, write (to say) when suits you. Stacked B1+ machinery: conditional clause, perfective future сможешь, imperative напиши, dative idiom тебе удобно. The accept list catches the main paraphrase shapes; most real answers will land at review and be read for the three content points (condition + write + convenient time)." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v7",
+      "name": "Your turn to speak — on paper",
+      "intro": "Production. First two have exact answers; the last two are free writing — a human (or a well-briefed AI) reads those, the engine won't try. Cyrillic throughout.",
+      "questions": [
+        {
+          "id": "v7q1", "level": "A2",
+          "prompt": "Say: <b>“I lived in Moscow.”</b>",
+          "parts": [
+            { "id": "a", "label": "in Russian", "type": "text",
+              "accept": ["я жил в москве", "жил в москве", "я жила в москве", "я жил в россии", "жил в россии"],
+              "_working": "Я жил в Москве — past tense + в + prepositional, the autobiographical sentence he'll say in every introduction. Accepts: dropped я (natural speech), жила (gender slip, logged as minor at review), and the в России variant in case he generalises the place. Spelling of Москве must be exact-ish — but близко misses land at review, not wrong." }
+          ]
+        },
+        {
+          "id": "v7q2", "level": "A2",
+          "prompt": "Say: <b>“I want to speak Russian.”</b>",
+          "parts": [
+            { "id": "a", "label": "in Russian", "type": "text",
+              "accept": ["я хочу говорить по-русски", "я хочу говорить по русски", "хочу говорить по-русски", "хочу говорить по русски", "я хочу говорить порусски"],
+              "_working": "Я хочу говорить по-русски — хотеть + infinitive + the по-русски adverbial. Accepts hyphen, space and run-together spellings of по-русски (the engine strips spaces but NOT hyphens, so each variant must be listed explicitly), and the dropped-я form. The mission statement of the entire course, in his own typing." }
+          ]
+        },
+        {
+          "id": "v7q3", "level": "B1",
+          "prompt": "Now reply to Dima, in Russian: say yes to Friday, and ask him one question about his company. Two or three sentences. Don't polish — write like you'd text.",
+          "parts": [
+            { "id": "a", "label": "your reply to Dima", "type": "text",
+              "_working": "Free writing, no accept list → textarea, marks as 'review' by design (capturing free writing without pretending to mark it — the engine's documented mechanism). The rubric reads it for: communicative success first (would Dima understand?), then case/aspect control, then range. The question-about-the-company half elicits an interrogative + probably a prepositional (о компании / о работе) without saying so." }
+          ]
+        },
+        {
+          "id": "v7q4", "level": "B1",
+          "prompt": "Friday came. Dima waves you over: «Это мой друг из Англии!» Introduce yourself to the table: name, where you're from, what you do for work, one thing about your history with Russia. Three or four sentences, in Russian.",
+          "parts": [
+            { "id": "a", "label": "your introduction", "type": "text",
+              "_working": "Free writing → review. The canonical self-introduction — the single most reusable paragraph in his future. Elicits: имя constructions, из + genitive (origin), работаю + instrumental (profession — planted in v4q4b), and a past-tense biography line (жил, planted in v7q1). The rubric compares what he produces here against which of those planted forms he got right upstream: same grammar, scored vs spontaneous — the truest picture of what's actually usable." }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "v8",
+      "name": "Debrief — back at the hotel",
+      "intro": "The walk is done. Now the part that steers everything: honest notes. Nothing here is marked.",
+      "questions": [
+        {
+          "id": "v8q1", "level": "survey",
+          "prompt": "Score each section for enjoyment — 1 (chore) to 5 (genuinely fun):",
+          "parts": [
+            { "id": "a", "label": "The signs (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, script strand. Range 1–5, any value correct — survey, not test. Per the Playbook these drive tailoring as much as scores: high-skill/low-joy strands get deferred and re-entered through an interest; low-skill/high-joy strands lead." },
+            { "id": "b", "label": "People words (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, people-vocabulary strand." },
+            { "id": "c", "label": "The bar and the street (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, bar/city-vocabulary strand." },
+            { "id": "d", "label": "Cases (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, cases strand. The one to watch: he reports grammar broke him — if enjoyment here is ≥3 despite low scores, the appetite for a direct assault on cases exists; if 1–2, cases get smuggled in through usage instead." },
+            { "id": "e", "label": "Verbs and aspect (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, verbs strand. Same read as cases." },
+            { "id": "f", "label": "Dima's message (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, reading strand. His reading was historically his strength — expect high; if ALSO high joy, reading becomes the course's engine room." },
+            { "id": "g", "label": "Writing back (1–5)", "type": "numeric", "range": [1, 5],
+              "_working": "Enjoyment rating, production strand." }
+          ]
+        },
+        {
+          "id": "v8q2", "level": "survey",
+          "prompt": "Which question was your favourite, and why?",
+          "parts": [
+            { "id": "a", "label": "favourite question", "type": "text",
+              "_working": "Free text → review. Playbook survey staple; self-named favourites reveal the hook the course should hang difficulty on." }
+          ]
+        },
+        {
+          "id": "v8q3", "level": "survey",
+          "prompt": "What do you actually remember most fondly about speaking Russian in Russia? Be specific — a place, a person, a phrase, a night.",
+          "parts": [
+            { "id": "a", "label": "the fond memory", "type": "text",
+              "_working": "Free text → review. The Return's emotional fuel tank. Whatever he names becomes course material: a remembered bar becomes the bar, a remembered person becomes an NPC alongside Dima. Motivation harvesting, verbatim." }
+          ]
+        },
+        {
+          "id": "v8q4", "level": "survey",
+          "prompt": "What exactly broke you last time? Name names — the construction, the situation, the moment you switched to English.",
+          "parts": [
+            { "id": "a", "label": "what broke", "type": "text",
+              "_working": "Free text → review. Self-diagnosis to triangulate against the measured cases/aspect results. Where self-report and measurement agree, that's Unit 1 or 2; where they disagree (he fears something he actually scores fine on), that's a confidence problem, not a knowledge problem — different treatment." }
+          ]
+        },
+        {
+          "id": "v8q5", "level": "survey",
+          "prompt": "Name three topics you'd genuinely want to hold forth on in a bar — in any language. (These become the conversation targets.)",
+          "parts": [
+            { "id": "a", "label": "three topics", "type": "text",
+              "_working": "Free text → review. Sets the B-level conversation syllabus: the course builds topic-specific vocabulary lanes toward exactly these, since 'comfortable conversation about relatively complex topics' is the stated goal and comfort is topic-dependent. Expect data/architecture to appear; don't assume it." }
+          ]
+        }
+      ]
+    }
+  ]
+}

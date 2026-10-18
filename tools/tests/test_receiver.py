@@ -297,6 +297,43 @@ class MarkingEngine(unittest.TestCase):
                   "correct", "correct", "review", "correct", "correct", "blank"]
         self.assertEqual(self.run_js(cases), expect)
 
+    def test_every_dash_a_child_can_type_is_accepted(self):
+        """UC2.6 — our own prompts print the TRUE minus (U+2212), so a child
+        copying the sign out of the question must not be marked wrong. Before
+        code 1.1.1 parseFloat saw U+2212 and returned NaN, failing 16 answer
+        parts across 8 live sessions."""
+        part = {"type": "numeric", "accept": [-7]}
+        raws = ["-7",        # hyphen-minus, the keyboard default
+                "−7",   # true minus — what our prompts actually print
+                "‒7",   # figure dash
+                "–7",   # en dash
+                "—7",   # em dash
+                "－7",   # fullwidth hyphen-minus (CJK keyboards)
+                " −7 ", # padded
+                "− 7"]  # minus, space, digit
+        got = self.run_js([{"part": part, "raw": r} for r in raws])
+        self.assertEqual(got, ["correct"] * len(raws),
+                         "dash variants rejected: %s" %
+                         [r for r, g in zip(raws, got) if g != "correct"])
+        # and a stray dash must still not become a number
+        self.assertEqual(self.run_js([{"part": part, "raw": "−"}]), ["review"])
+
+
+class MarkingEngineSource(unittest.TestCase):
+    """Runs everywhere, node or not. Guards the dash fix at source level
+    rather than duplicating the engine's logic in Python (which would drift)."""
+
+    def test_shared_js_normalises_unicode_dashes(self):
+        src = open(os.path.join(SITE_DIR, "learn", "assets", "shared.js"),
+                   encoding="utf-8").read()
+        head = src[:src.index("normText")]        # i.e. inside parseNumeric
+        for ch, name in ((u"−", "true minus"), (u"–", "en dash"),
+                         (u"—", "em dash"), (u"－", "fullwidth hyphen")):
+            self.assertIn(ch, head,
+                          "parseNumeric must fold %s (%r) to a plain hyphen, or "
+                          "every negative answer can be marked wrong"
+                          % (name, ch))
+
 
 if __name__ == "__main__":
     unittest.main()

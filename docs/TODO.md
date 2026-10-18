@@ -4,6 +4,25 @@ Priority-ordered within sections. (i) = infrastructure, (c) = content,
 (o) = ops. Owner column: T = Timothy, F = Fable/senior agent,
 A = content agent.
 
+## Hosting / transport — BLOCKED on 34sp
+- (o/T) **knocbrac.com is on 34sp's OLD cluster, which has no ssh/sftp.**
+  Confirmed 18 Oct 2026: `mkdir .ssh` over sftp returns "Permission denied"
+  on `/`, so there is no writable home and key auth was never possible —
+  independently of the OpenSSH 5.3 / ssh-rsa signature problem found on
+  11 Oct. Migration to the newer cluster (the one hosting
+  agileintegrator.com) has been REQUESTED; waiting on 34sp.
+  Until then: **plain FTP is the only transport.** site.json is back to
+  `transport: "ftp"`, with the ready-made sftpcli block parked in
+  `_sftp_when_migrated` — swap it in and delete `use_tls` once the move
+  lands, then re-run the readiness test recorded there.
+  Consequences while we wait, all accepted deliberately:
+  * the FTP password travels in clear text (FTPS login 530s on this host);
+  * `site_url` stays `http://` because the certificate does not cover
+    www.knocbrac.com — so the kids' traffic is unencrypted too;
+  * no `php -l` on the host, no server-side shell, no rsync.
+  The migration also unblocks: TLS for the kids, a PHP newer than 5.6.36,
+  and the rsync-over-ssh transport wanted for agileintegrator.com.
+
 ## Blocking before the next code deploy
 - (o/T) **`php -l` submit.php somewhere with PHP before shipping code 1.1.0.**
   No PHP or container runtime exists on this machine, so the state endpoint

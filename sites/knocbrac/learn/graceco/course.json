@@ -42,12 +42,34 @@
           "id": "w2s3",
           "title": "Market Story: Losing Money on Purpose",
           "time": "about 30 min"
+        },
+        {
+          "id": "cp1",
+          "title": "Checkpoint 1: The Audit",
+          "time": "about 30 min",
+          "kind": "checkpoint"
         }
       ]
     },
     {
       "title": "Unit 3 · The Bank",
-      "sessions": []
+      "sessions": [
+        {
+          "id": "w3s1",
+          "title": "Rent on Money",
+          "time": "about 35 min"
+        },
+        {
+          "id": "w3s2",
+          "title": "The Snowball",
+          "time": "about 35 min"
+        },
+        {
+          "id": "w3s3",
+          "title": "Market Story: The 0% Offer",
+          "time": "about 30 min"
+        }
+      ]
     },
     {
       "title": "Unit 4 · The Trading Floor",

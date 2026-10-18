@@ -1,18 +1,25 @@
 {
   "artefact": "content",
   "release": null,
-  "generated": "2026-10-10T13:28:21",
-  "file_count": 15,
+  "generated": "2026-10-18T15:17:21",
+  "file_count": 23,
   "shipping_count": 6,
   "shipping": [
+    "learn/ascent/content/cp1.json",
+    "learn/ascent/content/w2s2.json",
+    "learn/ascent/course.json",
     "learn/courses.json",
-    "learn/graceco/content/w1s1.json",
-    "learn/graceco/content/w1s2.json",
-    "learn/graceco/content/w2s1.json",
-    "learn/graceco/content/w2s2.json",
-    "learn/graceco/content/w2s3.json"
+    "learn/graceco/content/cp1.json",
+    "learn/graceco/course.json"
   ],
   "sessions": [
+    {
+      "course": "ascent",
+      "id": "cp1",
+      "kind": "checkpoint",
+      "tag": null,
+      "title": "Checkpoint 1: Everything So Far"
+    },
     {
       "course": "ascent",
       "id": "w1s1",
@@ -56,6 +63,34 @@
       "title": "The Staircase"
     },
     {
+      "course": "ascent",
+      "id": "w3s1",
+      "kind": "session",
+      "tag": "Unit 3 · Session 1",
+      "title": "The Mixing Room"
+    },
+    {
+      "course": "ascent",
+      "id": "w3s2",
+      "kind": "session",
+      "tag": "Unit 3 · Session 2",
+      "title": "Scaling the Recipe"
+    },
+    {
+      "course": "ascent",
+      "id": "w3s3",
+      "kind": "session",
+      "tag": "Unit 3 · Summit Puzzle",
+      "title": "The Oxygen Mix"
+    },
+    {
+      "course": "graceco",
+      "id": "cp1",
+      "kind": "checkpoint",
+      "tag": null,
+      "title": "Checkpoint 1: The Audit"
+    },
+    {
       "course": "graceco",
       "id": "w1s1",
       "kind": "session",
@@ -96,9 +131,36 @@
       "kind": "session",
       "tag": "Unit 2 · Market story",
       "title": "Losing Money on Purpose"
+    },
+    {
+      "course": "graceco",
+      "id": "w3s1",
+      "kind": "session",
+      "tag": "Unit 3 · Board meeting 1",
+      "title": "Rent on Money"
+    },
+    {
+      "course": "graceco",
+      "id": "w3s2",
+      "kind": "session",
+      "tag": "Unit 3 · Board meeting 2",
+      "title": "The Snowball"
+    },
+    {
+      "course": "graceco",
+      "id": "w3s3",
+      "kind": "session",
+      "tag": "Unit 3 · Market story",
+      "title": "The 0% Offer"
     }
   ],
   "files": [
+    {
+      "path": "learn/ascent/content/cp1.json",
+      "sha256": "bf0a6c3aef4681d0a444459a2e9642893c942c01bc6001f82543ae46e9e425b6",
+      "bytes": 14734,
+      "state": "new"
+    },
     {
       "path": "learn/ascent/content/w1s1.json",
       "sha256": "e27e71f2a8483bc1a93ca1beae87a02e3f41a8ba40cd52c0c88b17a26547eaab",
@@ -125,9 +187,9 @@
     },
     {
       "path": "learn/ascent/content/w2s2.json",
-      "sha256": "b88083f2d8d64b847bebe3c9a3598a1cb8eba44aeec1e05da28e0205b31a4be2",
-      "bytes": 10092,
-      "state": "unchanged"
+      "sha256": "14a4c4673abd6a4ef8cd81666ac652c4dde8807038a29ce8194f90491e3e9aa2",
+      "bytes": 8434,
+      "state": "changed"
     },
     {
       "path": "learn/ascent/content/w2s3.json",
@@ -136,28 +198,52 @@
       "state": "unchanged"
     },
     {
-      "path": "learn/ascent/course.json",
-      "sha256": "2983f259fcffe2d0226f39671baaf3891a2b95ccde82a6851072abd2826a6e9f",
-      "bytes": 1385,
+      "path": "learn/ascent/content/w3s1.json",
+      "sha256": "b17f86717bae923ad723c2a14b9acf00962fe1323d407299848fd57d5230a21b",
+      "bytes": 10466,
       "state": "unchanged"
     },
     {
-      "path": "learn/courses.json",
-      "sha256": "14b9714c75a9c707b87000f4b8ce295c8fcc62b9bf736f8bffe9db786c340058",
-      "bytes": 687,
+      "path": "learn/ascent/content/w3s2.json",
+      "sha256": "a683472dc6dd4d2fb146e3100051fd7f281c62ad6d4a380ca8a0cd484c310ba2",
+      "bytes": 10914,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/ascent/content/w3s3.json",
+      "sha256": "096a70837fe4c9c223b955c388a3c339c10a6c1bb41ba069486b4a1bd7d5db59",
+      "bytes": 11926,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/ascent/course.json",
+      "sha256": "23e380070dfa4a189e300f3506b6360952da99baab93d607653b7067022e1363",
+      "bytes": 1919,
       "state": "changed"
+    },
+    {
+      "path": "learn/courses.json",
+      "sha256": "f51c4047bd61ef9b9c1b8f0328a6c5c0028a4c7535443bd4989762e10189b629",
+      "bytes": 689,
+      "state": "changed"
+    },
+    {
+      "path": "learn/graceco/content/cp1.json",
+      "sha256": "d1b006c4ed2dd40d9866ffeddb38593b639a5bd7e788fcea35c3a7fe6fb88ff3",
+      "bytes": 17512,
+      "state": "new"
     },
     {
       "path": "learn/graceco/content/w1s1.json",
       "sha256": "b008806c0c65909df800b917acb89d1e41055edfdd3997f237cf8442f73f5e68",
       "bytes": 3177,
-      "state": "changed"
+      "state": "unchanged"
     },
     {
       "path": "learn/graceco/content/w1s2.json",
       "sha256": "aaf668ec4e6c53b3de3432c6e18e364a1a738a146c7a2066c1d649a6f160c769",
       "bytes": 3390,
-      "state": "changed"
+      "state": "unchanged"
     },
     {
       "path": "learn/graceco/content/w1s3.json",
@@ -169,25 +255,43 @@
       "path": "learn/graceco/content/w2s1.json",
       "sha256": "069398a238bac247b6b2b62a3736bef3ffb1e888ae18122878cfe0d122ea62a2",
       "bytes": 6030,
-      "state": "changed"
+      "state": "unchanged"
     },
     {
       "path": "learn/graceco/content/w2s2.json",
       "sha256": "ba120a3dde0269be9081028bb4f7a0fe23293bc1cac6a9cb28772aabd9518f49",
       "bytes": 10319,
-      "state": "changed"
+      "state": "unchanged"
     },
     {
       "path": "learn/graceco/content/w2s3.json",
-      "sha256": "f58056c3683b75947ac7b82e96ffee57ce749f69f45383f716a5adebaf86aa00",
-      "bytes": 12134,
-      "state": "changed"
+      "sha256": "9a9bd057e6cef2d2fc24010978c0cdd4fef228924baf344eee3ce0124ad6dae8",
+      "bytes": 12205,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/graceco/content/w3s1.json",
+      "sha256": "b256881fb2569ea3f6e5bf56b89527ca386693831ae3908b779405f9e10f3c04",
+      "bytes": 11167,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/graceco/content/w3s2.json",
+      "sha256": "6247e4a204ca5f02fd764fbd45703095041b569fd29650cf964651afe6739f0e",
+      "bytes": 15468,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/graceco/content/w3s3.json",
+      "sha256": "ab8995892def58557149f362b95fe5e877e96feacf9be2a1f847c2e8b542f5ec",
+      "bytes": 12895,
+      "state": "unchanged"
     },
     {
       "path": "learn/graceco/course.json",
-      "sha256": "60ff0a4e125d99d939a5ca4e8186af150b33f605b8ad68a4a3c990ed5d4dfad9",
-      "bytes": 1362,
-      "state": "unchanged"
+      "sha256": "be157441a5dd6a9a037213708eec4c6bd2498924309e4c1e06c0b2107546bb1b",
+      "bytes": 1877,
+      "state": "changed"
     }
   ]
 }

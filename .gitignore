@@ -1,0 +1,10 @@
+# local state — never commit
+deploy.secrets.json
+.deploy-manifest-*.json
+__pycache__/
+*.pyc
+.DS_Store
+# the live results folder is server-owned; only the placeholder is tracked
+sites/*/learn/results/*.json
+# recovered learner state pulled back off the server — kids' answers, local only
+recovered/

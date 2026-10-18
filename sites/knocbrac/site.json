@@ -1,9 +1,13 @@
 {
-  "transport": "sftpcli",
+  "transport": "ftp",
   "host": "ftp.knocbrac.com",
-  "port": 22,
+  "use_tls": true,
   "user": "knocbraccom",
-  "ssh_options": ["PubkeyAcceptedAlgorithms=+ssh-rsa"],
+  "_sftp_when_migrated": {
+    "transport": "sftpcli", "port": 22,
+    "ssh_options": ["PubkeyAcceptedAlgorithms=+ssh-rsa"],
+    "_why": "Ready to swap in once knocbrac.com moves to 34sp's newer cluster (requested Oct 2026). The OLD cluster has no ssh/sftp at all: `mkdir .ssh` over sftp returns Permission denied on /, so key auth was never going to work regardless of the OpenSSH 5.3 / ssh-rsa problem. Keep ssh_options when swapping — the new cluster may still be old enough to need it. Verify first: sftp -b /dev/null -o BatchMode=yes -o PubkeyAcceptedAlgorithms=+ssh-rsa -P 22 knocbraccom@ftp.knocbrac.com must exit 0."
+  },
   "remote_root": "httpdocs",
   "site_url": "http://www.knocbrac.com",
   "sources": ["learn"],

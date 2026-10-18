@@ -42,6 +42,12 @@
           "id": "w2s3",
           "title": "Summit Puzzle: The Staircase",
           "time": "about 30 min"
+        },
+        {
+          "id": "cp1",
+          "title": "Checkpoint 1: Everything So Far",
+          "time": "about 30 min",
+          "kind": "checkpoint"
         }
       ]
     },
@@ -51,20 +57,17 @@
         {
           "id": "w3s1",
           "title": "The Mixing Room",
-          "time": "about 40 min",
-          "soon": true
+          "time": "about 40 min"
         },
         {
           "id": "w3s2",
           "title": "Scaling the Recipe",
-          "time": "about 40 min",
-          "soon": true
+          "time": "about 40 min"
         },
         {
           "id": "w3s3",
           "title": "Summit Puzzle: The Oxygen Mix",
-          "time": "about 30 min",
-          "soon": true
+          "time": "about 30 min"
         }
       ]
     },

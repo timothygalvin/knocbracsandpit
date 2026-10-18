@@ -1,0 +1,24 @@
+{
+  "id": "vozvrat",
+  "map": {
+    "heading": "{student}'s return route",
+    "blurb": "You lived there once, and the language is still in the walls. First walk the old streets and take stock of what survived. Then we plan the return properly: the people, the bar, the business."
+  },
+  "units": [
+    {
+      "title": "The Arrival",
+      "sessions": [
+        {
+          "id": "diag",
+          "title": "Walking the Old Streets",
+          "time": "in short sittings — save and return",
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "title": "Unit 1 · Route set by the diagnostic",
+      "sessions": []
+    }
+  ]
+}

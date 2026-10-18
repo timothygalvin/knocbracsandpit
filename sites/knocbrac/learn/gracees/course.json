@@ -1,0 +1,24 @@
+{
+  "id": "gracees",
+  "map": {
+    "heading": "{student}'s travel desk",
+    "blurb": "Spain is waiting. Before any trip, you check the suitcase — some things are already packed. Open it and see."
+  },
+  "units": [
+    {
+      "title": "Before we fly",
+      "sessions": [
+        {
+          "id": "diag",
+          "title": "The Suitcase",
+          "time": "about 35 min",
+          "kind": "checkpoint"
+        }
+      ]
+    },
+    {
+      "title": "Unit 1 · Destination set by the suitcase",
+      "sessions": []
+    }
+  ]
+}

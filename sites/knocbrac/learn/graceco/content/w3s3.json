@@ -1,0 +1,190 @@
+{
+  "id": "w3s3",
+  "kind": "session",
+  "tag": "Unit 3 · Market story",
+  "title": "The 0% Offer",
+  "intro": "The best adverts in banking use the smallest number there is. Today you read the small print.",
+  "blocks": [
+    {
+      "type": "read",
+      "html": "<p>An envelope arrives. Inside is an offer from the <b>Brightline Card</b>.</p><p style='font-size:1.2em'><b>0% interest for 12 months!</b></p><p>Underneath, in much smaller letters:</p><p><i>3% transfer fee. 20% a year after the offer ends.</i></p><p>Here is the question for the board.</p><p>Zero percent of anything is nothing.</p><p>So is this offer free?</p><p>An analyst never answers that from the big print. She checks three things, and you are going to check all three:</p><p><b>1.</b> What the fee costs on day one.<br><b>2.</b> What happens in month 13.<br><b>3.</b> What the minimum payment really pays off.</p>"
+    },
+    {
+      "type": "q",
+      "id": "c1",
+      "prompt": "Start with the fee. Marta owes <b>£500</b> on an old card, and she wants to move it to the Brightline Card.<br><br>The transfer fee is <b>3%</b> of the amount she moves.",
+      "hint": "Find 1% first — divide by 100. Then three lots of that.",
+      "parts": [
+        {
+          "id": "a",
+          "label": "1% of £500 (£)",
+          "type": "numeric",
+          "accept": [
+            5
+          ],
+          "_working": "1% means one hundredth: 500 ÷ 100 = £5. Her 1% gear from w1s1, used exactly as taught."
+        },
+        {
+          "id": "b",
+          "label": "3% of £500 — the transfer fee (£)",
+          "type": "numeric",
+          "accept": [
+            15
+          ],
+          "_working": "3% is three lots of 1%: 3 × £5 = £15."
+        }
+      ]
+    },
+    {
+      "type": "q",
+      "id": "c2",
+      "prompt": "Now the part the advert does not mention.<br><br>The fee is not a bill that arrives separately. It is <b>added straight onto what she owes</b>.<br><br>So on day one, before she has paid a single penny of it off, her debt is bigger than it was.",
+      "hint": "Add the fee to the £500 she moved. For the second one, find 1% of £1000 and take three of them.",
+      "parts": [
+        {
+          "id": "a",
+          "label": "What Marta owes on day one, fee included (£)",
+          "type": "numeric",
+          "accept": [
+            515
+          ],
+          "_working": "£500 moved plus the £15 fee = £515. She has borrowed nothing extra and bought nothing — the debt grew by £15 simply for accepting a 0% offer."
+        },
+        {
+          "id": "b",
+          "label": "If she had moved £1000 instead, the fee would be (£)",
+          "type": "numeric",
+          "accept": [
+            30
+          ],
+          "_working": "1% of £1000 = £10, so 3% = 3 × £10 = £30. The fee is a percentage, so it grows with the balance — the bigger the debt, the bigger the charge for moving it."
+        }
+      ]
+    },
+    {
+      "type": "reveal",
+      "button": "So why does the card company do this? ✨",
+      "html": "<p>Nobody at Brightline is being kind.</p><p>Look at what they get.</p><p>They collect <b>£15 on day one</b>. That is their revenue, before the offer has even started.</p><p>And they have bought something far more valuable than £15.</p><p>They have bought <b>Marta</b>.</p><p>You have seen this before. Riverbend Books lost money on purpose to buy customers. Brightline is doing the same thing — giving away 12 months of interest to win someone who will probably still be there in month 13.</p><p>Because here is what the card company knows, and the advert does not say:</p><p><b>most people do not clear the balance in 12 months.</b></p><p>The offer is not a gift. It is a bet. And the house is betting on month 13.</p>"
+    },
+    {
+      "type": "q",
+      "id": "c3",
+      "prompt": "Month 13. The offer has ended.<br><br>Marta has been paying a little each month, and she still owes <b>£400</b>.<br><br>Now the real rate switches on — the one in the small print.",
+      "hint": "The rate is in the small print at the top of the session. For the interest: find 10% of £400 first, then double it.",
+      "parts": [
+        {
+          "id": "a",
+          "label": "The rate that switches on, from the small print (%)",
+          "type": "numeric",
+          "accept": [
+            20,
+            0.2
+          ],
+          "_working": "20% a year, as printed. Both 20 and 0.2 are accepted because the engine reads a typed \"20%\" as 0.2 — without the decimal twin, a correct answer written with a percent sign would be marked wrong."
+        },
+        {
+          "id": "b",
+          "label": "Interest charged on the £400 in the first year after the offer (£)",
+          "type": "numeric",
+          "accept": [
+            80
+          ],
+          "_working": "10% of £400 = £40, so 20% = 2 × £40 = £80. (A real card adds its interest monthly rather than once a year, which makes it very slightly worse again — but the idea is the same and the monthly sum is not this unit's job.)"
+        }
+      ]
+    },
+    {
+      "type": "read",
+      "html": "<p>Before the last check, you need to know the <b>order things happen in</b>. It is the whole trick.</p><p>Every month the card does two things, and always in this order.</p><p><b>First</b> it adds the interest to what she owes.</p><p><b>Then</b> it takes her payment off.</p><p>That order is not an accident.</p><p>It means her payment does not go to her debt first. It has to get past the interest before any of it counts.</p><p>Think of it as climbing a down escalator.</p><p>She is climbing. The escalator is pulling her back.</p><p>If she climbs faster than it pulls, she gets there — slowly.</p><p>If she climbs at the same speed, she stays exactly where she is, paying every month, for ever.</p><p>This is the snowball from last meeting. Same maths. It is just rolling the other way, and she is underneath it.</p>"
+    },
+    {
+      "type": "q",
+      "id": "c4",
+      "prompt": "Boss question. The last question assumed Marta paid nothing at all. That is not fair on her — she <i>is</i> paying. She pays the <b>minimum payment</b> of £10 every month.<br><br>So in one year she hands over £120 of her own money.<br><br>And the card charges her £80 of interest over that same year.<br><br>Here is the year, laid out.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>The year after the offer ends</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>£</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Owed at the start of the year</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>400</td></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Interest added during the year</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>80</td></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Payments she made during the year</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>120</td></tr><tr><td style='padding:9px 11px'>Owed at the end of the year</td><td style='padding:9px 11px;text-align:right'><b>?</b></td></tr></table></div>",
+      "hint": "Start with the £400. Add the interest on. Then take her payments off. Do it in that order, one step at a time.",
+      "parts": [
+        {
+          "id": "a",
+          "label": "Owed at the end of the year (£)",
+          "type": "numeric",
+          "accept": [
+            360
+          ],
+          "_working": "400 + 80 = 480, then 480 − 120 = £360. The debt fell from £400 to £360."
+        },
+        {
+          "id": "b",
+          "label": "So how much did the debt actually go down over the whole year? (£)",
+          "type": "numeric",
+          "accept": [
+            40
+          ],
+          "_working": "400 − 360 = £40. A year of paying, and the debt is only £40 smaller."
+        },
+        {
+          "id": "c",
+          "label": "She paid £120. Only part of it cleared the debt. How much went to the card company instead? (£)",
+          "type": "numeric",
+          "accept": [
+            80
+          ],
+          "_working": "120 − 40 = £80 — which is exactly the interest. Two thirds of every payment she made went to Brightline and never touched what she owed. This is w3s2's snowball, running against her: the interest is charged first, and her payment has to climb over it before any of it counts."
+        }
+      ]
+    },
+    {
+      "type": "q",
+      "id": "c5",
+      "prompt": "★ The analyst's verdict. And the honest answer is not yes or no — it depends who is asking.<br><br>Two people get the same envelope. Both owe £500, so both would owe <b>£515</b> after the fee.<br><br><b>Priya</b> can afford £50 a month.<br><b>Dan</b> can afford £10 a month.",
+      "hint": "Work out what each of them actually pays over the 12 months of the offer. Then compare that with the £515 they owe.",
+      "parts": [
+        {
+          "id": "a",
+          "label": "Paying £50 a month, what Priya pays over the 12 months of the offer (£)",
+          "type": "numeric",
+          "accept": [
+            600
+          ],
+          "_working": "12 × £50 = £600, which is more than the £515 she owes — so she clears it inside the offer and never pays a penny of interest. Her total cost is just the £15 fee."
+        },
+        {
+          "id": "b",
+          "label": "Paying £10 a month, what Dan still owes at the end of month 12 (£)",
+          "type": "numeric",
+          "accept": [
+            395
+          ],
+          "_working": "12 × £10 = £120 paid. £515 − £120 = £395 still owed when the offer ends — and on that, 20% a year switches on. His \"0%\" offer turns into a 20% debt of £395."
+        },
+        {
+          "id": "c",
+          "label": "So who should take this offer — Priya or Dan?",
+          "type": "text",
+          "accept": [
+            "priya",
+            "priyah",
+            "preya",
+            "priya can",
+            "the 50",
+            "50",
+            "£50",
+            "fifty",
+            "priya50",
+            "the one paying 50",
+            "priya should",
+            "priya does"
+          ],
+          "_working": "Priya. Over the 12 months of the offer she pays 12 x £50 = £600, which is more than the £515 she owes, so she clears it inside the 0% window and the offer is genuinely good for her: she pays the £15 fee and nothing else. Dan pays 12 x £10 = £120 against £515, so he still owes £395 when month 13 arrives and the 20% switches on — the offer costs him the fee AND a year of lost time. Marked as TEXT, not a number: the natural answer to a 'who' question is a name, and the earlier numeric-only version would have shown 'Not yet - try again' to a child who typed priya. Accept list covers the name, common misspellings (never grade spelling for Grace), and the payment figure for anyone who answers the way the previous phrasing invited."
+        }
+      ]
+    },
+    {
+      "type": "summit",
+      "html": "<b>📈 Field assignment, analyst — and this one is real:</b><br><br>This week, find an advert offering <b>0%</b> or <b>interest free</b>. A card, a sofa, a phone, a car. They are everywhere once you start looking.<br><br>Find the small print. It is always there, and it is always smaller.<br><br>Then report to the board at dinner:<br><br>1. What did the advert want you to <i>feel</i>?<br>2. What is the fee, in real pounds, on £500?<br>3. What rate switches on at the end, and when exactly does it start?<br>4. Your verdict: who is this offer good for, and who is it a trap for?<br><br>Then the question to put to Dad: the card company knows most people will not clear the balance in time. <b>Should they be allowed to call it 0%?</b>"
+    }
+  ],
+  "done": {
+    "title": "UNIT 3 COMPLETE 🍋✓",
+    "html": "<p>The Bank is closed. Interest as rent on money — earned when you lend it, paid when you borrow it. Compounding, and the snowball that works for a saver and against a borrower. And now the hardest and most useful thing in the whole unit: reading the small print like an analyst, and finding the cost hidden inside the word <i>free</i>.</p><p>You worked out that a 0% offer costs £15 on day one, that two thirds of a minimum payment can vanish into interest, and that the same offer is a bargain for one person and a trap for another. Most adults sign these without doing any of that.</p><p>Next: <b>Unit 4 — The Trading Floor</b>. Shares, prices, and what a company is actually worth. Coming soon.</p>"
+  }
+}

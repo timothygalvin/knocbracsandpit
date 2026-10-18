@@ -1,0 +1,162 @@
+{
+  "id": "cp1",
+  "kind": "checkpoint",
+  "version": "v1",
+  "title": "Checkpoint 1: Everything So Far",
+  "sections": [
+    {
+      "id": "neg",
+      "name": "The Negative Zone",
+      "intro": "This is not a test you can fail — there is no pass mark and no score to beat. It decides what Unit 4 is made of, which means a skipped question is genuinely useful information: it tells us where to go next. Answer what you can, skip what you would be guessing at, and take the whole thing at your own pace. Four parts, about half an hour. Starting where you started: underneath zero.",
+      "questions": [
+        { "id": "n1", "level": 1, "prompt": "Straight up and down the line.",
+          "parts": [
+            { "id": "a", "label": "−6 + 10", "type": "numeric", "accept": [4],
+              "_working": "Start at −6 and climb 10. Six of those steps reach zero, the remaining four carry on upward, so the answer is +4." },
+            { "id": "b", "label": "4 − 11", "type": "numeric", "accept": [-7],
+              "_working": "Start at 4 and drop 11. Four steps reach zero and seven more go below it, giving −7." } ] },
+
+        { "id": "n2", "level": 2, "prompt": "Taking away a debt. The last one has three steps in it, so work left to right.",
+          "parts": [
+            { "id": "a", "label": "−5 − (−9)", "type": "numeric", "accept": [4],
+              "_working": "Subtracting a negative adds: −5 − (−9) = −5 + 9 = 4. Nine steps up from −5 clears zero by four." },
+            { "id": "b", "label": "12 − (−8)", "type": "numeric", "accept": [20],
+              "_working": "12 − (−8) = 12 + 8 = 20. The debt of 8 is cancelled, so he is 8 better off." },
+            { "id": "c", "label": "−9 + 20 − (−5)", "type": "numeric", "accept": [16],
+              "_working": "Left to right: −9 + 20 = 11. Then 11 − (−5) = 11 + 5 = 16. This is the same shape as the question that beat his diagnostic (−8 + 15 − (−6) = 13), with fresh numbers so it tests the method rather than the memory." } ] },
+
+        { "id": "n3", "level": 2, "prompt": "Signs, in multiplication and division. Check the sign first, then do the numbers.",
+          "parts": [
+            { "id": "a", "label": "(−7) × (−5)", "type": "numeric", "accept": [35],
+              "_working": "Same signs give a positive: 7 × 5 = 35, so the answer is +35. This is the family of (−4) × (−6) = 24, which his diagnostic got wrong before w1s2 fixed it." },
+            { "id": "b", "label": "(−36) ÷ (−9)", "type": "numeric", "accept": [4],
+              "_working": "Same signs give a positive: 36 ÷ 9 = 4, so +4. (What times −9 makes −36? Four.)" },
+            { "id": "c", "label": "24 ÷ (−6)", "type": "numeric", "accept": [-4],
+              "_working": "Different signs give a negative: 24 ÷ 6 = 4, so −4. (What times −6 makes 24? −4.)" } ] },
+
+        { "id": "n4", "level": 3, "prompt": "The mine lift again, with a new shift. It starts at level <b>−7</b> and makes three moves: up 5, down 3, up 8.<br><br>Remember that the cable counter does not care which direction the lift went — it counts every level travelled.",
+          "parts": [
+            { "id": "a", "label": "Level it finishes on", "type": "numeric", "accept": [3],
+              "_working": "Track it move by move: −7 + 5 = −2, then −2 − 3 = −5, then −5 + 8 = +3. It finishes three levels above ground." },
+            { "id": "b", "label": "Total levels travelled, as the cable counter reads it", "type": "numeric", "accept": [16],
+              "_working": "Add the sizes and ignore the signs — absolute value: 5 + 3 + 8 = 16. Worth noticing that the lift travelled 16 levels to end up 10 above where it started; the two numbers answer different questions." } ] }
+      ]
+    },
+    {
+      "id": "seq",
+      "name": "The Sequence Detective",
+      "intro": "Patterns, and the shortcut that beats counting. Same detective work as Unit 2's first session.",
+      "questions": [
+        { "id": "s1", "level": 1, "prompt": "The sequence <b>6, 11, 16, 21, …</b>",
+          "parts": [
+            { "id": "a", "label": "Common difference", "type": "numeric", "accept": [5],
+              "_working": "11 − 6 = 5, and it holds for the next pairs too (16 − 11 = 5, 21 − 16 = 5)." },
+            { "id": "b", "label": "Next term", "type": "numeric", "accept": [26],
+              "_working": "21 + 5 = 26." } ] },
+
+        { "id": "s2", "level": 2, "prompt": "Detectives handle sequences that go down as well. <b>50, 43, 36, 29, …</b>",
+          "parts": [
+            { "id": "a", "label": "Common difference", "type": "numeric", "accept": [-7],
+              "_working": "43 − 50 = −7. The gap is negative, which is where Unit 1's negatives earn their keep." },
+            { "id": "b", "label": "Next term", "type": "numeric", "accept": [22],
+              "_working": "29 − 7 = 22." } ] },
+
+        { "id": "s3", "level": 2, "prompt": "Back to <b>6, 11, 16, 21, …</b> and the jumps shortcut. Counting up term by term is for amateurs.",
+          "parts": [
+            { "id": "a", "label": "20th term", "type": "numeric", "accept": [101],
+              "_working": "From the 1st term to the 20th is 19 jumps of 5: 6 + 19 × 5 = 6 + 95 = 101." },
+            { "id": "b", "label": "50th term", "type": "numeric", "accept": [251],
+              "_working": "49 jumps of 5: 6 + 49 × 5 = 6 + 245 = 251." } ] },
+
+        { "id": "s4", "level": 3, "prompt": "A sequence falling in sevens: <b>100, 93, 86, 79, …</b><br><br>Somebody claims it passes straight through zero. Settle it.",
+          "parts": [
+            { "id": "a", "label": "15th term", "type": "numeric", "accept": [2],
+              "_working": "14 jumps of −7 from 100: 100 + 14 × (−7) = 100 − 98 = 2. So it gets to within two of zero and the next term is −5." },
+            { "id": "b", "label": "Does it land on zero exactly? (yes or no)", "type": "text",
+              "accept": ["no", "nope", "never", "false", "it doesnt", "it doesn't", "no it doesnt", "no it doesn't", "not exactly", "impossible"],
+              "_working": "No. Landing on zero needs 100 to be a whole number of 7s, and 100 ÷ 7 is 14 remainder 2 — it is not. The sequence steps 2, then −5, straight over zero without touching it." },
+            { "id": "c", "label": "In your own words, how can you be certain it never lands on zero? (Write as much or as little as you like.)", "type": "text",
+              "_working": "HUMAN REVIEW — no accept list, so the engine marks this \"review\" and renders it as a textarea. What we are looking for is whether he reaches for divisibility (does 7 divide 100?) rather than \"I listed the terms and zero was not there\". The first is a proof; the second is a search. The distinction is the real finding of this section, and it is worth more than any of the numeric marks." } ] }
+      ]
+    },
+    {
+      "id": "pos",
+      "name": "The Position Machine",
+      "intro": "The nth term. A rule for a whole sequence in a handful of characters.",
+      "questions": [
+        { "id": "p1", "level": 1, "prompt": "A sequence has the rule <b>4n + 3</b>, where n is the position. Feed the machine.",
+          "parts": [
+            { "id": "a", "label": "1st term", "type": "numeric", "accept": [7],
+              "_working": "n = 1: 4 × 1 + 3 = 7." },
+            { "id": "b", "label": "10th term", "type": "numeric", "accept": [43],
+              "_working": "n = 10: 4 × 10 + 3 = 43." } ] },
+
+        { "id": "p2", "level": 2, "prompt": "Another machine: <b>6n − 1</b>. No counting required for either of these.",
+          "parts": [
+            { "id": "a", "label": "20th term", "type": "numeric", "accept": [119],
+              "_working": "n = 20: 6 × 20 − 1 = 120 − 1 = 119." },
+            { "id": "b", "label": "100th term", "type": "numeric", "accept": [599],
+              "_working": "n = 100: 6 × 100 − 1 = 600 − 1 = 599." } ] },
+
+        { "id": "p3", "level": 2, "prompt": "Now the other way round — you write the rule. The gap goes in front of n, then step back one gap from the first term to find what to add or take away. (Type them like <b>4n+3</b>.)",
+          "parts": [
+            { "id": "a", "label": "5, 9, 13, 17, …", "type": "text",
+              "accept": ["4n+1", "4*n+1", "4×n+1", "n*4+1", "n×4+1", "1+4n"],
+              "_working": "Gap: 9 − 5 = 4, constant across the pairs, so the rule starts 4n. Zeroth term: 5 − 4 = 1. Rule 4n + 1. Middle check: n = 3 gives 12 + 1 = 13 ✓. Accept covers the ×/* forms (the engine maps both to x) and the reversed order." },
+            { "id": "b", "label": "2, 9, 16, 23, …", "type": "text",
+              "accept": ["7n-5", "7n−5", "7*n-5", "7*n−5", "7×n-5", "7×n−5", "n*7-5", "n*7−5", "-5+7n", "−5+7n"],
+              "_working": "Gap: 9 − 2 = 7 (16 − 9 = 7, 23 − 16 = 7 ✓), so the rule starts 7n. Zeroth term: 2 − 7 = −5. Rule 7n − 5. Middle check: n = 3 gives 21 − 5 = 16 ✓. Deliberately not another +1 answer, so part a's shape cannot simply be copied. Accept carries both the hyphen-minus and the unicode minus a tablet keyboard might produce." } ] },
+
+        { "id": "p4", "level": 2, "prompt": "One that goes downhill: <b>40, 36, 32, 28, …</b>",
+          "parts": [
+            { "id": "a", "label": "The nth term rule", "type": "text",
+              "accept": ["44-4n", "44−4n", "-4n+44", "−4n+44", "44-4*n", "44−4*n", "44-4×n", "44−4×n", "-4*n+44", "−4*n+44"],
+              "_working": "Gap: 36 − 40 = −4, so the rule starts −4n. Zeroth term: step back one gap from 40, which is 40 − (−4) = 44 — subtracting a negative, from Unit 1. Rule 44 − 4n. Checks: n = 1 gives 44 − 4 = 40 ✓, n = 4 gives 44 − 16 = 28 ✓." } ] },
+
+        { "id": "p5", "level": 3, "prompt": "Stretch. Running a machine <i>backwards</i>: given a number, find where it sits. The rule is <b>4n + 1</b>, the one from two questions ago.",
+          "parts": [
+            { "id": "a", "label": "101 is which term?", "type": "numeric", "accept": [25],
+              "_working": "Undo the machine in reverse order: 101 − 1 = 100, then 100 ÷ 4 = 25. So 101 is the 25th term. Forward check: 4 × 25 + 1 = 101 ✓." },
+            { "id": "b", "label": "Is 100 in this sequence? (yes or no)", "type": "text",
+              "accept": ["no", "nope", "never", "false", "it isnt", "it isn't", "no it isnt", "no it doesn't", "not in it", "impossible"],
+              "_working": "100 − 1 = 99, and 99 ÷ 4 = 24.75 — not whole, so 100 cannot be a term. The terms either side are 4 × 24 + 1 = 97 and 4 × 25 + 1 = 101." },
+            { "id": "c", "label": "In your own words: how do you tell that a number is NOT in a sequence? (Write as much or as little as you like.)", "type": "text",
+              "_working": "HUMAN REVIEW — no accept list, marks as \"review\", renders as a textarea. This is the single most important answer in the checkpoint. The backwards move is exactly where w2s2 lost him: he answered its first two questions and left the remaining four blank. Asking him to EXPLAIN rather than compute is a gentler probe of the same ground, and a skip here is as informative as a paragraph. If he can describe undoing the machine and checking whether the division comes out whole, the idea landed late rather than not at all." } ] }
+      ]
+    },
+    {
+      "id": "stair",
+      "name": "The Staircase",
+      "intro": "Last part. The blocks and the handrail, from the summit puzzle.",
+      "questions": [
+        { "id": "t1", "level": 1, "prompt": "A staircase with n steps is built from columns of 1, 2, 3, … n blocks.",
+          "parts": [
+            { "id": "a", "label": "Blocks in a 5-step staircase", "type": "numeric", "accept": [15],
+              "_working": "1 + 2 + 3 + 4 + 5 = 15." },
+            { "id": "b", "label": "Blocks in a 6-step staircase", "type": "numeric", "accept": [21],
+              "_working": "15 + 6 = 21, or directly 6 × 7 ÷ 2 = 21." } ] },
+
+        { "id": "t2", "level": 2, "prompt": "Both rules, doing real work. The handrail runs around the outside and is counted in block-edges.",
+          "parts": [
+            { "id": "a", "label": "Blocks in a 20-step staircase", "type": "numeric", "accept": [210],
+              "_working": "n × (n + 1) ÷ 2 with n = 20: 20 × 21 ÷ 2 = 420 ÷ 2 = 210." },
+            { "id": "b", "label": "Handrail for a 20-step staircase (units)", "type": "numeric", "accept": [80],
+              "_working": "4n with n = 20: 4 × 20 = 80. The stepping in and out costs the handrail nothing, because the treads and risers slide into the sides of the 20-by-20 square." },
+            { "id": "c", "label": "A handrail of 48 units fits a staircase of how many steps?", "type": "numeric", "accept": [12],
+              "_working": "Run 4n backwards: 48 ÷ 4 = 12 steps. Forward check: 4 × 12 = 48 ✓." } ] },
+
+        { "id": "t3", "level": 3, "prompt": "The pairing trick, and then the same trick in reverse.",
+          "parts": [
+            { "id": "a", "label": "1 + 2 + 3 + … + 60", "type": "numeric", "accept": [1830],
+              "_working": "Pair from the outside in: 1 + 60 = 61, 2 + 59 = 61, and so on. Sixty numbers make thirty pairs of 61: 30 × 61 = 1830. Same as 60 × 61 ÷ 2." },
+            { "id": "b", "label": "A staircase uses exactly 36 blocks. How many steps has it?", "type": "numeric", "accept": [8],
+              "_working": "Want n × (n + 1) ÷ 2 = 36, so n × (n + 1) = 72. Since 8 × 9 = 72, n = 8. Check: 1 + 2 + … + 8 = 36 ✓. (Trying either side: 7 steps gives 28 blocks, 9 gives 45.)" } ] },
+
+        { "id": "t4", "level": 3, "prompt": "Hardest thing here, and worth a go even if it does not come out. On a small staircase the handrail number beats the block number. On a big one the blocks run away. Somewhere in between, the blocks are exactly <b>double</b> the handrail.<br><br>Find that staircase.",
+          "parts": [
+            { "id": "a", "label": "Number of steps", "type": "numeric", "accept": [15],
+              "_working": "Want blocks = 2 × handrail: n(n+1)/2 = 2 × 4n = 8n. Divide both sides by n (n is not zero): (n + 1)/2 = 8, so n + 1 = 16 and n = 15. Check: blocks 15 × 16 ÷ 2 = 120, handrail 4 × 15 = 60, and 120 is exactly double 60 ✓. By trial: 14 steps gives 105 blocks against a 56 handrail (ratio under 2), 16 gives 136 against 64 (ratio over 2). Extends w2s3's crossover — that one found where the two were EQUAL, at 7 steps; this is the same method aimed at a different target, so it rewards understanding rather than recall." } ] }
+      ]
+    }
+  ]
+}

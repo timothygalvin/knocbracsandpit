@@ -1,0 +1,164 @@
+{
+  "id": "cp1",
+  "kind": "checkpoint",
+  "version": "v1",
+  "title": "Checkpoint 1: The Audit",
+  "sections": [
+    {
+      "id": "toolkit",
+      "name": "Part 1 · The Percentage Toolkit",
+      "intro": "Welcome to your own audit, analyst.<br><br>There is no pass mark here. Nothing is being graded.<br><br>This decides what your next unit is made of — so an honest answer helps you more than a lucky one.<br><br>You can skip anything. A skip is useful information, not a failure. It tells me where to go next.<br><br>Start with your oldest tool: the gears.",
+      "questions": [
+        { "id": "t1", "level": 1,
+          "prompt": "Your stall takes <b>£80</b> today.",
+          "parts": [
+            { "id": "a", "label": "10% of £80 (£)", "type": "numeric", "accept": [8],
+              "_working": "10% means divide by 10: 80 ÷ 10 = £8. The 10% machine from board meeting 1." },
+            { "id": "b", "label": "5% of £80 (£)", "type": "numeric", "accept": [4],
+              "_working": "5% is half of 10%: half of £8 = £4." } ] },
+
+        { "id": "t2", "level": 1,
+          "prompt": "A busier day. The stall takes <b>£300</b>.",
+          "parts": [
+            { "id": "a", "label": "10% of £300 (£)", "type": "numeric", "accept": [30],
+              "_working": "300 ÷ 10 = £30." },
+            { "id": "b", "label": "1% of £300 (£)", "type": "numeric", "accept": [3],
+              "_working": "1% is the 10% divided by 10 again: £30 ÷ 10 = £3." } ] },
+
+        { "id": "t3", "level": 2,
+          "prompt": "A quiet day. The stall takes <b>£60</b>.",
+          "parts": [
+            { "id": "a", "label": "25% of £60 (£)", "type": "numeric", "accept": [15],
+              "_working": "25% is a quarter: halve £60 to £30, halve again to £15." },
+            { "id": "b", "label": "75% of £60 (£)", "type": "numeric", "accept": [45],
+              "_working": "75% is three quarters: the quarter is £15, so 3 × £15 = £45. (Or £60 − £15.)" } ] },
+
+        { "id": "t4", "level": 3,
+          "prompt": "Now build two awkward ones out of your gears, like Lego.",
+          "parts": [
+            { "id": "a", "label": "15% of £80 (£)", "type": "numeric", "accept": [12],
+              "_working": "15% is 10% plus 5%: £8 + £4 = £12." },
+            { "id": "b", "label": "95% of £140 (£)", "type": "numeric", "accept": [133],
+              "_working": "The clever route is backwards: 95% is everything except 5%. 10% of £140 = £14, so 5% = £7, and £140 − £7 = £133. Building it forwards from 50 + 25 + 20 also works but takes longer — either way earns the mark." } ] }
+      ]
+    },
+    {
+      "id": "signs",
+      "name": "Part 2 · Reading a Sale Sign",
+      "intro": "Shops spend millions on these signs.<br><br>You learned to read them like an analyst. Prove it.",
+      "questions": [
+        { "id": "s1", "level": 1,
+          "prompt": "A coat is priced at <b>£40</b>. The sign says <b>25% off</b>.",
+          "parts": [
+            { "id": "a", "label": "Money off (£)", "type": "numeric", "accept": [10],
+              "_working": "25% of £40 is a quarter: halve to £20, halve again to £10." },
+            { "id": "b", "label": "What you actually pay (£)", "type": "numeric", "accept": [30],
+              "_working": "£40 − £10 = £30." } ] },
+
+        { "id": "s2", "level": 2,
+          "prompt": "Another sign, the classic one.<br><br>It says <b>WAS £80 — NOW £60</b>.",
+          "parts": [
+            { "id": "a", "label": "Money off (£)", "type": "numeric", "accept": [20],
+              "_working": "£80 − £60 = £20." },
+            { "id": "b", "label": "So what percentage off is that? (%)", "type": "numeric", "accept": [25, 0.25],
+              "_working": "£20 out of the old price £80 = 20/80 = a quarter = 25%. The analyst's reverse move from board meeting 3. Both 25 and 0.25 are accepted because the engine reads a typed \"25%\" as 0.25 — without the twin, a correct answer written with a percent sign marks wrong." } ] },
+
+        { "id": "s3", "level": 2,
+          "prompt": "Two shops, and the same coat in both. Each one is priced at <b>£100</b> before any discount.<br><br>Shop A takes <b>30% off</b>. Shop B takes <b>£25 off</b>.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Price before</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>The offer</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Shop A</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£100</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>30% off</td></tr><tr><td style='padding:9px 11px'>Shop B</td><td style='padding:9px 11px;text-align:right'>£100</td><td style='padding:9px 11px;text-align:right'>£25 off</td></tr></table></div>",
+          "parts": [
+            { "id": "a", "label": "Shop A's price (£)", "type": "numeric", "accept": [70],
+              "_working": "30% of £100 = £30 off, so £100 − £30 = £70. (Out of 100 the percentage IS the money.)" },
+            { "id": "b", "label": "Shop B's price (£)", "type": "numeric", "accept": [75],
+              "_working": "£100 − £25 = £75." },
+            { "id": "c", "label": "Which shop is cheaper — A or B?", "type": "text",
+              "accept": ["a", "shopa", "shop a", "a is", "shop a is", "the first", "first", "first one"],
+              "_working": "Shop A, at £70 against £75. The bigger-sounding offer happens to be the better one here, which is not always true — s4 is where that bites." } ] },
+
+        { "id": "s4", "level": 3,
+          "prompt": "A sneaky one. A game's sign says <b>WAS £50 — NOW £40</b>.<br><br>Above it, in big letters, the shop claims <b>25% OFF!</b>",
+          "parts": [
+            { "id": "a", "label": "The real discount (%)", "type": "numeric", "accept": [20, 0.2],
+              "_working": "£10 off out of £50 = 10/50 = 1/5 = 20%. Decimal twin included for a typed \"20%\"." },
+            { "id": "b", "label": "Is the sign telling the truth? (yes/no)", "type": "text",
+              "accept": ["no", "nope", "false", "lying", "its lying", "it's lying", "not true", "no its not", "no it isn't", "no it isnt", "dishonest"],
+              "_working": "No. The real discount is 20%, and the sign claims 25% — it has flattered itself by five percentage points. This is the question that proves the whole of board meeting 3 landed." } ] }
+      ]
+    },
+    {
+      "id": "profit",
+      "name": "Part 3 · Profit, Properly",
+      "intro": "Now the books.<br><br>Revenue is money in. Costs are money out. Profit is what is left.<br><br>These are fresh numbers, not the week you already did — so this checks the method, not your memory.",
+      "questions": [
+        { "id": "p1", "level": 1,
+          "prompt": "<b>Monday.</b> The stall takes <b>£84</b>. It spends <b>£31</b>.",
+          "parts": [
+            { "id": "a", "label": "Monday's profit (£)", "type": "numeric", "accept": [53],
+              "_working": "84 − 31 = £53." } ] },
+
+        { "id": "p2", "level": 1,
+          "prompt": "<b>Tuesday</b> is awful. The stall takes <b>£26</b> and spends <b>£31</b>.",
+          "parts": [
+            { "id": "a", "label": "Tuesday's profit (£, use a minus sign)", "type": "numeric", "accept": [-5],
+              "_working": "26 − 31 = −5. A loss of £5. Money out was bigger than money in, so the answer drops below zero — Unit 1's negatives earning their keep." } ] },
+
+        { "id": "p3", "level": 2,
+          "prompt": "Here is a whole fresh week, already worked out day by day.<br><br>Monday made £40. Tuesday lost £6. Wednesday made £25. Thursday made nothing at all. Friday made £51.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Mon</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Tue</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Wed</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Thu</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Fri</th></tr><tr><td style='padding:9px 11px'>Profit that day</td><td style='padding:9px 11px;text-align:right'>£40</td><td style='padding:9px 11px;text-align:right'>−£6</td><td style='padding:9px 11px;text-align:right'>£25</td><td style='padding:9px 11px;text-align:right'>£0</td><td style='padding:9px 11px;text-align:right'>£51</td></tr></table></div>",
+          "parts": [
+            { "id": "a", "label": "The whole week's profit, Monday to Friday (£)", "type": "numeric", "accept": [110],
+              "_working": "40 − 6 + 25 + 0 + 51. Running total: 40, then 34, then 59, then 59, then £110. Tuesday's loss takes £6 away rather than adding it, which is the only trap in the question." } ] },
+
+        { "id": "p4", "level": 3,
+          "prompt": "Saturday, and this one runs backwards.<br><br>You know the profit was <b>£45</b>. You know the costs were <b>£38</b>.<br><br>Nobody wrote down the takings.",
+          "parts": [
+            { "id": "a", "label": "Saturday's revenue (£)", "type": "numeric", "accept": [83],
+              "_working": "Profit = revenue − costs, so revenue = profit + costs = 45 + 38 = £83. Check it forwards: 83 − 38 = 45 ✓." },
+            { "id": "b", "label": "In one sentence, how did you work that out?", "type": "text",
+              "_working": "HUMAN REVIEW — no accept list, so this renders as a textarea and marks as \"review\" whatever she writes. There is no wrong answer. What to look for: does she describe undoing the subtraction (adding the costs back on), or does she describe guessing and checking? Both get to £83, but they are different stages of understanding, and that difference decides how much scaffolding Unit 4 needs. A skip here is also informative." } ] }
+      ]
+    },
+    {
+      "id": "margin",
+      "name": "Part 4 · The Margin",
+      "intro": "Last part, and the hardest.<br><br>A profit on its own tells you almost nothing. The margin is the number that judges it.",
+      "questions": [
+        { "id": "m1", "level": 1,
+          "prompt": "You buy a box of trainers for <b>£40</b>. You sell them for <b>£50</b>.",
+          "parts": [
+            { "id": "a", "label": "Profit (£)", "type": "numeric", "accept": [10],
+              "_working": "50 − 40 = £10." },
+            { "id": "b", "label": "Margin (%)", "type": "numeric", "accept": [25, 0.25],
+              "_working": "£10 profit compared with the £40 it cost: 10/40 = a quarter = 25%. Decimal twin for a typed \"25%\"." } ] },
+
+        { "id": "m2", "level": 2,
+          "prompt": "Two market stalls, and they made exactly the same profit.<br><br>Ana spends <b>£50</b> and makes <b>£10</b>. Ben spends <b>£200</b> and also makes <b>£10</b>.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>What they spend</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Profit</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Ana</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£50</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£10</td></tr><tr><td style='padding:9px 11px'>Ben</td><td style='padding:9px 11px;text-align:right'>£200</td><td style='padding:9px 11px;text-align:right'>£10</td></tr></table></div>",
+          "parts": [
+            { "id": "a", "label": "Ana's margin (%)", "type": "numeric", "accept": [20, 0.2],
+              "_working": "10/50 = 1/5 = 20%. Gear check: 10% of £50 is £5, so £10 is 20%." },
+            { "id": "b", "label": "Ben's margin (%)", "type": "numeric", "accept": [5, 0.05],
+              "_working": "10/200 = 1/20 = 5%. Gear check: 10% of £200 is £20, so £10 is half of that, 5%." },
+            { "id": "c", "label": "Whose money is working harder — Ana or Ben?", "type": "text",
+              "accept": ["ana", "anas", "ana's", "ana is", "ana of course", "ana!"],
+              "_working": "Ana. Same £10 of profit from a quarter of the money. Phrased as \"working harder\" rather than \"better business\" on purpose — it is the margin that is being asked about, not a verdict on the people." } ] },
+
+        { "id": "m3", "level": 2,
+          "prompt": "Now the trap you have met before.<br><br>Business A spends <b>£60</b> and runs a margin of <b>50%</b>. Business B spends <b>£400</b> and runs a margin of <b>10%</b>.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>What it spends</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Margin</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Business A</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£60</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>50%</td></tr><tr><td style='padding:9px 11px'>Business B</td><td style='padding:9px 11px;text-align:right'>£400</td><td style='padding:9px 11px;text-align:right'>10%</td></tr></table></div>",
+          "parts": [
+            { "id": "a", "label": "Business A's profit (£)", "type": "numeric", "accept": [30],
+              "_working": "50% of £60 = half = £30." },
+            { "id": "b", "label": "Business B's profit (£)", "type": "numeric", "accept": [40],
+              "_working": "10% of £400 = £40." },
+            { "id": "c", "label": "Which one puts more money in the till — A or B?", "type": "text",
+              "accept": ["b", "businessb", "business b", "b is", "b!", "the second", "second", "second one"],
+              "_working": "Business B, at £40 against £30 — a fifth of A's margin and still more money, because it is working with far more cost. The margin judges a profit; it does not tell you the size of one." } ] },
+
+        { "id": "m4", "level": 3,
+          "prompt": "Last question, analyst, and it is a judgement rather than a sum.<br><br>A small online bookshop lost <b>£30</b> in its first year and lost <b>£10</b> in its second year.<br><br>Its revenue was <b>£100</b> in year 1 and <b>£400</b> in year 2.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 1</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 2</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Revenue</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£100</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£400</td></tr><tr><td style='padding:9px 11px'>Loss that year</td><td style='padding:9px 11px;text-align:right'>£30</td><td style='padding:9px 11px;text-align:right'>£10</td></tr></table></div>",
+          "parts": [
+            { "id": "a", "label": "Both years added together, what is the total profit? (£, use a minus sign)", "type": "numeric", "accept": [-40],
+              "_working": "A loss of £30 and a loss of £10: (−30) + (−10) = −£40. Two years of trading, £40 down." },
+            { "id": "b", "label": "In one sentence — would you put your own money into it, and why?", "type": "text",
+              "_working": "HUMAN REVIEW — no accept list, so it renders as a textarea and marks as \"review\". There is no right answer and both verdicts are defensible. What to look for: does she notice that the revenue QUADRUPLED while the loss SHRANK to a third? That pair is the Riverbend shape from board meeting 6, and spotting it unprompted is the single most advanced thing in this checkpoint. A \"no\" with a reason about the losses is still a good answer; a \"yes\" that cites the growth is better; noticing both directions is best of all. A skip tells me growth-versus-profit has not landed yet and Unit 4 should revisit it." } ] }
+      ]
+    }
+  ]
+}
