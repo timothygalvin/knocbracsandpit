@@ -1,0 +1,5 @@
+{
+  "artefact": "code",
+  "version": "1.1.0",
+  "_note": "Platform code version, semantic. MAJOR is the breaking boundary for content: content names the MAJOR it was authored against in courses.json 'requires_code', and only a MAJOR bump can invalidate it — minor and patch never break content. Every ?v= asset include in shipped HTML must equal this string exactly; the 'cache' check enforces it and the 'compat' check enforces the rest. This file is code-owned and ships on the --code path only, which is what lets content deploy without touching an engine file. Supersedes the old r1-r6 asset counter: r6 == 1.0.0."
+}

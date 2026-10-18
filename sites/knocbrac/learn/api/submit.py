@@ -8,6 +8,7 @@ Email settings live in config.txt next to this script.
 """
 import sys, os, json, re, html
 from datetime import datetime
+from urllib.parse import parse_qs
 
 # ---- configuration: edit api/config.txt, NOT this file ----
 NOTIFY_EMAIL = "timothy@knocbrac.com"
@@ -73,8 +74,35 @@ def send_mail(subject, text):
     except Exception:
         return False
 
+def state_path(course):
+    """One file per course. Named state-<course>.json so it can never match
+    the progress glob '<course>-*.json' nor be read as a submitted result."""
+    return os.path.join(RESULTS_DIR, "state-%s.json" % clean(course, "course"))
+
+def load_state(course):
+    try:
+        with open(state_path(course), encoding="utf-8") as fh:
+            got = json.load(fh)
+        return got if isinstance(got, dict) else {}
+    except Exception:
+        return {}
+
+def save_state(course, session, work):
+    """Merge one session's in-progress work into the course's state file.
+    Mirrors submit.php exactly — keep the two in step."""
+    allw = load_state(course)
+    if not isinstance(work, dict):
+        work = {}
+    work["savedAt"] = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+    allw[clean(session, "s")] = work
+    os.makedirs(RESULTS_DIR, exist_ok=True)
+    with open(state_path(course), "w", encoding="utf-8") as fh:
+        json.dump(allw, fh, indent=2, ensure_ascii=False)
+    return work["savedAt"]
+
 def rebuild_index():
-    files = sorted((f for f in os.listdir(RESULTS_DIR) if f.endswith(".json")),
+    files = sorted((f for f in os.listdir(RESULTS_DIR)
+                    if f.endswith(".json") and not f.startswith("state-")),
                    reverse=True)
     rows = []
     for f in files:
@@ -104,6 +132,11 @@ def rebuild_index():
 def main():
     _load_config()
     if os.environ.get("REQUEST_METHOD") != "POST":
+        qs = parse_qs(os.environ.get("QUERY_STRING", ""))
+        if "state" in qs:
+            course = qs["state"][0]
+            respond({"ok": True, "course": clean(course, "course"),
+                     "sessions": load_state(course)})
         respond({"ok": False, "error": "POST only"}, "405 Method Not Allowed")
     try:
         n = int(os.environ.get("CONTENT_LENGTH") or 0)
@@ -115,6 +148,12 @@ def main():
         data = json.loads(sys.stdin.buffer.read(n).decode("utf-8"))
     except Exception:
         respond({"ok": False, "error": "invalid JSON"}, "400 Bad Request")
+
+    if data.get("kind") == "state":
+        saved = save_state(data.get("course"), data.get("session"),
+                           data.get("work"))
+        respond({"ok": True, "saved": clean(data.get("session"), "s"),
+                 "savedAt": saved})
 
     course  = clean(data.get("course"), "course")
     kind    = clean(data.get("kind"), "session")

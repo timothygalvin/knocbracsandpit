@@ -115,6 +115,43 @@ class FakeBatchRunner(object):
                 raise AssertionError("unexpected batch line: " + line)
 
 
+class SftpCliCommand(unittest.TestCase):
+    """The sftp argv is where legacy-host crypto policy lives, so pin it.
+    knocbrac's sshd is OpenSSH 5.3: ssh-rsa (SHA-1) is the ONLY signature
+    it can do for key auth, and OpenSSH 8.8+ clients disable that by
+    default — they load the key, discard it, and report
+    "Permission denied (publickey,password)". Hence ssh_options."""
+
+    def test_ssh_options_are_passed_through(self):
+        site = {"user": "u", "host": "h", "port": 2222,
+                "ssh_options": ["PubkeyAcceptedAlgorithms=+ssh-rsa", "Foo=bar"]}
+        cmd = D.SftpCliTransport(site)._cmd("/tmp/b.sftp")
+        self.assertEqual(cmd[0], "sftp")
+        self.assertEqual(cmd[cmd.index("-b") + 1], "/tmp/b.sftp")
+        self.assertEqual(cmd[cmd.index("-P") + 1], "2222")
+        self.assertEqual(cmd[-1], "u@h", "destination must come last")
+        for opt in ("BatchMode=yes", "PubkeyAcceptedAlgorithms=+ssh-rsa", "Foo=bar"):
+            self.assertIn(opt, cmd)
+            self.assertEqual(cmd[cmd.index(opt) - 1], "-o",
+                             "each option needs its own -o: " + opt)
+
+    def test_defaults_without_ssh_options(self):
+        cmd = D.SftpCliTransport({"user": "u", "host": "h"})._cmd("/b")
+        self.assertEqual(cmd[cmd.index("-P") + 1], "22")
+        self.assertIn("BatchMode=yes", cmd)
+        self.assertEqual(cmd[-1], "u@h")
+
+    def test_knocbrac_declares_the_legacy_algorithm(self):
+        """Config must match the host reality, or deploys silently can't auth."""
+        site = json.load(open(os.path.join(SITE_DIR, "site.json"), encoding="utf-8"))
+        if site.get("transport") != "sftpcli":
+            self.skipTest("knocbrac is not on sftpcli")
+        self.assertTrue(
+            any("ssh-rsa" in o for o in site.get("ssh_options", [])),
+            "host is OpenSSH 5.3; without PubkeyAcceptedAlgorithms=+ssh-rsa "
+            "key auth cannot succeed from a modern client")
+
+
 class SftpCliProof(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()

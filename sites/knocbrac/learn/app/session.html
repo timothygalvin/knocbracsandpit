@@ -7,11 +7,11 @@
 <title>Session</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/base.css?v=r6">
+<link rel="stylesheet" href="../assets/base.css?v=1.1.0">
 </head>
 <body>
 <div class="wrap" id="main"><div class="card"><p class="sub">Loading…</p></div></div>
-<script src="../assets/shared.js?v=r6"></script>
+<script src="../assets/shared.js?v=1.1.0"></script>
 <script>
 let META, COURSE, CID, SID, DOC, state;
 
@@ -175,7 +175,7 @@ function renderCheckpointResults(){
     COURSE = await KB.course(CID);
     DOC = await KB.json(KB.root + CID + "/content/" + SID + ".json");
     document.title = DOC.title;
-    state = KB.loadWork(CID,SID) || {answers:{}, checked:{}, skipped:{}, cursor:0};
+    state = await KB.bestWork(CID,SID) || {answers:{}, checked:{}, skipped:{}, cursor:0};
     if(DOC.kind==="checkpoint") renderCheckpoint(); else renderPractice();
   }catch(err){
     const missing = /404/.test(String(err));

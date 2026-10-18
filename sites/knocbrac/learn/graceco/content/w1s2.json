@@ -8,7 +8,7 @@
     { "type": "read", "html": "<p>Your gears so far:</p><p><b>10%</b> — divide by 10.<br><b>5%</b> — halve the 10%.<br><b>1%</b> — divide the 10% by 10.<br><b>20%</b> — double the 10%.</p><p>Quick warm-up before the new gears.</p>" },
 
     { "type": "q", "id": "h1", "prompt": "Takings today: £140.",
-      "hint": "10%: slide the digits — 140 → 14. Then halve for 5%.",
+      "hint": "For 10%, slide the digits along so 140 becomes 14. Then halve that to get 5%.",
       "parts": [
         { "id": "a", "label": "10% of £140", "type": "numeric", "accept": [14] },
         { "id": "b", "label": "5% of £140", "type": "numeric", "accept": [7] } ] },

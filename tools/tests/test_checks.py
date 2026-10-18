@@ -89,7 +89,7 @@ class ChecksTree(unittest.TestCase):
 
     # UC3.6 — the mergedDone bug class: stale assets vs fresh pages
     def test_unversioned_asset_detected(self):
-        rel = json.load(open(self.path("learn", "courses.json")))["release"]
+        rel = D.code_version(self.site, self.base)
         p = self.path("learn", "app", "course.html")
         src = open(p).read()
         open(p, "w").write(src.replace("?v=" + rel, "", 1))  # strip one version tag
@@ -97,11 +97,62 @@ class ChecksTree(unittest.TestCase):
         self.assertTrue(any("unversioned" in x for x in probs), probs)
 
     def test_version_mismatch_detected(self):
-        import json as J
-        p = self.path("learn", "courses.json")
-        reg = J.load(open(p)); reg["release"] = "r99"; J.dump(reg, open(p, "w"))
+        p = self.path("learn", "assets", "version.json")
+        v = json.load(open(p)); v["version"] = "9.9.9"; json.dump(v, open(p, "w"))
         probs = D.check_cache(self.site, self.base)
-        self.assertTrue(any("does not match release" in x for x in probs), probs)
+        self.assertTrue(any("does not match code version" in x for x in probs), probs)
+
+    # UC5 — the cache token is code-owned, so a code bump never edits content
+    def test_cache_token_comes_from_code_not_content(self):
+        reg = self.path("learn", "courses.json")
+        before = open(reg, "rb").read()
+        v = self.path("learn", "assets", "version.json")
+        doc = json.load(open(v)); doc["version"] = "2.0.0"; json.dump(doc, open(v, "w"))
+        for f in ("index.html", os.path.join("app", "course.html"),
+                  os.path.join("app", "session.html")):
+            p = self.path("learn", f)
+            open(p, "w").write(open(p).read().replace("?v=1.0.0", "?v=2.0.0"))
+        # bumping the engine leaves courses.json untouched and cache happy
+        self.assertEqual(D.check_cache(self.site, self.base), [])
+        self.assertEqual(open(reg, "rb").read(), before)
+
+    # UC5 — compatibility rule: only a code MAJOR bump can invalidate content
+    def test_compat_accepts_minor_and_patch_bumps(self):
+        v = self.path("learn", "assets", "version.json")
+        for bump in ("1.1.0", "1.0.7", "1.12.34"):
+            doc = json.load(open(v)); doc["version"] = bump; json.dump(doc, open(v, "w"))
+            probs = [x for x in D.check_compat(self.site, self.base) if "MAJOR" in x]
+            self.assertEqual(probs, [], "%s should not break content" % bump)
+
+    def test_compat_rejects_major_bump_without_content_update(self):
+        v = self.path("learn", "assets", "version.json")
+        doc = json.load(open(v)); doc["version"] = "2.0.0"; json.dump(doc, open(v, "w"))
+        probs = D.check_compat(self.site, self.base)
+        self.assertTrue(any("MAJOR" in x for x in probs), probs)
+        # declaring the new major on the content side clears it
+        reg = self.path("learn", "courses.json")
+        r = json.load(open(reg)); r["requires_code"] = "2"; json.dump(r, open(reg, "w"))
+        self.assertEqual([x for x in D.check_compat(self.site, self.base)
+                          if "MAJOR" in x], [])
+
+    def test_missing_code_version_file_is_not_a_silent_pass(self):
+        # check_cache can only no-op when there is no token to compare against;
+        # compat must then be the thing that shouts, or version drift rots
+        os.remove(self.path("learn", "assets", "version.json"))
+        self.assertEqual(D.check_cache(self.site, self.base), [])
+        probs = D.check_compat(self.site, self.base)
+        self.assertTrue(any("no code version file" in x for x in probs), probs)
+
+    def test_compat_rejects_malformed_versions(self):
+        v = self.path("learn", "assets", "version.json")
+        doc = json.load(open(v)); doc["version"] = "r7"; json.dump(doc, open(v, "w"))
+        self.assertTrue(any("not semantic" in x
+                            for x in D.check_compat(self.site, self.base)))
+        doc["version"] = "1.0.0"; json.dump(doc, open(v, "w"))
+        reg = self.path("learn", "courses.json")
+        r = json.load(open(reg)); r["version"] = "1.0.0"; json.dump(r, open(reg, "w"))
+        self.assertTrue(any("is not rN" in x
+                            for x in D.check_compat(self.site, self.base)))
 
     def test_missing_cache_header_detected(self):
         p = self.path("learn", ".htaccess")

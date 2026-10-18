@@ -1,18 +1,45 @@
 {
-  "transport": "ftp",
+  "transport": "sftpcli",
   "host": "ftp.knocbrac.com",
-  "use_tls": true,
+  "port": 22,
   "user": "knocbraccom",
+  "ssh_options": ["PubkeyAcceptedAlgorithms=+ssh-rsa"],
   "remote_root": "httpdocs",
   "site_url": "http://www.knocbrac.com",
   "sources": ["learn"],
-  "exclude": ["learn/results/*"],
+  "exclude": ["learn/results/*", "*.DS_Store", "learn/README.md"],
   "init_include": ["learn/results/index.html"],
-  "checks": ["json", "php56", "ids", "manifests", "schema", "cache"],
-  "verify": [
-    { "url": "/learn/api/submit.php", "expect": "receiver alive" },
-    { "url": "/learn/courses.json", "json_key": "release",
-      "matches_local": "learn/courses.json" }
-  ],
-  "_notes": "FTP(S) at ftp.knocbrac.com — the proven transport. When SSH keys are set up (README), switch to: transport=sftpcli, host=80.82.113.174, port=22 (drop use_tls). Paramiko variant: transport=sftp."
+  "checks": ["json", "php56", "ids", "manifests", "schema", "cache", "coverage",
+             "compat"],
+  "code_version_file": "learn/assets/version.json",
+  "artefacts": {
+    "content": [
+      "learn/courses.json",
+      "learn/*/course.json",
+      "learn/*/content/*.json"
+    ],
+    "code": [
+      "learn/index.html",
+      "learn/robots.txt",
+      "learn/README.md",
+      "learn/.htaccess",
+      "learn/.htpasswd.example",
+      "learn/assets/*",
+      "learn/app/*",
+      "learn/api/*",
+      "learn/results/index.html"
+    ]
+  },
+  "verify": {
+    "code": [
+      { "url": "/learn/api/submit.php", "expect": "receiver alive" },
+      { "url": "/learn/assets/version.json", "json_key": "version",
+        "matches_local": "learn/assets/version.json" }
+    ],
+    "content": [
+      { "url": "/learn/courses.json", "json_key": "version",
+        "matches_local": "learn/courses.json" }
+    ]
+  },
+  "_notes": "sftpcli (system OpenSSH, zero Python deps) over port 22, KEY AUTH REQUIRED: sftp runs with BatchMode=yes so it cannot prompt for a password. THE HOST RUNS OpenSSH 5.3 (verified 11 Oct 2026), which can only sign with ssh-rsa (SHA-1); OpenSSH 8.8+ clients disable that by default and will load your key then DISCARD it, reporting 'Permission denied (publickey,password)' as though no key existed. Hence ssh_options above — do not remove it. An ed25519 or ECDSA key cannot help: 5.3 predates both (6.5 and 5.7). One-time setup: ssh-copy-id -o PubkeyAcceptedAlgorithms=+ssh-rsa -p 22 knocbraccom@ftp.knocbrac.com. If the account turns out to be sftp-only (no shell), ssh-copy-id will fail — then install the key by hand over sftp: mkdir .ssh, put ~/.ssh/id_rsa.pub .ssh/authorized_keys, chmod 700 .ssh, chmod 600 .ssh/authorized_keys. Readiness test that matches what deploy actually does: sftp -b /dev/null -o BatchMode=yes -o PubkeyAcceptedAlgorithms=+ssh-rsa -P 22 knocbraccom@ftp.knocbrac.com (must exit 0). The HOSTNAME works on port 22 — the old note claiming the IP (80.82.113.174) was required was wrong; both answer and both offer publickey. Batches every upload into one sftp session, which beats FTP's per-file STOR when the line is throttled. Fallbacks if keys ever break: transport=sftp (paramiko + password, needs pip install paramiko), or back to transport=ftp with host=ftp.knocbrac.com and use_tls=false — note FTPS login 530s on this host and plain FTP sends the password in clear text."
 }

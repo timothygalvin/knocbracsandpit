@@ -1,0 +1,76 @@
+{
+  "id": "w3s1",
+  "kind": "session",
+  "tag": "Unit 3 · Session 1",
+  "title": "The Mixing Room",
+  "intro": "New zone. Nothing on this mountain is pure — almost everything is a mixture.",
+  "blocks": [
+    { "type": "read", "html": "<p>High on the mountain, grip is everything. The expedition mixes its own grip paste in a back room of base camp, and the recipe is written like this:</p><p style='font-size:1.2em'><b>chalk : resin = 2 : 3</b></p><p>Read it out loud as <b>two parts chalk to three parts resin</b>. That is a <b>ratio</b>.</p><p>Here is the thing worth getting straight before anything else. A <b>part</b> is not a gram. A part is whatever scoop you decide to use — a teaspoon, a mug, a shovel. The ratio only tells you how many scoops of each. It says nothing about how big the scoop is.</p><p>One rule, and it is the whole idea: <b>the same scoop for both.</b></p>" },
+
+    { "type": "q", "id": "r1", "prompt": "The mixer uses a 10 gram scoop, and follows the recipe exactly: 2 parts chalk to 3 parts resin.",
+      "hint": "Two scoops of chalk, three of resin. Each scoop weighs 10 grams.",
+      "parts": [
+        { "id": "a", "label": "Chalk (grams)", "type": "numeric", "accept": [20],
+          "_working": "2 parts, 10 g per part: 2 × 10 = 20 g of chalk." },
+        { "id": "b", "label": "Resin (grams)", "type": "numeric", "accept": [30],
+          "_working": "3 parts, 10 g per part: 3 × 10 = 30 g of resin. Sanity check on the pair: 20 g to 30 g, which is 2 : 3 as required." } ] },
+
+    { "type": "q", "id": "r2", "prompt": "Same recipe, no scales — he is counting scoops straight into the bowl.",
+      "hint": "For every 2 scoops of chalk he owes 3 scoops of resin. Work out how many 2s make the chalk, then pay the resin.",
+      "parts": [
+        { "id": "a", "label": "4 scoops of chalk needs how many scoops of resin?", "type": "numeric", "accept": [6],
+          "_working": "4 scoops of chalk is 2 lots of the 2-part chalk share, so the resin is also doubled: 2 × 3 = 6 scoops." },
+        { "id": "b", "label": "10 scoops of chalk needs how many scoops of resin?", "type": "numeric", "accept": [15],
+          "_working": "10 scoops of chalk is 5 lots of 2, so the resin is 5 lots of 3: 5 × 3 = 15 scoops. Check: 10 : 15 divides by 5 down to 2 : 3." } ] },
+
+    { "type": "reveal", "button": "Why these are all the SAME paste ✨",
+      "html": "<p>Look at the four batches you have now made, side by side.</p><div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Batch</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Chalk</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Resin</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>One batch</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>2</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>3</td></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Double batch</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>4</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>6</td></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Triple batch</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>6</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>9</td></tr><tr><td style='padding:9px 11px'>Five batches</td><td style='padding:9px 11px;text-align:right'>10</td><td style='padding:9px 11px;text-align:right'>15</td></tr></table></div><p>Every single one of those grips <b>exactly the same</b>. A climber could not tell them apart.</p><p>That is the surprise, and it is worth saying slowly: multiplying both parts by the same number changes <b>how much paste you have</b>, and it does <b>not</b> change <b>what the paste is</b>.</p><p>Which means the arithmetic runs backwards too. If you can divide both parts by the same number, the mixture is unchanged and the recipe gets simpler. 10 : 15 both divide by 5, so 10 : 15 <b>is</b> 2 : 3. That is called putting a ratio in its <b>simplest form</b>, and it is the common-factor hunt you already do with fractions, wearing a different coat.</p>" },
+
+    { "type": "q", "id": "r3", "prompt": "Three batches came back from the store with no labels. Put each recipe into its simplest form. (Type it like <b>2:3</b>.)",
+      "hint": "Hunt for a number that divides into BOTH parts, then divide both by it. Keep going until nothing divides them both.",
+      "parts": [
+        { "id": "a", "label": "12 : 18", "type": "text",
+          "accept": ["2:3", "2 : 3", "2to3", "2 to 3"],
+          "_working": "12 and 18 share a factor of 6: 12 ÷ 6 = 2 and 18 ÷ 6 = 3, giving 2 : 3. Nothing divides 2 and 3 together, so it is simplest. (Dividing by 2 first gives 6 : 9, then by 3 gives 2 : 3 — same destination, which is worth him noticing.)" },
+        { "id": "b", "label": "9 : 21", "type": "text",
+          "accept": ["3:7", "3 : 7", "3to7", "3 to 7"],
+          "_working": "9 and 21 share a factor of 3: 9 ÷ 3 = 3 and 21 ÷ 3 = 7, giving 3 : 7. Nothing divides 3 and 7 together. Deliberately NOT a 2 : 3 answer, so the pattern of the previous part cannot be copied blindly." },
+        { "id": "c", "label": "25 : 20", "type": "text",
+          "accept": ["5:4", "5 : 4", "5to4", "5 to 4"],
+          "_working": "25 and 20 share a factor of 5: 25 ÷ 5 = 5 and 20 ÷ 5 = 4, giving 5 : 4. Note the bigger number comes FIRST here — the order of a ratio carries meaning, and this part exists to catch anyone who has started assuming the small one leads." } ] },
+
+    { "type": "read", "html": "<p>Now the job that actually comes up at base camp. You are not told the scoop size — you are told the <b>total</b>.</p><p><i>Make 40 scoops of paste, at 2 parts chalk to 3 parts resin.</i></p><p>Three moves, in this order, every time:</p><p><b>1. Count the parts.</b> 2 + 3 = <b>5</b> parts altogether.<br><b>2. Find ONE part.</b> 40 ÷ 5 = <b>8</b> scoops per part.<br><b>3. Pay out each share.</b> Chalk is 2 parts: 2 × 8 = <b>16</b>. Resin is 3 parts: 3 × 8 = <b>24</b>.</p><p>Always check by adding the shares back up: 16 + 24 = 40 ✓.</p><p>Remember move 2. Finding one part is the handle this whole unit turns on.</p>" },
+
+    { "type": "q", "id": "r4", "prompt": "The stove fuel is mixed 1 part additive to 5 parts paraffin, and the tank holds <b>60</b> litres.",
+      "hint": "Count the parts first: 1 + 5. Then divide the 60 by that to find one part.",
+      "parts": [
+        { "id": "a", "label": "Additive (litres)", "type": "numeric", "accept": [10],
+          "_working": "Parts: 1 + 5 = 6. One part: 60 ÷ 6 = 10. The additive is 1 part, so 10 litres." },
+        { "id": "b", "label": "Paraffin (litres)", "type": "numeric", "accept": [50],
+          "_working": "The paraffin is 5 parts: 5 × 10 = 50 litres. Check: 10 + 50 = 60 ✓, and 10 : 50 divides by 10 down to 1 : 5 ✓." } ] },
+
+    { "type": "q", "id": "r5", "prompt": "Boss mix. The winter paste takes a third ingredient — grit, for ice. The recipe is <b>2 parts chalk, 3 parts resin, 5 parts grit</b>, and the mixer needs <b>200 grams</b> of it.",
+      "hint": "Exactly the same three moves, just with one more share to pay out. Count all three parts first.",
+      "parts": [
+        { "id": "a", "label": "Chalk (grams)", "type": "numeric", "accept": [40],
+          "_working": "Parts: 2 + 3 + 5 = 10. One part: 200 ÷ 10 = 20 g. Chalk is 2 parts: 2 × 20 = 40 g." },
+        { "id": "b", "label": "Resin (grams)", "type": "numeric", "accept": [60],
+          "_working": "Resin is 3 parts: 3 × 20 = 60 g." },
+        { "id": "c", "label": "Grit (grams)", "type": "numeric", "accept": [100],
+          "_working": "Grit is 5 parts: 5 × 20 = 100 g. Check all three against the total: 40 + 60 + 100 = 200 ✓. Worth noticing that grit is 5 of the 10 parts, so it is exactly half the tub." } ] },
+
+    { "type": "q", "id": "r6", "prompt": "★ Nobody wrote down the batch size. All you know is the recipe — <b>3 parts chalk to 4 parts resin</b> — and that the mixer tipped in <b>18 grams of chalk</b>.",
+      "hint": "You are told what 3 parts weighs. So what does ONE part weigh? Everything else follows from that.",
+      "parts": [
+        { "id": "a", "label": "Resin (grams)", "type": "numeric", "accept": [24],
+          "_working": "3 parts is 18 g, so one part is 18 ÷ 3 = 6 g. Resin is 4 parts: 4 × 6 = 24 g." },
+        { "id": "b", "label": "Whole batch (grams)", "type": "numeric", "accept": [42],
+          "_working": "Either add the shares, 18 + 24 = 42 g, or count parts first: 3 + 4 = 7 parts at 6 g each, 7 × 6 = 42 g. Both routes agreeing is the check. This is the three moves run in a different order — one part found from a share instead of from the total — and that reversal is the whole of next session, so a nudge here is enough." } ] },
+
+    { "type": "summit", "html": "<b>🏔️ For the dinner table:</b> three tubs come back from the store, labelled only with their recipes.<br><br>Tub A is <b>6 : 9</b>. Tub B is <b>4 : 6</b>. Tub C is <b>4 : 7</b>.<br><br>Two of those tubs hold exactly the same paste. One is an impostor. Which — and how would you convince Dad, with no calculator and no scales?<br><br>Then the sting in the tail. The impostor is <i>close</i> to the others, so here is the real question: is it <b>chalkier</b> or <b>resinier</b> than the proper mix? Argue it out. (Careful — the bigger number in the ratio is not automatically the answer.)" }
+  ],
+  "done": {
+    "title": "Mix sorted ✓",
+    "html": "<p>Ratios, from scratch: parts instead of amounts, the same scoop for both, equivalent recipes that look different and grip identically, simplest form by hunting common factors — and the three moves that split any total into any ratio, including a three-way split.</p><p>And right at the end, in the ★, you turned the handle the other way: given one share, you found everything else.</p><p>Next: <b>Scaling the Recipe</b> — where finding one part stops being a step and becomes the tool.</p>"
+  }
+}

@@ -43,11 +43,21 @@ work. This is the prime directive.
    `app/`, `api/`) know nothing about any course. A new course = one folder
    + one entry in `courses.json`. If a change requires editing engine files
    per-course, the design is wrong.
-5. Progress lives in localStorage per device; **completion** additionally
-   syncs via the server (`submit.php?progress=<course>` derived from saved
-   results). Never rely on localStorage alone for anything that must
-   survive a device change; never lose work — the client falls back to
-   downloading results JSON if the server is unreachable.
+5. **Three things persist, all three server-backed since code 1.1.0.**
+   *Completion* — localStorage, merged from `submit.php?progress=<course>`
+   (derived from saved results filenames). *In-progress work* — the answers
+   a child has typed: localStorage first (instant, offline-safe), mirrored
+   to `submit.php` with `kind:"state"` on a 2.5s debounce, read back by
+   `KB.bestWork()` which takes whichever of device/server has the newer
+   `savedAt`. *Submitted results* — one file per finished session in the
+   family folder. State lives at `results/state-<course>.json`, named so it
+   can never match the progress glob `<course>-*.json` nor the family index.
+   Never rely on localStorage alone for anything that must survive a device
+   change — that exact gap lost Jim all six sessions of typed work in
+   Sept 2026, while the course map still showed ticks. Never lose work: the
+   client still falls back to downloading results JSON if the server is
+   unreachable. `tools/recover_state.py` rebuilds work from results and
+   `tools/seed_state.py` pushes it back into the store.
 6. Deployment: `python3 tools/deploy.py knocbrac` over SFTP to the host's
    IP 80.82.113.174 port 22 (old 34sp platform is IP-addressed). Default
    transport "sftpcli" = system OpenSSH sftp, zero Python deps, SSH-key
@@ -141,17 +151,45 @@ The codebase now lives in a git monorepo:
 - Deploy: python3 tools/deploy.py knocbrac [--check|--dry-run|--all|--init]
   Password via env KB_DEPLOY_PASSWORD or prompt. learn/results/ is deploy-
   protected: only --init ships the placeholder index.
+- Split deploy paths (site.json `artefacts`, UC4): `--content` ships course
+  data only (courses.json, */course.json, */content/*.json), `--code` ships
+  the engine only. Content is safe to ship ahead of code — it uses no engine
+  feature the live engine lacks. A split deploy keeps the other artefact's
+  entries in the upload manifest, so it never triggers a full re-upload.
+  The `coverage` check blocks any file belonging to neither path.
+  `--manifest[=path]` writes a release record (files + sha256 + what this
+  push ships + sessions) to releases/<site>-<artefact>.json. The two paths
+  are symmetric: neither ships a file belonging to the other.
 - New transports (e.g. rsync for agileintegrator) must pass the pipeline
   test suite with themselves substituted for LocalTransport (byte-identity
   = the proof) before earning a site.json entry.
-- Releases: bump `release` in courses.json AND the ?v= on asset includes
-  in the three app pages together — the "cache" pre-flight check enforces
-  the match, so a mismatch cannot deploy. The post-deploy verifier compares
-  the live release against local. Assessments carry their own version.
+- Versioning: TWO artefacts, two version lines, versioned separately. Same
+  scheme for every site (agileintegrator.com included).
+  * CODE — semantic, in `learn/assets/version.json` (`{"version":"1.0.0"}`),
+    code-owned so an engine bump never edits a content file. MAJOR is the
+    breaking boundary: minor and patch can NEVER invalidate content.
+    Bumping it means editing the ?v= on the asset includes in the three app
+    pages to match — the "cache" check enforces that, so a mismatch cannot
+    deploy. Supersedes the old r1–r6 asset counter (r6 == 1.0.0).
+  * CONTENT — a simple `rN` counter in courses.json (`version`), plus
+    `requires_code` naming the code MAJOR it was authored against. Content
+    has no dependents of its own, so one number does the work of three.
+  The "compat" check enforces both formats and the MAJOR rule. The verifier
+  probes each artefact's own marker (site.json `verify` is a per-artefact
+  map). Assessments carry their own version.
+  There is deliberately NO combined package version: the old packaged "rN"
+  artefact (r12 was the last) is retired in favour of the two above.
 
 ## Current state / roadmap
-- Live: framework r4; ascent w1s1–w1s2 (+w1s3 "soon"); graceco w1s1–w1s2
-  (+w1s3 "soon"); receiver working incl. email + progress sync.
+- Live (verified against the server 27 Sep 2026, all 28 files sha-matched):
+  content r6 — ascent AND graceco both complete through w2s3, no "soon"
+  flags left in Unit 1 or 2; receiver alive (php 5.6.36), email + progress
+  sync working. Note: fetching `.htaccess`/`.ht*` returns 404 and
+  `submit.php`/`.py` return output rather than source — that is Apache
+  behaviour, not missing files; don't diagnose it as a broken deploy.
+- Pending deploys: code 1.0.0 (version.json + the ?v= re-key, 4 files via
+  `--code`) and the content marker rename (courses.json, 1 file via
+  `--content`). Independent of each other — that is the point of the split.
 - Next: remaining Unit 1 sessions, then Unit 2 for both; checkpoint 1
   after each Unit 2; Grace's Spanish course (new folder, likely
   `gracees`); Timothy's Russian (adult course — see

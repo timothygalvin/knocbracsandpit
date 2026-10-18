@@ -1,0 +1,72 @@
+{
+  "id": "w2s3",
+  "kind": "session",
+  "tag": "Unit 2 · Summit Puzzle",
+  "title": "The Staircase",
+  "intro": "One problem. One session. And a pattern your new machine can't touch.",
+  "blocks": [
+    { "type": "read", "html": "<p>The path to the Zawadzki hut needs a stone staircase, and the mason builds everything from identical square blocks. A staircase with <b>n</b> steps is columns of 1, 2, 3, … n blocks:</p><svg viewBox='0 0 220 92' role='img' aria-label='Staircases of 1, 2, 3 and 4 steps built from square blocks'><g style='fill:var(--soft);stroke:var(--accent);stroke-width:1.5'><rect x='0' y='54' width='16' height='16'/><rect x='34' y='54' width='16' height='16'/><rect x='50' y='54' width='16' height='16'/><rect x='50' y='38' width='16' height='16'/><rect x='84' y='54' width='16' height='16'/><rect x='100' y='54' width='16' height='16'/><rect x='116' y='54' width='16' height='16'/><rect x='100' y='38' width='16' height='16'/><rect x='116' y='38' width='16' height='16'/><rect x='116' y='22' width='16' height='16'/><rect x='152' y='54' width='16' height='16'/><rect x='168' y='54' width='16' height='16'/><rect x='168' y='38' width='16' height='16'/><rect x='184' y='54' width='16' height='16'/><rect x='184' y='38' width='16' height='16'/><rect x='184' y='22' width='16' height='16'/><rect x='200' y='54' width='16' height='16'/><rect x='200' y='38' width='16' height='16'/><rect x='200' y='22' width='16' height='16'/><rect x='200' y='6' width='16' height='16'/></g><g style='fill:var(--muted);stroke:none;font-size:10px' text-anchor='middle'><text x='8' y='86'>1 step</text><text x='50' y='86'>2 steps</text><text x='108' y='86'>3 steps</text><text x='184' y='86'>4 steps</text></g></svg><p>Two numbers get worked out before a single block is laid.</p><p><b>The stone order</b> — how many blocks altogether.<br><b>The handrail</b> — it runs all the way around the outside, and the mason charges by the block-edge.</p><p>Both are your job, engineer.</p>" },
+
+    { "type": "q", "id": "S1", "prompt": "Straight off the picture — the stone order.",
+      "hint": "A staircase with n steps is columns of 1, 2, 3, … n blocks. Add the columns up.",
+      "parts": [
+        { "id": "a", "label": "3 steps → blocks", "type": "numeric", "accept": [6],
+          "_working": "Columns of 1, 2 and 3 blocks: 1 + 2 + 3 = 6. Countable directly on the picture ✓." },
+        { "id": "b", "label": "4 steps → blocks", "type": "numeric", "accept": [10],
+          "_working": "1 + 2 + 3 + 4 = 10. Countable on the picture ✓." } ] },
+
+    { "type": "q", "id": "S2", "prompt": "Now the handrail. It goes right around the outside, and we count it in <b>block-edges</b>: one edge of one block = 1 unit. The 1-step staircase is a single block, so it's 4 units round. Do the other two.",
+      "hint": "Trace the outline with a finger and count the edges you travel along. Where two blocks touch, the handrail doesn't go — those edges are inside.",
+      "parts": [
+        { "id": "a", "label": "2 steps → handrail", "type": "numeric", "accept": [8],
+          "_working": "Walk the outline of the 3-block shape from the bottom-left corner: up 2, right 1, down 1, right 1, down 1, left 2 = 2+1+1+1+1+2 = 8 units. Cross-check the other way: 3 blocks × 4 edges = 12 edges in total; 2 pairs of blocks touch (bottom two side by side, right column stacked), and each touch hides 2 edges → 12 − 4 = 8 ✓." },
+        { "id": "b", "label": "3 steps → handrail", "type": "numeric", "accept": [12],
+          "_working": "6 blocks × 4 = 24 edges in total. Touching pairs: 1 inside column 2, 2 inside column 3, 1 between columns 1 and 2, 2 between columns 2 and 3 = 6 pairs, each hiding 2 edges → 24 − 12 = 12 units. Outline cross-check: up 3, right 1, down 1, right 1, down 1, right 1, down 1, left 3 = 3+1+1+1+1+1+1+3 = 12 ✓." } ] },
+
+    { "type": "reveal", "button": "The handrail rule ✨",
+      "html": "<p>4, 8, 12, … a gap of 4 every time. That's a straight-line sequence and your machine eats it for breakfast: gap 4, zeroth term 0, so the handrail for n steps is <b>4n</b>.</p><p>Exactly 4n. Not 4n plus a bit extra for all those corners. <b>Exactly.</b></p><p>Here's why, and it's worth a minute. Draw the n-by-n square the staircase sits inside. Now push every <b>tread</b> (the flat bits) straight up, and every <b>riser</b> (the upright bits) straight across. Nothing bends, nothing is lost — the treads slide into the top of the square, the risers slide into its side.</p><p>So all that stepping in and out costs the handrail <b>nothing at all</b>. A staircase has the same handrail as the square it fits in: 4n.</p>" },
+
+    { "type": "q", "id": "S3", "prompt": "The rule earns its keep — forwards and backwards:",
+      "hint": "Handrail = 4 × steps. Backwards: divide the handrail by 4.",
+      "parts": [
+        { "id": "a", "label": "Handrail for 25 steps (units)", "type": "numeric", "accept": [100],
+          "_working": "4 × 25 = 100 units." },
+        { "id": "b", "label": "A handrail of 60 units fits how many steps?", "type": "numeric", "accept": [15],
+          "_working": "Run 4n backwards: 60 ÷ 4 = 15 steps. Forward check: 4 × 15 = 60 ✓." } ] },
+
+    { "type": "read", "html": "<p>Now back to the stone order: <b>1, 3, 6, 10, 15, …</b></p><p>Gaps: <b>+2, +3, +4, +5</b>.</p><p>The gap won't sit still. No common difference means no straight line, which means the Position Machine has <i>nothing</i> to say about this sequence. It's the first pattern all year that has beaten it.</p><p>Carry on anyway. A detective with only one tool isn't a detective.</p>" },
+
+    { "type": "q", "id": "S4", "prompt": "Push the pattern on by hand. The gaps grow by one each time.",
+      "hint": "After +5 comes +6, then +7.",
+      "parts": [
+        { "id": "a", "label": "6 steps → blocks", "type": "numeric", "accept": [21],
+          "_working": "5 steps = 15 blocks; next gap is +6 → 15 + 6 = 21. Direct check: 1+2+3+4+5+6 = 21 ✓." },
+        { "id": "b", "label": "7 steps → blocks", "type": "numeric", "accept": [28],
+          "_working": "21 + 7 = 28. Direct check: 1+2+3+4+5+6+7 = 28 ✓." } ] },
+
+    { "type": "reveal", "button": "The trick that beats the counting ✨",
+      "html": "<p>How many blocks in a <b>100-step</b> staircase? Adding 1 + 2 + 3 + … + 100 by hand is an afternoon's work.</p><p>The story goes that around 1786 a German schoolmaster set exactly that sum to his class to buy himself a quiet hour. A boy of about nine, <b>Carl Friedrich Gauss</b>, put his slate on the desk after a few seconds. 5050.</p><p>He'd paired them from the outside in:</p><p>1 + 100 = 101<br>2 + 99 = 101<br>3 + 98 = 101<br>…</p><p>Every pair makes 101, and 100 numbers make <b>50 pairs</b>. 50 × 101 = <b>5050</b>.</p><p>For any n: pair them the same way and you get</p><p style='font-size:1.2em'><b>blocks = n × (n + 1) ÷ 2</b></p><p>Test it on the picture: n = 4 → 4 × 5 ÷ 2 = <b>10</b> ✓. n = 7 → 7 × 8 ÷ 2 = <b>28</b> ✓ — the number you just got the slow way.</p><p>These are called <b>triangular numbers</b>, and you've just met a Year 9 idea while counting stones.</p>" },
+
+    { "type": "q", "id": "S5", "prompt": "★ The mason is asked to price a <b>100-step</b> staircase. Both numbers, please.",
+      "hint": "Blocks: n × (n + 1) ÷ 2. Handrail: 4n, same as it ever was.",
+      "parts": [
+        { "id": "a", "label": "Blocks", "type": "numeric", "accept": [5050],
+          "_working": "100 × 101 ÷ 2 = 10100 ÷ 2 = 5050." },
+        { "id": "b", "label": "Handrail (units)", "type": "numeric", "accept": [400],
+          "_working": "4 × 100 = 400. Worth noticing next to part a: the blocks have run away from the handrail completely." } ] },
+
+    { "type": "q", "id": "S6", "prompt": "★★ The mason spots something. On a small staircase the handrail number is the bigger of the two; on a big one the blocks bolt ahead. So somewhere they must be <b>exactly equal</b>. Find that staircase.",
+      "hint": "Work both numbers for a few sizes and watch which one is in front: blocks n × (n + 1) ÷ 2 against handrail 4n. Find where the lead changes hands.",
+      "parts": [
+        { "id": "a", "label": "Number of steps", "type": "numeric", "accept": [7],
+          "_working": "Tabulate — n: blocks vs handrail. 1: 1 vs 4. 4: 10 vs 16. 6: 21 vs 24 (handrail still ahead). 7: 28 vs 28 — EQUAL. 8: 36 vs 32 (blocks ahead). So n = 7. Algebraically: n(n+1)/2 = 4n; divide both sides by n (n is not 0) → (n+1)/2 = 4 → n + 1 = 8 → n = 7." },
+        { "id": "b", "label": "Both numbers are then…", "type": "numeric", "accept": [28],
+          "_working": "Blocks: 7 × 8 ÷ 2 = 28. Handrail: 4 × 7 = 28. Same number, two completely different rules — one straight-line, one triangular — crossing at exactly one place." } ] },
+
+    { "type": "summit", "html": "<b>🏔️ For the dinner table — bring something to build with</b> (Lego, sugar cubes, coins, anything square-ish).<br><br>Make <b>two</b> identical 4-step staircases: 10 blocks each. Now turn one upside down and slot it into the other.<br><br>1. What shape do you end up with?<br>2. What are its two sides?<br>3. So how many blocks are in it — and why does that <i>prove</i> the pairing rule, with no pairing at all?<br><br>Then set Dad this one: the mason has exactly <b>210 blocks</b> and refuses to waste a single one. How many steps can he build? (There is an answer, and it's a nice one.)" }
+  ],
+  "done": {
+    "title": "UNIT 2 COMPLETE 🏔️✓",
+    "html": "<p>The Pattern Machine is built and tested. Common differences going up and going down, the jumps shortcut, the nth term written from scratch and run in reverse, membership proved and disproved — and then, in a single session, a pattern that broke the machine outright and a nine-year-old's trick that cracked it anyway. Triangular numbers, Gauss's pairing, and a staircase priced two different ways that agree exactly once.</p><p>Next: <b>Unit 3 — The Proportion Problem</b>. Ratio, scaling and mixtures, where the maths starts behaving like chemistry. Coming soon.</p>"
+  }
+}

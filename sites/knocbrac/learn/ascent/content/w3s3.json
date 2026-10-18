@@ -1,0 +1,72 @@
+{
+  "id": "w3s3",
+  "kind": "session",
+  "tag": "Unit 3 · Summit Puzzle",
+  "title": "The Oxygen Mix",
+  "intro": "One problem, one session, 7,000 metres up. Nothing new — everything you built this unit, under pressure.",
+  "blocks": [
+    { "type": "read", "html": "<p>Above 7,000 metres the air has too little oxygen to climb on. So the expedition carries <b>blended gas</b>: oxygen mixed with nitrogen, filled into a tank to an exact recipe.</p><p>A blend written <b>1 : 4</b> means 1 part oxygen to 4 parts nitrogen — exactly the kind of mix you were making in the Mixing Room, only now it keeps people alive.</p><svg viewBox='0 0 240 76' role='img' aria-label='A twenty litre tank drawn as five equal parts: one part oxygen and four parts nitrogen'><g style='fill:var(--soft);stroke:var(--accent);stroke-width:1.5'><rect x='10' y='14' width='44' height='34' style='fill:var(--warm)'/><rect x='54' y='14' width='44' height='34'/><rect x='98' y='14' width='44' height='34'/><rect x='142' y='14' width='44' height='34'/><rect x='186' y='14' width='44' height='34'/></g><g style='fill:var(--muted);stroke:none;font-size:10px' text-anchor='middle'><text x='32' y='64'>oxygen</text><text x='142' y='64'>nitrogen (4 parts)</text></g></svg><p>You are on the gas log. Every single question below is the same four moves, in the same order:</p><p><b>read the ratio · count the total parts · find one part · scale it up.</b></p>" },
+
+    { "type": "q", "id": "x1", "prompt": "Start with the tank in the picture. It holds <b>20 litres</b>, blended <b>1 : 4</b>.",
+      "hint": "Count the total parts first — the picture has them drawn for you. Then one part is the tank shared between them.",
+      "parts": [
+        { "id": "a", "label": "Oxygen (litres)", "type": "numeric", "accept": [4],
+          "_working": "Total parts: 1 + 4 = 5. One part: 20 ÷ 5 = 4 litres. Oxygen is 1 part, so 4 litres. The picture shows this directly — five equal blocks, one of them oxygen." },
+        { "id": "b", "label": "Nitrogen (litres)", "type": "numeric", "accept": [16],
+          "_working": "Nitrogen is 4 parts: 4 × 4 = 16 litres. Check the whole tank: 4 + 16 = 20 ✓, and 4 : 16 divides down by 4 to 1 : 4 ✓ (simplifying, from the Mixing Room)." } ] },
+
+    { "type": "q", "id": "x2", "prompt": "A bigger tank and an awkward-looking blend. <b>36 litres</b>, blended <b>2 : 7</b>.",
+      "hint": "Nine parts in total. Find what one part is worth before you touch the 2 or the 7.",
+      "parts": [
+        { "id": "a", "label": "Oxygen (litres)", "type": "numeric", "accept": [8],
+          "_working": "Total parts: 2 + 7 = 9. One part: 36 ÷ 9 = 4 litres. Oxygen is 2 parts: 2 × 4 = 8 litres." },
+        { "id": "b", "label": "Nitrogen (litres)", "type": "numeric", "accept": [28],
+          "_working": "Nitrogen is 7 parts: 7 × 4 = 28 litres. Check: 8 + 28 = 36 ✓. Ratio check: 8 : 28 divides down by 4 to 2 : 7 ✓." } ] },
+
+    { "type": "q", "id": "x3", "prompt": "Now the real-world catch. Gas does not arrive by the litre — it arrives in <b>cylinders</b>. The oxygen cylinders hold <b>2 litres</b> each.",
+      "hint": "You already know how much oxygen each tank needs. How many 2-litre cylinders make that up?",
+      "parts": [
+        { "id": "a", "label": "Cylinders for the 20-litre tank", "type": "numeric", "accept": [2],
+          "_working": "That tank needs 4 litres of oxygen (from x1). 4 ÷ 2 = 2 cylinders." },
+        { "id": "b", "label": "Cylinders for the 36-litre tank", "type": "numeric", "accept": [4],
+          "_working": "That tank needs 8 litres of oxygen (from x2). 8 ÷ 2 = 4 cylinders." } ] },
+
+    { "type": "reveal", "button": "Why some blends simply cannot be built ✨",
+      "html": "<p>Here is a 24-litre tank, blended <b>1 : 3</b>.</p><p>Four parts in total, so one part is 24 ÷ 4 = <b>6 litres</b>. The tank needs 6 litres of oxygen.</p><p>But suppose the only cylinders in camp hold <b>4 litres</b> each. How many of those make 6 litres?</p><p>One cylinder is 4. Two cylinders are 8. Nothing gives 6.</p><p>And this is not <i>“I couldn't find it”</i>. It is a <b>proof</b>. Every whole number of 4-litre cylinders gives a multiple of 4 — 4, 8, 12, 16, 20 — and 6 is not a multiple of 4. It is not there to be found. That blend <b>cannot be built</b>, by anyone, ever.</p><p>You have met this move before. In <b>The Sequence Detective</b>, the sequence 100, 94, 88, 82 steps straight over zero and never lands on it, because 106 does not divide by 6. Same sting, different costume.</p><p>Swap to 2-litre cylinders and the very same tank is easy: 6 ÷ 2 = <b>3 cylinders</b>. The tank was never the problem. The cylinder size was.</p>" },
+
+    { "type": "q", "id": "x4", "prompt": "A <b>45-litre</b> tank, blended <b>1 : 4</b>. The oxygen cylinders in camp hold <b>3 litres</b> each.",
+      "hint": "Five parts in total. Work out the oxygen in litres first, then see how many cylinders that is.",
+      "parts": [
+        { "id": "a", "label": "Oxygen needed (litres)", "type": "numeric", "accept": [9],
+          "_working": "Total parts: 1 + 4 = 5. One part: 45 ÷ 5 = 9 litres. Oxygen is 1 part, so 9 litres. (Nitrogen is 4 × 9 = 36, and 9 + 36 = 45 ✓.)" },
+        { "id": "b", "label": "How many 3-litre cylinders", "type": "numeric", "accept": [3],
+          "_working": "9 ÷ 3 = 3 cylinders exactly. 9 IS a multiple of 3, so this blend can be built." } ] },
+
+    { "type": "q", "id": "x5", "prompt": "★ Bad news from the supply run: the 3-litre cylinders are gone. Only <b>4-litre</b> oxygen cylinders are left, and the tank is still <b>45 litres</b> at <b>1 : 4</b>.",
+      "hint": "First test the 9 litres against multiples of 4. Then, for the second part: at 1 : 4 the oxygen is always a fifth of the tank — so what must the tank be a multiple of for that fifth to be a whole number of 4-litre cylinders?",
+      "parts": [
+        { "id": "a", "label": "Can the blend be built? (yes/no)", "type": "text",
+          "accept": ["no", "nope", "never", "false", "impossible", "it cannot", "itcannot", "it can't", "it cant", "no it can't", "no it cant", "not possible", "cannot be built"],
+          "_working": "The tank still needs 9 litres of oxygen. Multiples of 4 are 4, 8, 12 — 9 is not among them, and 9 ÷ 4 = 2.25 is not a whole number of cylinders. So: no, and it is a proof, not a search that failed." },
+        { "id": "b", "label": "Smallest tank BIGGER than 45 litres that does work (litres)", "type": "numeric", "accept": [60],
+          "_working": "At 1 : 4 there are 5 parts, so oxygen is always tank ÷ 5. For that to be a whole number of 4-litre cylinders, tank ÷ 5 must be a multiple of 4 — so the tank must be a multiple of 5 × 4 = 20. Multiples of 20 are 20, 40, 60, 80; the first one past 45 is 60. Check: 60 ÷ 5 = 12 litres of oxygen, 12 ÷ 4 = 3 cylinders exactly, nitrogen 48, and 12 : 48 simplifies to 1 : 4 ✓." } ] },
+
+    { "type": "read", "html": "<p>Last job, and the hardest thing in the unit. Now <b>both</b> gases come in fixed cylinders, and both counts have to come out whole:</p><div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Gas</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Cylinder size</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Oxygen</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>3 litres</td></tr><tr><td style='padding:9px 11px'>Nitrogen</td><td style='padding:9px 11px;text-align:right'>5 litres</td></tr></table></div><p>The quartermaster wants a blend of <b>2 : 5</b>, filled exactly, with no gas left over and no cylinder opened twice. She does not care how big the tank is — she wants the <b>smallest</b> one that works.</p>" },
+
+    { "type": "q", "id": "x6", "prompt": "★★ Find the quartermaster's tank. Blend <b>2 : 5</b>, oxygen in 3-litre cylinders, nitrogen in 5-litre cylinders, everything whole and exact.",
+      "hint": "Seven parts in total, so the tank has to be a multiple of 7 before one part is even a whole number of litres. Try 7, then 14, then 21 — and at each one check BOTH gases against their cylinder size. Watch which gas is fussy and which never complains.",
+      "parts": [
+        { "id": "a", "label": "Smallest tank that works (litres)", "type": "numeric", "accept": [21],
+          "_working": "Seven parts (2 + 5), so write the tank as 7 lots of one part. Oxygen is 2 parts, nitrogen is 5 parts. Test multiples of 7: tank 7 gives oxygen 2 (not a multiple of 3 — fails); tank 14 gives oxygen 4 (not a multiple of 3 — fails); tank 21 gives oxygen 6, which IS 2 cylinders of 3 ✓, and nitrogen 15, which IS 3 cylinders of 5 ✓. So 21 litres. Why nitrogen never complains: nitrogen is 5 parts, so it is always a multiple of 5 — exactly its own cylinder size. Only the oxygen is fussy, and it needs one part to be a multiple of 3. Checked by brute force over every tank size up to 400: the solutions are 21, 42, 63, 84 — all multiples of 21, with 21 the smallest." },
+        { "id": "b", "label": "Oxygen cylinders used", "type": "numeric", "accept": [2],
+          "_working": "Oxygen is 2 of the 7 parts. One part is 21 ÷ 7 = 3 litres, so oxygen is 6 litres. 6 ÷ 3 = 2 cylinders." },
+        { "id": "c", "label": "Nitrogen cylinders used", "type": "numeric", "accept": [3],
+          "_working": "Nitrogen is 5 parts: 5 × 3 = 15 litres. 15 ÷ 5 = 3 cylinders. Full check of the tank: 6 + 15 = 21 litres ✓, and 6 : 15 divides down by 3 to 2 : 5 ✓." } ] },
+
+    { "type": "summit", "html": "<b>🏔️ For the dinner table — a decision, not a sum.</b><br><br>The tank is fixed at <b>30 litres</b>. The blend must be <b>1 : 3</b>. The only oxygen cylinders in camp hold <b>4 litres</b>.<br><br>First, show Dad it is hopeless — and it fails twice over, which is worth spotting. Work out the oxygen the tank needs and you will not even get a whole number of litres, let alone a whole number of cylinders.<br><br>So here is the real question, the one a climbing leader actually has to answer at 3am:<br><br><b>You cannot hit the blend exactly. Do you go slightly oxygen-rich, or slightly oxygen-lean?</b><br><br>Argue it properly. What goes wrong with too much oxygen? What goes wrong with too little, at 7,000 metres, four hours from the summit? There is no clean answer — which is why it is a conversation and not a calculation.<br><br>Then, if you want the sting in the tail: with only 4-litre oxygen cylinders and 6-litre nitrogen cylinders, which blends <i>can</i> you build? Try a few. (4 litres with 6 litres gives 4 : 6, which is 2 : 3. Two oxygen with one nitrogen gives 8 : 6, which is 4 : 3.) Is there a pattern in the blends you can reach — and one you will never reach, no matter how many cylinders you carry?" }
+  ],
+  "done": {
+    "title": "UNIT 3 COMPLETE 🏔️✓",
+    "html": "<p>The Proportion Problem is solved. A ratio is <i>parts</i>, not amounts — so 2 : 3 and 4 : 6 are the same mix. You can simplify a ratio, share any total into one, find one part and scale it anywhere, and judge value by what one unit costs. You also know the thing most people get wrong: that some relationships look proportional and simply are not.</p><p>And today you did something harder than any of it. You proved a blend <b>impossible</b> — not unfound, impossible — using nothing but divisibility. That is the second time this course you have closed a door with a proof rather than a search, and it is the move real mathematicians get paid for.</p><p>Next: <b>Unit 4 — The Modelling Workshop</b>. Where the maths stops being given to you and starts being something you build to fit the world. Coming soon.</p>"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "id": "w3s2",
+  "kind": "session",
+  "tag": "Unit 3 · Session 2",
+  "title": "Scaling the Recipe",
+  "intro": "Last session you found one part. Today one part does all the work.",
+  "blocks": [
+    { "type": "read", "html": "<p>Last session you shared a total in a ratio, and the move was always the same: count the parts, work out what <b>one part</b> is worth, then multiply.</p><p>That middle step is the whole of today.</p><p>It has a name — the <b>unitary method</b>. Unit as in <i>one</i>. Find the amount for one, then multiply by how many you need.</p><p>It is a machine, like the Position Machine, and it only ever runs forwards: find one, then multiply.</p><p>Base camp needs feeding and fuelling. Over to you, quartermaster.</p>" },
+
+    { "type": "q", "id": "f1", "prompt": "The stove. <b>800 ml</b> of fuel lasts <b>4 climbers</b> for a day. Six climbers arrive tomorrow.",
+      "hint": "Find the fuel for one climber first — 800 shared between 4. Then multiply by 6.",
+      "parts": [
+        { "id": "a", "label": "Fuel for one climber (ml)", "type": "numeric", "accept": [200],
+          "_working": "800 ÷ 4 = 200 ml for one climber. Check the other way: 200 × 4 = 800 ✓." },
+        { "id": "b", "label": "Fuel for six climbers (ml)", "type": "numeric", "accept": [1200, 1.2],
+          "_working": "200 × 6 = 1200 ml. Sense check: six climbers is one and a half times four, and 800 + 400 = 1200 ✓. The accept list also carries 1.2 because a child answering in litres (1.2 l) is right — the engine does not strip 'l', so 1200 ml typed as litres would otherwise mark wrong." } ] },
+
+    { "type": "q", "id": "f2", "prompt": "Scaling down is the same machine. The ration tin holds <b>15 scoops</b> of porridge for <b>5 climbers</b>. Two of them are going up to the ridge on their own.",
+      "hint": "One climber's share first — 15 shared between 5. Then multiply by 2.",
+      "parts": [
+        { "id": "a", "label": "Scoops for one climber", "type": "numeric", "accept": [3],
+          "_working": "15 ÷ 5 = 3 scoops for one climber. Check: 3 × 5 = 15 ✓." },
+        { "id": "b", "label": "Scoops for two climbers", "type": "numeric", "accept": [6],
+          "_working": "3 × 2 = 6 scoops. Smaller team, smaller number — the machine runs the same way whichever direction the team size moves." } ] },
+
+    { "type": "reveal", "button": "Why this always works ✨",
+      "html": "<p>Line up the fuel numbers you have just worked out:</p><div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Climbers</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>1</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>2</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>4</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>6</th></tr><tr><td style='padding:9px 11px'>Fuel needed (ml)</td><td style='padding:9px 11px;text-align:right'>200</td><td style='padding:9px 11px;text-align:right'>400</td><td style='padding:9px 11px;text-align:right'>800</td><td style='padding:9px 11px;text-align:right'>1200</td></tr></table></div><p>Double the climbers and the fuel doubles. Treble them and it trebles. Halve them and it halves.</p><p>Two quantities that behave like this are <b>directly proportional</b> — a Year 8 phrase for something you have now done four times.</p><p>And here is why the method is worth owning. The fuel for <b>one</b> climber never changes. It is 200 ml whatever the size of the team. So once you know the amount for one, <i>every</i> team size is a single multiplication away — including the awkward ones you could never reach by doubling.</p>" },
+
+    { "type": "q", "id": "f3", "prompt": "Here is one of those awkward ones. The expedition packs <b>27 energy bars</b> for <b>6 climbers</b>. Then ten climbers sign up.<br><br>You cannot get from 6 to 10 by doubling, and guessing will not land it. The machine will.",
+      "hint": "One climber's share first — 27 shared between 6. It does not come out whole, and that is fine: keep it exactly as it is. Then multiply by 10.",
+      "parts": [
+        { "id": "a", "label": "Bars for one climber", "type": "numeric", "accept": [4.5],
+          "_working": "27 ÷ 6 = 4.5 bars for one climber. Check: 4.5 × 6 = 27 ✓. The engine reads '4 1/2' and '9/2' as 4.5 too, so a child who refuses decimals is still marked correct." },
+        { "id": "b", "label": "Bars for ten climbers", "type": "numeric", "accept": [45],
+          "_working": "4.5 × 10 = 45 bars. Sense check without the decimal: 27 bars feed 6, so 54 would feed 12; ten climbers must need less than 54 and more than 27, and 45 sits there ✓. (Trial and error from doubling 6 to 12 overshoots — this is the question where the tool beats the instinct.)" } ] },
+
+    { "type": "q", "id": "f4", "prompt": "Boss question — the shop at the trailhead. Two gas canisters on the shelf.<br><br>The small one holds 230 g of gas and costs £4.60. The big one holds 450 g and costs £8.10.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Gas</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Price</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Small canister</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>230 g</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£4.60</td></tr><tr><td style='padding:9px 11px'>Big canister</td><td style='padding:9px 11px;text-align:right'>450 g</td><td style='padding:9px 11px;text-align:right'>£8.10</td></tr></table></div>The big one costs more. That is not the question. The question is which one gives you more gas for your money — so find the cost of <b>one gram</b> of each. (Grace's course pulls this exact move on shop shelves. Same machine, different clothes.)",
+      "hint": "Cost for one gram: share the price between the grams. Work in pence to keep it tidy — £4.60 is 460p.",
+      "parts": [
+        { "id": "a", "label": "Cost of one gram, small canister (pence)", "type": "numeric", "accept": [2, 0.02],
+          "_working": "£4.60 is 460p. 460 ÷ 230 = 2p per gram exactly (230 × 2 = 460 ✓). Accept 0.02 as well: that is the same answer in pounds, and a child working in £ is not wrong. Note the engine strips a trailing 'p', so '2p' already reads as 2." },
+        { "id": "b", "label": "Cost of one gram, big canister (pence)", "type": "numeric", "accept": [1.8, 0.018],
+          "_working": "£8.10 is 810p. 810 ÷ 450 = 1.8p per gram (450 × 1.8 = 810 ✓; or 810 ÷ 450 = 81 ÷ 45 = 9 ÷ 5 = 1.8). Accept 0.018 for the same answer in pounds." },
+        { "id": "c", "label": "Better value? (small or big)", "type": "text",
+          "accept": ["big", "bigone", "the big one", "bigger", "biggest", "large", "larger", "large one", "450", "450g", "big canister", "the big canister"],
+          "_working": "The big one: 1.8p per gram beats 2p per gram. It costs more in total and still wins per gram, which is the whole point of the question — total price tells you nothing about value until you scale both down to one gram. Accept list covers size words, 'the big one' and the 450 g label, since the options are named rather than lettered." } ] },
+
+    { "type": "q", "id": "f5", "prompt": "★ The sting in the tail. Four climbers pitch the mess tent in <b>20 minutes</b>.<br><br>Run the machine on it. Then look hard at what it tells you.",
+      "hint": "First do it blindly: minutes for one climber, then multiply by eight. Then ask yourself whether eight people really take that long to put up one tent.",
+      "parts": [
+        { "id": "a", "label": "Scaled like the fuel, what does the machine predict for eight climbers? (minutes)", "type": "numeric", "accept": [40],
+          "_working": "Blind unitary method: 20 ÷ 4 = 5 'minutes per climber', then 5 × 8 = 40 minutes. The arithmetic is perfect. The answer is nonsense." },
+        { "id": "b", "label": "Does that prediction make sense? (yes/no)", "type": "text",
+          "accept": ["no", "nope", "never", "false", "not at all", "of course not", "nonsense", "no it doesnt", "no it doesn't", "it doesnt", "it doesn't", "no way"],
+          "_working": "No. The machine says that adding climbers makes the job take LONGER, which is backwards. Fuel is directly proportional to team size; time-to-pitch-a-tent is not. Being able to say which is which matters more than the arithmetic." },
+        { "id": "c", "label": "What would eight climbers really need — more than 20 minutes, less, or the same?", "type": "text",
+          "accept": ["less", "fewer", "less than 20", "lessthan20", "less time", "shorter", "quicker", "faster", "under 20", "less than twenty"],
+          "_working": "Less. More hands means fewer minutes — the two quantities move in OPPOSITE directions, which is a different kind of relationship altogether and the reason Unit 4 exists. (Not zero minutes, though, and not 10 either: there are only so many useful jobs around one tent, which is exactly why no simple scaling fits.)" } ] },
+
+    { "type": "summit", "html": "<b>🏔️ For the dinner table — a raid on the kitchen cupboard.</b><br><br>Find any product that comes in two sizes: cereal, pasta, washing powder, dog biscuits. Write down the weight and the price of each, work out the cost of one gram — or one hundred grams, if that keeps the numbers kinder — and decide which is genuinely the better buy.<br><br>Then the part worth arguing about. The big one almost always wins on price per gram. So why does anybody ever buy the small one? Find at least two good reasons, and then decide whether the shop is counting on them." }
+  ],
+  "done": {
+    "title": "Scaled ✓",
+    "html": "<p>The unitary method: find the amount for one, then multiply. You have scaled up, scaled down, handled a factor nobody could have guessed, and used it to beat a shop shelf on price per gram — which is a grown-up skill most adults do by feel and get wrong.</p><p>You also found its limit. Fuel scales. Pitching a tent does not. Knowing which is which is most of Unit 4.</p><p>Next: <b>Summit Puzzle: The Oxygen Mix</b> — one problem, one whole session, everything from this unit, seven thousand metres up.</p>"
+  }
+}

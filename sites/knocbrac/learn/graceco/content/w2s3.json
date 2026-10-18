@@ -1,0 +1,67 @@
+{
+  "id": "w2s3",
+  "kind": "session",
+  "tag": "Unit 2 · Market story",
+  "title": "Losing Money on Purpose",
+  "intro": "You asked the board a good question two meetings ago. Today you answer it yourself.",
+  "blocks": [
+    { "type": "read", "html": "<p>Here was your question.</p><p>Amazon lost money for years.</p><p>It grew into one of the biggest companies on earth.</p><p>How can losing money be a <i>plan</i>?</p><p>Today you settle it — using a company small enough to fit on one page.</p><p><b>Riverbend Books.</b> An online bookshop. Three years of accounts.</p>" },
+
+    { "type": "q", "id": "m1", "prompt": "<b>Year 1.</b> Revenue £100. Costs £120.",
+      "hint": "Money in minus money out. Money out is bigger here, so the answer drops below zero.",
+      "parts": [
+        { "id": "a", "label": "Profit (£, use a minus sign)", "type": "numeric", "accept": [-20],
+          "_working": "100 − 120 = −20. A loss of £20. (Unit 1's negatives, still earning their keep.)" } ] },
+
+    { "type": "q", "id": "m2", "prompt": "Forget the losses for a moment. Look only at the revenue — the money coming in.<br><br>The shop made £100 in its first year, £200 in its second year, and £400 in its third year.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 1</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 2</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 3</th></tr><tr><td style='padding:9px 11px'>Revenue</td><td style='padding:9px 11px;text-align:right'>£100</td><td style='padding:9px 11px;text-align:right'>£200</td><td style='padding:9px 11px;text-align:right'>£400</td></tr></table></div>",
+      "hint": "What is happening to the number each year? Then do that once more.",
+      "parts": [
+        { "id": "a", "label": "Year 4 revenue, if it carries on (£)", "type": "numeric", "accept": [800],
+          "_working": "Each year is twice the year before: 100 → 200 → 400 → 800." },
+        { "id": "b", "label": "What is the revenue doing each year? (one word)", "type": "text",
+          "accept": ["doubling", "double", "doubled", "doublings", "twice", "timestwo", "times two", "x2", "2x", "doubling each year", "going up", "growing", "increasing"],
+          "_working": "Doubling. Accept list is deliberately wide: \"growing\" and \"going up\" are true and a child who writes them has understood the point, so they must not be marked wrong. The precise word wanted is doubling." } ] },
+
+    { "type": "reveal", "button": "Why a loss can be a plan ✨",
+      "html": "<p>Riverbend is losing money.</p><p>Riverbend is also doubling.</p><p>Every £1 of that loss went on <i>something</i>: a warehouse, a delivery van, a cheaper price to win a customer off a rival.</p><p>The loss is not a wound.</p><p>It is a <b>purchase</b>.</p><p>So an analyst asks two questions about a loss-making company, and only two:</p><p><b>1. Is it getting bigger, fast?</b></p><p><b>2. Could it stop spending and make a profit whenever it wanted to?</b></p>" },
+
+    { "type": "q", "id": "m3", "prompt": "Here are the full accounts. Your job is the profit line.<br><br>In year 1 the shop made £100 and spent £120. In year 2 it made £200 and spent £210. In year 3 it made £400 and spent £320.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 1</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 2</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 3</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Revenue (money in)</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£100</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£200</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£400</td></tr><tr><td style='padding:9px 11px'>Costs (money out)</td><td style='padding:9px 11px;text-align:right'>£120</td><td style='padding:9px 11px;text-align:right'>£210</td><td style='padding:9px 11px;text-align:right'>£320</td></tr></table></div>",
+      "hint": "One year at a time. Year 2 is still a loss — but look at its size next to Year 1's.",
+      "parts": [
+        { "id": "a", "label": "Year 2 profit (£)", "type": "numeric", "accept": [-10],
+          "_working": "200 − 210 = −10. Still a loss, but half the size of Year 1's £20 loss." },
+        { "id": "b", "label": "Year 3 profit (£)", "type": "numeric", "accept": [80],
+          "_working": "400 − 320 = +80. The loss shrank, then flipped into a real profit. That shape — shrinking loss, growing revenue — is the whole story of the session." } ] },
+
+    { "type": "q", "id": "m4", "prompt": "Two analyst's numbers on that third year.",
+      "hint": "Margin: compare the £80 profit to the £320 it cost. Then add all three years together — minus signs and all.",
+      "parts": [
+        { "id": "a", "label": "Year 3 margin (%)", "type": "numeric", "accept": [25, 0.25],
+          "_working": "80/320 = 8/32 = 1/4 = 25%. Gear check: a quarter of 320 is 80 ✓. Decimal twin 0.25 is included because the engine reads a typed \"25%\" as 0.25." },
+        { "id": "b", "label": "All three years added up (£)", "type": "numeric", "accept": [50],
+          "_working": "(−20) + (−10) + 80 = −30 + 80 = +50. Three years of accounts, £50 to show for it — and a business four times bigger than it started." } ] },
+
+    { "type": "q", "id": "m5", "prompt": "Boss question. Two companies land on your desk. Both of them are losing money.<br><br>In year 1, Company A makes £50 of revenue and loses £10. In year 2 it makes £100 and loses only £5.<br><br>Company B makes £50 of revenue in year 1 and loses £10. In year 2 it makes £50 again, and loses £20.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 1</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 2</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Company A revenue</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£50</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£100</td></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Company A loss</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£10</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£5</td></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Company B revenue</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£50</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£50</td></tr><tr><td style='padding:9px 11px'>Company B loss</td><td style='padding:9px 11px;text-align:right'>£10</td><td style='padding:9px 11px;text-align:right'>£20</td></tr></table></div>",
+      "hint": "Ask your two questions about each one: is it growing, and is the loss getting smaller? Then push B's loss on one more year the way it's going.",
+      "parts": [
+        { "id": "a", "label": "B's loss next year, if it carries on (£)", "type": "numeric", "accept": [40, -40],
+          "_working": "B's loss is doubling: 10 → 20 → 40. Accept both 40 and −40 — the label says \"loss\", so a child who writes the size (40) and one who writes it as a negative profit (−40) are both right." },
+        { "id": "b", "label": "Which one is losing money on purpose? (A or B)", "type": "text",
+          "accept": ["a", "companya", "company a", "a!", "the a", "firsta", "a company"],
+          "_working": "A. Its revenue doubled while its loss halved — it is buying growth and could clearly stop. B's revenue stood still while its loss doubled — that is not a plan, that is just losing money." } ] },
+
+    { "type": "q", "id": "m6", "prompt": "★ A rival shop copies the plan. But its losses never get any smaller.<br><br>In year 1 it loses £20. In year 2 it loses £30. In year 3 it loses £40.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 1</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 2</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Year 3</th></tr><tr><td style='padding:9px 11px'>Loss that year</td><td style='padding:9px 11px;text-align:right'>£20</td><td style='padding:9px 11px;text-align:right'>£30</td><td style='padding:9px 11px;text-align:right'>£40</td></tr></table></div>It borrows money to cover every loss. Its lender will only keep waiting until the borrowing adds up to <b>£100</b>.",
+      "hint": "Add the losses up as you go: after Year 1, then after Year 2, then after Year 3. Year 4's loss carries the pattern on — the losses grow by £10 each year.",
+      "parts": [
+        { "id": "a", "label": "Add up the losses from years 1, 2 and 3. How much has it borrowed in total? (£)", "type": "numeric", "accept": [90],
+          "_working": "20 + 30 = 50 after Year 2; 50 + 40 = 90 after Year 3. Still under the £100 limit — but only just." },
+        { "id": "b", "label": "In which year does the borrowing go past £100? (just the year number)", "type": "numeric", "accept": [4],
+          "_working": "Year 4's loss continues the pattern: £50. Borrowing goes 90 + 50 = £140, well past the lender's £100 limit. So it runs out in Year 4. Label says \"just the number\" because the engine cannot read \"year 4\" as a number." } ] },
+
+    { "type": "summit", "html": "<b>📈 The analyst's verdict — for the dinner table:</b><br><br>Amazon lost money for years and became one of the biggest companies on earth.<br><br>Hundreds of other companies lost money for years and vanished.<br><br>Same strategy. Opposite endings.<br><br>Here is your job tonight. You may ask a loss-making company <b>one question only</b> before deciding. What is it?<br><br>Then put this to Dad: in 1997 Amazon was a small website that sold books and lost money. Would he have put £100 into it?<br><br>And the harder half — would he still have had it there ten years later?<br><br>(Most people say yes to the first and no to the second. That second one is the difficult part of investing, and almost nobody talks about it.)" }
+  ],
+  "done": {
+    "title": "UNIT 2 COMPLETE 🍋✓",
+    "html": "<p>Sales &amp; Margins is closed. Revenue, costs, profit and loss. The margin that judges a profit, and the trap inside it. And now the hardest call of the lot — telling a company that is losing money <i>on purpose</i> from a company that is simply losing money.</p><p>Most adults cannot do that. You just did it with three years of accounts and two questions.</p><p>Next: <b>Unit 3 — The Bank</b>. Interest, borrowing, and what money costs when it isn't yours. Coming soon.</p>"
+  }
+}

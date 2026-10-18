@@ -1,6 +1,7 @@
 {
   "site": "Knocbrac Learning",
-  "release": "r6",
+  "version": "r7",
+  "requires_code": "1",
   "courses": [
     {
       "id": "ascent",

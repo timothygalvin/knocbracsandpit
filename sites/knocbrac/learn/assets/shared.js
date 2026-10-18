@@ -64,7 +64,57 @@ window.addEventListener("unhandledrejection", e =>
     const m = KB.doneMap(course); m[session] = new Date().toISOString();
     localStorage.setItem("kb:" + course + ":done", JSON.stringify(m));
   },
-  saveWork(course, session, state) { localStorage.setItem("kb:" + course + ":" + session, JSON.stringify(state)); },
+  saveWork(course, session, state) {
+    /* local copy first: instant, and the only copy that works offline */
+    state.savedAt = new Date().toISOString();
+    localStorage.setItem("kb:" + course + ":" + session, JSON.stringify(state));
+    KB.pushWork(course, session, state);          /* then mirror to the server */
+  },
+  /* ---- in-progress work mirrored server-side (survives a device change) ----
+     A child's typed answers used to live only in this tablet's storage, so
+     clearing browser data lost everything while the course map still showed
+     ticks (those sync from the results folder). The push is debounced and
+     entirely failure-tolerant: if it never lands, localStorage still has the
+     work and nothing is worse than before. */
+  _pushTimers: {},
+  pushWork(course, session, state) {
+    const k = course + ":" + session;
+    clearTimeout(KB._pushTimers[k]);
+    KB._pushTimers[k] = setTimeout(function () {
+      fetch(KB.root + "api/submit.php", {
+        method: "POST", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ kind: "state", course: course,
+                               session: session, work: state })
+      }).catch(function () { /* offline: the local copy stands */ });
+    }, 2500);
+  },
+  async pullWork(course) {
+    try {
+      const r = await fetch(KB.root + "api/submit.php?state=" +
+                            encodeURIComponent(course), { cache: "no-store" });
+      const j = await r.json();
+      return (j.ok && j.sessions) ? j.sessions : {};
+    } catch (e) { return {}; }
+  },
+  /* the newer of (this device, the server) — server wins only if it is
+     genuinely newer, so work typed offline is never thrown away */
+  async bestWork(course, session) {
+    const local = KB.loadWork(course, session);
+    let remote = null;
+    try { remote = (await KB.pullWork(course))[session] || null; } catch (e) { }
+    if (!remote) return local;
+    if (!local) return remote;
+    /* work saved by the pre-1.1.0 engine carries no savedAt, so it would
+       lose to ANY server copy on the first load after an upgrade. Never
+       lose work: with no stamp to compare, keep whichever side has more
+       typed answers. */
+    if (!local.savedAt) {
+      const n = o => Object.keys((o && o.answers) || {}).length;
+      return n(remote) > n(local) ? remote : local;
+    }
+    return (String(remote.savedAt || "") > String(local.savedAt || ""))
+      ? remote : local;
+  },
   /* completion synced from the server's results folder, merged into local */
   async mergedDone(course) {
     try {

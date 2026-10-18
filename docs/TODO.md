@@ -4,6 +4,19 @@ Priority-ordered within sections. (i) = infrastructure, (c) = content,
 (o) = ops. Owner column: T = Timothy, F = Fable/senior agent,
 A = content agent.
 
+## Blocking before the next code deploy
+- (o/T) **`php -l` submit.php somewhere with PHP before shipping code 1.1.0.**
+  No PHP or container runtime exists on this machine, so the state endpoint
+  in submit.php is UNLINTED and all 10 php-cgi receiver tests skip. A parse
+  error renders blank pages (invariant 1). The logic is verified via the
+  Python twin (UC6) and the file is structurally balanced + PHP5.6-token
+  clean, but that is not a substitute. `brew install php` locally, or lint a
+  staged copy on the host over ssh, then run run_tests.py again and expect
+  10 more passes.
+- (o/T) Delete the live `/learn/README.md` by hand. It is now excluded from
+  deployment (it leaked the .htpasswd example password `lemonade` and the
+  receiver setup), but deploy only uploads — it never deletes.
+
 ## Now / next
 - (c/A) Jim Unit 2 remainder: w2s2 The Position Machine, w2s3 Summit
   Puzzle: The Staircase — FIRST OUTSOURCED UNIT, see docs/handoff/
@@ -13,7 +26,29 @@ A = content agent.
   ascent/graceco checkpoint content using kind:"checkpoint"; reuses the
   diagnostic-style paged engine; results steer Unit 3
 - (o/T) Confirm w1s3 finishes reached the server (emails/results/logtail)
-  → closes the "finish doesn't register" question
+  → closes the "finish doesn't register" question. NOTE: 32 results files
+  exist on the server as of 10 Oct 2026, including six separate w1s3
+  submissions for ascent — finishes ARE registering, possibly more than
+  once per session.
+- (c/F) **ascent w2s2 lost Jim halfway.** His submitted result shows m1 and
+  m2 correct, then m3–m6 entirely BLANK with 1–2 check presses on empty
+  boxes — and 14 minutes later he completed w2s3 fully (12 answers, 9/12).
+  So it is not fatigue or lost work: the reverse-machine half of The
+  Position Machine (from the "Run the machine backwards" reveal onward)
+  stopped him dead. Needs a rewrite of m3 onward, or splitting the session.
+  Steering call — the diagnostic data is in recovered/ascent-w2s2.json.
+
+## Versioning & release paths
+- DONE (27 Sep 2026, approved by T): two artefacts, two version lines.
+  Code semver in learn/assets/version.json (1.0.0, MAJOR = breaking
+  boundary), content `rN` + `requires_code` in courses.json, `compat`
+  check enforcing both, per-artefact verify probes, packaged "rN" retired.
+  See CLAUDE.md § Repo layout and docs/use_cases.md UC5.
+- (o/T) Ship the two pending releases: `--code` (4 files: version.json +
+  the ?v= re-key) and `--content` (1 file: the marker rename). Separately,
+  to exercise the split for real.
+- (i) Second site: give agileintegrator.com its own `artefacts` globs +
+  version files under the same scheme once its transport is proven.
 
 ## Platform features
 - (i) Grown-up dashboard page: per-child progress + latest results +

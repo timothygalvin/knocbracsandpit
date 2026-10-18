@@ -1,0 +1,74 @@
+{
+  "id": "w2s2",
+  "kind": "session",
+  "tag": "Unit 2 · Board meeting 2",
+  "title": "The Margin",
+  "intro": "£142 profit. Good? Bad? Right now you can't tell. By the end of this meeting you can.",
+  "blocks": [
+    { "type": "read", "html": "<p>Last meeting Grace &amp; Co. made <b>£142</b> in a week.</p><p>Here is the analyst's problem.</p><p>£142 is a brilliant week for a lemonade stall.</p><p>£142 is a disaster for an airline.</p><p>A profit on its own tells you almost nothing.</p><p>You have to compare it to something.</p>" },
+
+    { "type": "q", "id": "g1", "prompt": "Start easy. It costs you <b>£20</b> to make the lemonade. You sell the lot for <b>£30</b>.",
+      "hint": "Money in minus money out.",
+      "parts": [
+        { "id": "a", "label": "Profit (£)", "type": "numeric", "accept": [10],
+          "_working": "30 − 20 = 10. Profit £10." } ] },
+
+    { "type": "reveal", "button": "The number that judges a profit ✨",
+      "html": "<p>You spent £20.</p><p>You made £10 on top of it.</p><p>Now compare the profit to what it cost you.</p><p>£10 out of £20 is a <b>half</b>.</p><p>A half is <b>50%</b>.</p><p>That is your <b>margin</b>.</p><p style='font-size:1.2em'><b>Margin = profit ÷ cost, as a %</b></p><p>The pounds tell you <i>how much</i>.</p><p>The margin tells you <i>how good</i>.</p>" },
+
+    { "type": "q", "id": "g2", "prompt": "Two market stalls.<br><br>The first stall spends £50 and makes £5 of profit. The second stall spends £40 and makes £20 of profit.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>What it cost</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Profit</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>First stall</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£50</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£5</td></tr><tr><td style='padding:9px 11px'>Second stall</td><td style='padding:9px 11px;text-align:right'>£40</td><td style='padding:9px 11px;text-align:right'>£20</td></tr></table></div>Work out the margin for each one.",
+      "hint": "Compare the profit to the cost. £5 out of £50 — what fraction is that? Then turn the fraction into a %.",
+      "parts": [
+        { "id": "a", "label": "First stall's margin (%)", "type": "numeric", "accept": [10, 0.1],
+          "_working": "£5 out of £50 = 5/50 = 1/10 = 10%. (Her 10% gear from Unit 1: 10% of £50 is £5 ✓.) The accept list carries 0.1 as well as 10, because the engine reads a typed \"10%\" as 0.1 — without the twin, a correct answer with a % sign would be marked wrong." },
+        { "id": "b", "label": "Second stall's margin (%)", "type": "numeric", "accept": [50, 0.5],
+          "_working": "£20 out of £40 = 20/40 = 1/2 = 50%. Decimal twin 0.5 included for the same reason as part a." } ] },
+
+    { "type": "q", "id": "g3", "prompt": "The board meeting that matters.<br><br>Ana spends <b>£100</b> and makes <b>£20</b> of profit.<br><br>Ben spends <b>£400</b> and also makes <b>£20</b> of profit.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>What they spend</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Profit</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Ana</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£100</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£20</td></tr><tr><td style='padding:9px 11px'>Ben</td><td style='padding:9px 11px;text-align:right'>£400</td><td style='padding:9px 11px;text-align:right'>£20</td></tr></table></div>They made the same profit. Are they the same business?",
+      "hint": "Work out each margin. Ana: £20 out of £100. Ben: £20 out of £400.",
+      "parts": [
+        { "id": "a", "label": "Ana's margin (%)", "type": "numeric", "accept": [20, 0.2],
+          "_working": "20/100 = 20%. (20 out of 100 is the easiest percentage there is — out of 100 means it IS the percentage.)" },
+        { "id": "b", "label": "Ben's margin (%)", "type": "numeric", "accept": [5, 0.05],
+          "_working": "20/400 = 1/20 = 5%. Check with her gears: 10% of £400 = £40, so 5% = £20 ✓." },
+        { "id": "c", "label": "Better business? (Ana or Ben)", "type": "text",
+          "accept": ["ana", "anas", "ana's", "ana of course", "ana!"],
+          "_working": "Ana. Same £20 of profit out of a quarter of the money. Text parts mark as \"review\" rather than wrong if they miss, but in practice mode a miss still shows \"try again\" — hence the spelling variants." } ] },
+
+    { "type": "reveal", "button": "Why the margin is the judge ✨",
+      "html": "<p>Both of them made £20.</p><p>Ana risked £100 to get it.</p><p>Ben had to find <b>£400</b> for the same £20.</p><p>Ben probably borrowed most of that.</p><p>Borrowing costs money. And lenders get nervous.</p><p>The margin tells you how hard your money is working.</p><p>20% is money working hard.</p><p>5% is money working slowly — and Ben has four times as much of it stuck in the business.</p>" },
+
+    { "type": "q", "id": "g4", "prompt": "Now run it forwards. You want a <b>50%</b> margin. A crate of lemons costs you <b>£30</b>.",
+      "hint": "First: 50% of £30 is the profit you need. Then add that profit onto the cost to get your price.",
+      "parts": [
+        { "id": "a", "label": "Profit you need (£)", "type": "numeric", "accept": [15],
+          "_working": "50% of £30 = half of 30 = £15." },
+        { "id": "b", "label": "So you must sell for (£)", "type": "numeric", "accept": [45],
+          "_working": "Cost + profit = 30 + 15 = £45. Check the margin back: profit 15 out of cost 30 = 1/2 = 50% ✓." } ] },
+
+    { "type": "q", "id": "g5", "prompt": "Boss question — and a rematch. The profit-as-a-percentage question got away from you on the diagnostic. It comes back now that you have the margin.<br><br>You buy a box of trainers for <b>£80</b>. You sell them for <b>£100</b>.",
+      "hint": "Profit first: £100 − £80. Then compare that profit to the £80 it cost you. Your quarter gear will help.",
+      "parts": [
+        { "id": "a", "label": "Profit (£)", "type": "numeric", "accept": [20],
+          "_working": "100 − 80 = £20." },
+        { "id": "b", "label": "Margin (%)", "type": "numeric", "accept": [25, 0.25],
+          "_working": "£20 out of £80 = 20/80 = 1/4 = 25%. Gear check from w1s2: a quarter of £80 is £20 ✓. Decimal twin 0.25 included so a typed \"25%\" also marks correct." } ] },
+
+    { "type": "q", "id": "g6", "prompt": "★ The analyst's trap. Two businesses, one afternoon.<br><br>Business A spends £40, and its margin is 50%.<br><br>Business B spends £200, and its margin is 20%.<div style='overflow-x:auto;margin:14px 0'><table style='border-collapse:collapse;width:100%'><tr><th style='text-align:left;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>&nbsp;</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>What it spends</th><th style='text-align:right;padding:9px 11px;border-bottom:2px solid var(--accent);color:var(--accent)'>Margin</th></tr><tr><td style='padding:9px 11px;border-bottom:1px solid var(--track)'>Business A</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>£40</td><td style='padding:9px 11px;border-bottom:1px solid var(--track);text-align:right'>50%</td></tr><tr><td style='padding:9px 11px'>Business B</td><td style='padding:9px 11px;text-align:right'>£200</td><td style='padding:9px 11px;text-align:right'>20%</td></tr></table></div>Which one puts more money in the till?",
+      "hint": "Turn each margin back into pounds. 50% of £40. Then 20% of £200.",
+      "parts": [
+        { "id": "a", "label": "Business A's profit (£)", "type": "numeric", "accept": [20],
+          "_working": "50% of £40 = half of 40 = £20." },
+        { "id": "b", "label": "B's profit (£)", "type": "numeric", "accept": [40],
+          "_working": "20% of £200: 10% of 200 = 20, doubled = £40." },
+        { "id": "c", "label": "More money? (A or B)", "type": "text",
+          "accept": ["b", "businessb", "b business", "b!", "bee"],
+          "_working": "B. Half the margin, twice the money — because B is working with five times as much cost. The margin judges a profit; it does not by itself tell you the size of one. This is the guard against over-learning the reveal." } ] },
+
+    { "type": "summit", "html": "<b>📈 Market story for the dinner table:</b><br><br>Spend £100 in a supermarket's world and it gets back about <b>£103</b>.<br><br>Spend £100 in a luxury handbag shop's world and it gets back about <b>£170</b>.<br><br>The supermarket is worth far more money than the handbag shop.<br><br>Board question for Dad: how can the tiny-margin business beat the huge-margin one?<br><br>(Your ★ question is the clue. Think about how many times a supermarket spends and gets its money back in a single day — and how many handbags that shop sells before lunchtime.)<br><br>Then the analyst's own question: which of the two would <i>you</i> rather own, and why?" }
+  ],
+  "done": {
+    "title": "Meeting adjourned ✓",
+    "html": "<p>The margin: the number that judges a profit.</p><p>You can find it, you can run it backwards to set a price, and you know its trap — a big margin on a small business can lose to a small margin on a big one.</p><p>Next: <b>Market Story: Losing Money on Purpose</b> — the Amazon question you set the board two meetings ago, finally answered. With numbers.</p>"
+  }
+}

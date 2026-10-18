@@ -5,10 +5,10 @@
   "title": "The 10% Machine",
   "intro": "Every shop owner needs one tool first. This is it.",
   "blocks": [
-    { "type": "read", "html": "<p><b>Percent</b> means <b>out of 100</b>.</p><p>10% means 10 out of every 100. That is one tenth.</p><p>So the machine is simple:</p><p style='font-size:1.25em'><b>To find 10% — divide by 10.</b></p><p>10% of £80 → 80 ÷ 10 → <b>£8</b>. That's the whole machine.</p>" },
+    { "type": "read", "html": "<p><b>Percent</b> means <b>out of 100</b>.</p><p>10% means 10 out of every 100. That is one tenth.</p><p>So the machine is simple:</p><p style='font-size:1.25em'><b>To find 10% — divide by 10.</b></p><p>So 10% of £80 means 80 ÷ 10, which is <b>£8</b>.</p><p>That is the whole machine.</p>" },
 
     { "type": "q", "id": "p1", "prompt": "Your stall takes £60 today. What is 10% of it?",
-      "hint": "Divide by 10. Just move the number down one slot: 60 → 6.",
+      "hint": "Divide by 10. The digits slide one place along, so 60 becomes 6.",
       "parts": [ { "id": "a", "label": "10% of £60", "type": "numeric", "accept": [6] } ] },
 
     { "type": "q", "id": "p2", "prompt": "The shop takes £250. What is 10%?",

@@ -78,6 +78,25 @@ if ($method !== 'POST') {
         echo json_encode(array('ok' => true, 'course' => $course, 'done' => $done));
         exit;
     }
+    if (isset($_GET['state'])) {
+        /* in-progress work for a course, so a child can change or wipe a
+           device and keep every answer they have typed. One file per
+           course (one student per course, per the registry). Named
+           state-<course>.json so it can never match the progress glob
+           '<course>-*.json' nor the results index. */
+        $course = kb_clean($_GET['state'], 'course');
+        $sf = $RESULTS . '/state-' . $course . '.json';
+        $state = array();
+        if (file_exists($sf)) {
+            $tmp = json_decode(@file_get_contents($sf), true);
+            if (is_array($tmp)) $state = $tmp;
+        }
+        /* (object) cast matters: an empty PHP array encodes as [] not {},
+           which would break the contract the client and submit.py expect */
+        echo json_encode(array('ok' => true, 'course' => $course,
+                               'sessions' => (object) $state));
+        exit;
+    }
     echo json_encode(array('ok' => false, 'error' => 'POST only',
         'status' => 'receiver alive (php ' . PHP_VERSION . ') - this URL only accepts results submissions'));
     exit;
@@ -103,6 +122,34 @@ if (isset($data['clientlog'])) {
     exit;
 }
 
+/* in-progress work: merge one session into the course's state file and
+   stop. No results file, no index rebuild, no email — this fires every
+   few seconds while a child types. */
+if (kb_get($data, 'kind', '') === 'state') {
+    $course  = kb_clean(kb_get($data, 'course', ''),  'course');
+    $session = kb_clean(kb_get($data, 'session', ''), 's');
+    $sf = $RESULTS . '/state-' . $course . '.json';
+    $all = array();
+    if (file_exists($sf)) {
+        $tmp = json_decode(@file_get_contents($sf), true);
+        if (is_array($tmp)) $all = $tmp;
+    }
+    $work = kb_get($data, 'work', array());
+    if (!is_array($work)) $work = array();
+    $work['savedAt'] = gmdate('c');
+    $all[$session] = $work;
+    $ok = @file_put_contents($sf,
+        json_encode($all, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
+    if ($ok === false) {
+        kb_log('ERROR cannot write state-' . $course . '.json (results permissions?)');
+        echo json_encode(array('ok' => false, 'error' => 'cannot write state'));
+        exit;
+    }
+    echo json_encode(array('ok' => true, 'saved' => $session,
+                           'savedAt' => $work['savedAt']));
+    exit;
+}
+
 $course  = kb_clean(kb_get($data, 'course', ''),  'course');
 $kind    = kb_clean(kb_get($data, 'kind', ''),    'session');
 $session = kb_clean(kb_get($data, 'session', ''), 's');
@@ -123,6 +170,8 @@ $files = glob($RESULTS . '/*.json');
 if (!is_array($files)) $files = array();
 rsort($files);
 foreach ($files as $f) {
+    /* state-*.json is live in-progress work, not a submitted result */
+    if (strpos(basename($f), 'state-') === 0) continue;
     $d = json_decode(@file_get_contents($f), true);
     if (!is_array($d)) $d = array();
     $label = kb_get($d, 'student', '?') . ' — '

@@ -12,6 +12,104 @@ HAVE_PHPCGI = shutil.which("php-cgi") is not None
 HAVE_NODE   = shutil.which("node") is not None
 
 
+class StateStorePython(unittest.TestCase):
+    """UC6 on the Python receiver, which needs no optional binary — so the
+    state-sync logic is actually verified on every machine. submit.php is
+    the live implementation and mirrors this; its own tests live in
+    Receiver below and need php-cgi."""
+
+    def setUp(self):
+        self.tmp = tempfile.mkdtemp()
+        self.base = os.path.join(self.tmp, "site")
+        shutil.copytree(SITE_DIR, self.base)
+        self.script = os.path.join(self.base, "learn", "api", "submit.py")
+        self.results = os.path.join(self.base, "learn", "results")
+
+    def tearDown(self):
+        shutil.rmtree(self.tmp, ignore_errors=True)
+
+    def call(self, method="GET", body=b"", query=""):
+        env = dict(os.environ, REQUEST_METHOD=method, QUERY_STRING=query)
+        if method == "POST":
+            env["CONTENT_TYPE"] = "application/json"
+            env["CONTENT_LENGTH"] = str(len(body))
+        r = subprocess.run([sys.executable, self.script], input=body, env=env,
+                           capture_output=True, timeout=30)
+        head, _, payload = r.stdout.partition(b"\r\n\r\n")
+        return head.decode(errors="replace"), json.loads(payload.decode())
+
+    def post_state(self, session="w2s2", answers=None, course="graceco"):
+        return self.call("POST", json.dumps(
+            {"kind": "state", "course": course, "session": session,
+             "work": {"answers": answers or {"g1.a": "10"},
+                      "checked": {"g1": 1}}}).encode())
+
+    def test_state_round_trip(self):
+        _h, j = self.post_state(answers={"g1.a": "10", "g2.b": "50"})
+        self.assertTrue(j["ok"]); self.assertEqual(j["saved"], "w2s2")
+        _h, j = self.call("GET", query="state=graceco")
+        self.assertTrue(j["ok"])
+        self.assertEqual(j["sessions"]["w2s2"]["answers"]["g2.b"], "50")
+        self.assertEqual(j["sessions"]["w2s2"]["checked"]["g1"], 1)
+        self.assertIn("savedAt", j["sessions"]["w2s2"])
+
+    def test_state_accumulates_and_last_write_wins(self):
+        self.post_state("w2s2", {"g1.a": "10"})
+        self.post_state("w2s3", {"m1.a": "-20"})
+        self.post_state("w2s2", {"g1.a": "99"})
+        _h, j = self.call("GET", query="state=graceco")
+        s = j["sessions"]
+        self.assertEqual(sorted(s.keys()), ["w2s2", "w2s3"])
+        self.assertEqual(s["w2s2"]["answers"]["g1.a"], "99")
+        self.assertEqual(s["w2s3"]["answers"]["m1.a"], "-20")
+
+    def test_courses_do_not_share_state(self):
+        self.post_state("w2s2", {"g1.a": "10"}, course="graceco")
+        self.post_state("w2s2", {"m1.a": "14"}, course="ascent")
+        _h, g = self.call("GET", query="state=graceco")
+        _h, a = self.call("GET", query="state=ascent")
+        self.assertEqual(g["sessions"]["w2s2"]["answers"], {"g1.a": "10"})
+        self.assertEqual(a["sessions"]["w2s2"]["answers"], {"m1.a": "14"})
+
+    def test_empty_state_is_not_an_error(self):
+        _h, j = self.call("GET", query="state=ascent")
+        self.assertTrue(j["ok"]); self.assertEqual(j["sessions"], {})
+
+    def test_state_never_pollutes_the_family_index(self):
+        """The regression that would hurt most: state files live in the
+        results folder and must never be read as submitted results."""
+        self.post_state("w2s2")
+        self.call("POST", json.dumps(
+            {"course": "graceco", "student": "Grace", "kind": "session",
+             "session": "w1s1", "title": "Test w1s1",
+             "when": "2026-10-10T10:00:00", "detail": []}).encode())
+        idx = open(os.path.join(self.results, "index.html")).read()
+        self.assertIn("Test w1s1", idx)
+        self.assertNotIn("state-", idx)
+        self.assertTrue(os.path.exists(
+            os.path.join(self.results, "state-graceco.json")))
+
+    def test_state_cannot_escape_the_results_folder(self):
+        _h, j = self.post_state(course="../../../etc/passwd")
+        self.assertTrue(j["ok"])
+        stray = [f for f in os.listdir(self.results) if f.startswith("state-")]
+        self.assertEqual(stray, ["state-etcpasswd.json"],
+                         "course id must be sanitised into the folder")
+
+    def test_php_and_python_receivers_agree_on_the_contract(self):
+        """Cheap guard against the two receivers drifting apart: both must
+        name the file the same way, skip it in the index, and branch on
+        kind == state."""
+        php = open(os.path.join(self.base, "learn", "api", "submit.php"),
+                   encoding="utf-8").read()
+        py = open(self.script, encoding="utf-8").read()
+        for token in ("state-", "'state'", "savedAt"):
+            self.assertIn(token.strip("'"), php.replace('"', "'"),
+                          "submit.php missing " + token)
+        for token in ("state-", "state", "savedAt"):
+            self.assertIn(token, py, "submit.py missing " + token)
+
+
 @unittest.skipUnless(HAVE_PHPCGI, "php-cgi not installed — receiver tests skipped")
 class Receiver(unittest.TestCase):
     def setUp(self):
@@ -69,6 +167,64 @@ class Receiver(unittest.TestCase):
         j = json.loads(body)
         self.assertTrue(j["ok"])
         self.assertEqual(sorted(j["done"]), ["w1s1", "w1s2"])
+
+    # ---- UC6: in-progress work survives a device change ----
+    def _state(self, session="w2s2", answers=None, savedAt=None):
+        return {"kind": "state", "course": "graceco", "session": session,
+                "work": {"answers": answers or {"g1.a": "10"},
+                         "checked": {"g1": 1}, "skipped": {}, "cursor": 0,
+                         "savedAt": savedAt or "2026-10-10T12:00:00Z"}}
+
+    def test_state_round_trip(self):
+        _h, body = self.post(self._state(answers={"g1.a": "10", "g2.b": "50"}))
+        j = json.loads(body)
+        self.assertTrue(j["ok"]); self.assertEqual(j["saved"], "w2s2")
+        _h, body = self.call("GET", query="state=graceco")
+        j = json.loads(body)
+        self.assertTrue(j["ok"])
+        self.assertEqual(j["sessions"]["w2s2"]["answers"]["g2.b"], "50")
+        self.assertEqual(j["sessions"]["w2s2"]["checked"]["g1"], 1)
+
+    def test_state_accumulates_sessions_and_last_write_wins(self):
+        self.post(self._state("w2s2", {"g1.a": "10"}))
+        self.post(self._state("w2s3", {"m1.a": "-20"}))
+        self.post(self._state("w2s2", {"g1.a": "99"}))       # same session again
+        _h, body = self.call("GET", query="state=graceco")
+        s = json.loads(body)["sessions"]
+        self.assertEqual(sorted(s.keys()), ["w2s2", "w2s3"])
+        self.assertEqual(s["w2s2"]["answers"]["g1.a"], "99")
+        self.assertEqual(s["w2s3"]["answers"]["m1.a"], "-20")
+
+    def test_state_is_stamped_server_side(self):
+        _h, body = self.post(self._state(savedAt="not-a-date"))
+        self.assertNotEqual(json.loads(body)["savedAt"], "not-a-date")
+
+    def test_empty_state_is_not_an_error(self):
+        _h, body = self.call("GET", query="state=ascent")
+        j = json.loads(body)
+        self.assertTrue(j["ok"]); self.assertEqual(j["sessions"], {})
+
+    def test_state_never_pollutes_progress_or_the_family_index(self):
+        """The regression that would hurt most: state files sharing the
+        results folder must not be read as submitted results."""
+        self.post(self._payload("w1s1"))          # one real result
+        self.post(self._state("w2s2"))            # plus live work
+        _h, body = self.call("GET", query="progress=graceco")
+        self.assertEqual(json.loads(body)["done"], ["w1s1"])
+        idx = open(os.path.join(self.results, "index.html")).read()
+        self.assertIn("Test w1s1", idx)
+        self.assertNotIn("state-", idx)
+        # and the state file is not mistaken for a result file on disk
+        self.assertTrue(os.path.exists(
+            os.path.join(self.results, "state-graceco.json")))
+
+    def test_state_cannot_escape_the_results_folder(self):
+        evil = self._state(); evil["course"] = "../../../etc/passwd"
+        _h, body = self.post(evil)
+        self.assertTrue(json.loads(body)["ok"])
+        stray = [f for f in os.listdir(self.results) if f.startswith("state-")]
+        self.assertEqual(stray, ["state-etcpasswd.json"],
+                         "course id must be sanitised into the folder")
 
     def test_invalid_json_rejected_politely(self):
         head, body = self.call("POST", b"this is not json")

@@ -1,0 +1,193 @@
+{
+  "artefact": "content",
+  "release": null,
+  "generated": "2026-10-10T13:28:21",
+  "file_count": 15,
+  "shipping_count": 6,
+  "shipping": [
+    "learn/courses.json",
+    "learn/graceco/content/w1s1.json",
+    "learn/graceco/content/w1s2.json",
+    "learn/graceco/content/w2s1.json",
+    "learn/graceco/content/w2s2.json",
+    "learn/graceco/content/w2s3.json"
+  ],
+  "sessions": [
+    {
+      "course": "ascent",
+      "id": "w1s1",
+      "kind": "session",
+      "tag": "Unit 1 · Session 1",
+      "title": "Below Zero"
+    },
+    {
+      "course": "ascent",
+      "id": "w1s2",
+      "kind": "session",
+      "tag": "Unit 1 · Session 2",
+      "title": "The Minus-Times-Minus Mystery"
+    },
+    {
+      "course": "ascent",
+      "id": "w1s3",
+      "kind": "session",
+      "tag": "Unit 1 · Summit Puzzle",
+      "title": "The Mine Lift"
+    },
+    {
+      "course": "ascent",
+      "id": "w2s1",
+      "kind": "session",
+      "tag": "Unit 2 · Session 1",
+      "title": "The Sequence Detective"
+    },
+    {
+      "course": "ascent",
+      "id": "w2s2",
+      "kind": "session",
+      "tag": "Unit 2 · Session 2",
+      "title": "The Position Machine"
+    },
+    {
+      "course": "ascent",
+      "id": "w2s3",
+      "kind": "session",
+      "tag": "Unit 2 · Summit Puzzle",
+      "title": "The Staircase"
+    },
+    {
+      "course": "graceco",
+      "id": "w1s1",
+      "kind": "session",
+      "tag": "Unit 1 · Board meeting 1",
+      "title": "The 10% Machine"
+    },
+    {
+      "course": "graceco",
+      "id": "w1s2",
+      "kind": "session",
+      "tag": "Unit 1 · Board meeting 2",
+      "title": "Halve It, Tenth It"
+    },
+    {
+      "course": "graceco",
+      "id": "w1s3",
+      "kind": "session",
+      "tag": "Unit 1 · Market story",
+      "title": "The Sale-Sign Trick"
+    },
+    {
+      "course": "graceco",
+      "id": "w2s1",
+      "kind": "session",
+      "tag": "Unit 2 · Board meeting 1",
+      "title": "Profit, Properly"
+    },
+    {
+      "course": "graceco",
+      "id": "w2s2",
+      "kind": "session",
+      "tag": "Unit 2 · Board meeting 2",
+      "title": "The Margin"
+    },
+    {
+      "course": "graceco",
+      "id": "w2s3",
+      "kind": "session",
+      "tag": "Unit 2 · Market story",
+      "title": "Losing Money on Purpose"
+    }
+  ],
+  "files": [
+    {
+      "path": "learn/ascent/content/w1s1.json",
+      "sha256": "e27e71f2a8483bc1a93ca1beae87a02e3f41a8ba40cd52c0c88b17a26547eaab",
+      "bytes": 3377,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/ascent/content/w1s2.json",
+      "sha256": "8d6f64b0ecefb48964313453779bf3a1e3232b149c811e02852eb83a9a55aedd",
+      "bytes": 3873,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/ascent/content/w1s3.json",
+      "sha256": "008ba88dedbaa05e9faa72e777a738d5309312d4aaa6a74d993ddcb395064d21",
+      "bytes": 3369,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/ascent/content/w2s1.json",
+      "sha256": "1031664551d1d0492f091141ab39e1f38681619bca9c84e154338edfeaf6b6e3",
+      "bytes": 3944,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/ascent/content/w2s2.json",
+      "sha256": "b88083f2d8d64b847bebe3c9a3598a1cb8eba44aeec1e05da28e0205b31a4be2",
+      "bytes": 10092,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/ascent/content/w2s3.json",
+      "sha256": "8d1db8306b1bd08c0af9baa9220a6113dc4907fe400c17ebca93b8055a9a2903",
+      "bytes": 10159,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/ascent/course.json",
+      "sha256": "2983f259fcffe2d0226f39671baaf3891a2b95ccde82a6851072abd2826a6e9f",
+      "bytes": 1385,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/courses.json",
+      "sha256": "14b9714c75a9c707b87000f4b8ce295c8fcc62b9bf736f8bffe9db786c340058",
+      "bytes": 687,
+      "state": "changed"
+    },
+    {
+      "path": "learn/graceco/content/w1s1.json",
+      "sha256": "b008806c0c65909df800b917acb89d1e41055edfdd3997f237cf8442f73f5e68",
+      "bytes": 3177,
+      "state": "changed"
+    },
+    {
+      "path": "learn/graceco/content/w1s2.json",
+      "sha256": "aaf668ec4e6c53b3de3432c6e18e364a1a738a146c7a2066c1d649a6f160c769",
+      "bytes": 3390,
+      "state": "changed"
+    },
+    {
+      "path": "learn/graceco/content/w1s3.json",
+      "sha256": "acb23b67174e8a2d9dbd640411227031037b76924aeaf1a604ae6976bfccb190",
+      "bytes": 3741,
+      "state": "unchanged"
+    },
+    {
+      "path": "learn/graceco/content/w2s1.json",
+      "sha256": "069398a238bac247b6b2b62a3736bef3ffb1e888ae18122878cfe0d122ea62a2",
+      "bytes": 6030,
+      "state": "changed"
+    },
+    {
+      "path": "learn/graceco/content/w2s2.json",
+      "sha256": "ba120a3dde0269be9081028bb4f7a0fe23293bc1cac6a9cb28772aabd9518f49",
+      "bytes": 10319,
+      "state": "changed"
+    },
+    {
+      "path": "learn/graceco/content/w2s3.json",
+      "sha256": "f58056c3683b75947ac7b82e96ffee57ce749f69f45383f716a5adebaf86aa00",
+      "bytes": 12134,
+      "state": "changed"
+    },
+    {
+      "path": "learn/graceco/course.json",
+      "sha256": "60ff0a4e125d99d939a5ca4e8186af150b33f605b8ad68a4a3c990ed5d4dfad9",
+      "bytes": 1362,
+      "state": "unchanged"
+    }
+  ]
+}

@@ -49,6 +49,28 @@ House patterns, used deliberately:
 - **Continuity**: reference earlier sessions' skills paying off ("Unit 1's
   negatives, earning their keep").
 
+## Plain English (hard rule, added 2026-10 after a real failure)
+Write for a ten-year-old reading on a tablet with no adult beside them.
+**No LLM-style shorthand or jargon.** Specifically banned in anything a
+learner reads (prompt, label, hint, read/reveal text):
+- arrows for change or calculation — `revenue £50 → £100`, `60 → 6`.
+  Write the sentence: "in year 1 it makes £50, and in year 2 it makes
+  £100"; "the digits slide one place, so 60 becomes 6".
+- label-colon data lines — `**A:** costs £40, margin 50%`. Write
+  "Business A spends £40, and its margin is 50%".
+- fill-in-the-blank underscores in a form label — `The revenue is ___`.
+  Ask the question: "What is the revenue doing each year? (one word)".
+- bare negative currency in a list of figures (`Tue −£5`) unless the
+  minus sign is itself what the session is teaching at that moment.
+**Tabular data gets prose AND a table** — the sentences first, then the
+table so the numbers can be compared at a glance. Never the table alone.
+Use the inline-styled pattern in graceco w2s1–w2s3 (`overflow-x:auto`
+wrapper, `var(--accent)` header rule, `var(--track)` row rules) — it is
+deliberately content-only, so a clarity fix never needs an engine release.
+Short sentences are a rule about *sentence construction*, not a licence
+to explain less: Grace's sessions ran at a third of Jim's teaching words
+per question, which is how this went wrong.
+
 ## Per-student style sheets
 
 ### Jim (ascent — The Ascent, climbing world)
@@ -90,7 +112,9 @@ House patterns, used deliberately:
 - [ ] Reveal earns its surprise; summit is genuinely discussable
 - [ ] Grace only: sentence length, big text friendliness, no prose burden
 - [ ] Manifest updated (new session live, next ones "soon": true)
-- [ ] run_tests.py green; release + ?v= bumped together if shipping
+- [ ] run_tests.py green; content `version` (rN) in courses.json bumped if
+      shipping. Content releases never touch ?v= or any engine file — that
+      token belongs to the code artefact (CLAUDE.md § Versioning)
 - [ ] Done-screen names the gain and teases the next session
 
 ## Review protocol for new agents
