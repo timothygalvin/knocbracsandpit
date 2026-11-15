@@ -169,5 +169,69 @@ class ChecksTree(unittest.TestCase):
                           if "results" in x], [])
 
 
+class CourseMapRules(unittest.TestCase):
+    """The course map's soft-lock chain, guarded at source level.
+
+    Code 1.1.2 exists because inserting Checkpoint 1 at the end of Unit 2
+    made it the first not-done session, and EVERY session after it rendered
+    .locked (opacity .45, pointer-events none) — the whole of Unit 3
+    vanished for both children the moment the content deployed. A checkpoint
+    is an assessment you take when ready; it must never gate the course."""
+
+    def setUp(self):
+        self.src = open(os.path.join(SITE_DIR, "learn", "app", "course.html"),
+                        encoding="utf-8").read()
+
+    def test_checkpoints_are_excluded_from_the_lock_chain(self):
+        line = [l for l in self.src.splitlines() if "firstOpen" in l and "findIndex" in l]
+        self.assertTrue(line, "could not find the firstOpen computation")
+        self.assertIn("isCp", line[0],
+                      "firstOpen must skip checkpoints, or a checkpoint becomes "
+                      "a gate and locks everything after it")
+
+    def test_a_checkpoint_is_never_locked_unless_soon(self):
+        self.assertIn('if(isCp(s) && !isDone) state = "";', self.src,
+                      "an unfinished checkpoint must render open, not locked")
+        soon = self.src.index('if(s.soon && !isDone) state = "locked"')
+        cp = self.src.index('if(isCp(s) && !isDone) state = ""')
+        self.assertLess(cp, soon,
+                        'the "soon" rule must come LAST so a not-yet-written '
+                        "checkpoint still renders as Coming soon")
+
+    def test_manifest_order_does_not_strand_a_unit(self):
+        """Outcome test on the REAL manifests: with completion up to the end
+        of Unit 2, the first session of Unit 3 must be reachable."""
+        for course in ("ascent", "graceco"):
+            man = json.load(open(os.path.join(SITE_DIR, "learn", course,
+                                              "course.json"), encoding="utf-8"))
+            flat = [s for u in man["units"] for s in u["sessions"]]
+            done = {s["id"]: 1 for s in flat if s["id"].startswith(("w1", "w2"))
+                    and s.get("kind") != "checkpoint"}
+            is_cp = lambda s: s.get("kind") == "checkpoint"
+            first_open = next((i for i, s in enumerate(flat)
+                               if not done.get(s["id"]) and not s.get("soon")
+                               and not is_cp(s)), -1)
+            states = {}
+            for i, s in enumerate(flat):
+                d = bool(done.get(s["id"]))
+                st = "done" if d else ("next" if (first_open < 0 or i == first_open)
+                                       else ("open" if i < first_open else "locked"))
+                if is_cp(s) and not d:
+                    st = "open"
+                if s.get("soon") and not d:
+                    st = "locked"
+                states[s["id"]] = st
+            u3 = [s["id"] for u in man["units"] if u["title"].startswith("Unit 3")
+                  for s in u["sessions"]]
+            if not u3:
+                continue
+            self.assertEqual(states[u3[0]], "next",
+                             "%s: %s should be the next session, got %r — a "
+                             "checkpoint or stray entry is gating the unit"
+                             % (course, u3[0], states[u3[0]]))
+            self.assertEqual(states.get("cp1"), "open",
+                             "%s: cp1 must be open, not a gate" % course)
+
+
 if __name__ == "__main__":
     unittest.main()

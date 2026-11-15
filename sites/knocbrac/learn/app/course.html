@@ -7,11 +7,11 @@
 <title>Course</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:ital,wght@0,400;0,700;0,800;1,400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/base.css?v=1.1.1">
+<link rel="stylesheet" href="../assets/base.css?v=1.1.2">
 </head>
 <body>
 <div class="wrap" id="main"><div class="card"><p class="sub">Loading…</p></div></div>
-<script src="../assets/shared.js?v=1.1.1"></script>
+<script src="../assets/shared.js?v=1.1.2"></script>
 <script>
 (async ()=>{
   const main = KB.el("#main");
@@ -25,14 +25,19 @@
     const course = await KB.course(cid);
     const done = await KB.mergedDone(cid);
     const flat = course.units.flatMap(u=>u.sessions);
-    const firstOpen = flat.findIndex(s=>!done[s.id] && !s.soon);
+    /* a checkpoint is an assessment you take when ready, NEVER a gate: it
+       must not become firstOpen, or everything after it locks. Inserting
+       cp1 at the end of Unit 2 locked the whole of Unit 3 (code 1.1.2). */
+    const isCp = s => s.kind === "checkpoint";
+    const firstOpen = flat.findIndex(s=>!done[s.id] && !s.soon && !isCp(s));
     let i = -1;
     const units = course.units.map(u=>{
       const rows = u.sessions.map(s=>{
         i++;
         const isDone = !!done[s.id];
         let state = isDone ? "done" : (firstOpen<0 || i===firstOpen ? "next" : (i<firstOpen ? "" : "locked"));
-        if(s.soon && !isDone) state = "locked";
+        if(isCp(s) && !isDone) state = "";        /* open, but not the "next" nudge */
+        if(s.soon && !isDone) state = "locked";   /* stays last: "soon" still wins */
         const mark = isDone ? "✓" : (s.kind==="checkpoint" ? "★" : (i+1));
         const meta = s.soon ? "Coming soon" : `${s.kind==="checkpoint"?"Checkpoint":"Session"} · ${s.time||"about 35 min"}`;
         return `<a class="sess ${state}" href="session.html?c=${cid}&s=${s.id}">
