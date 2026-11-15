@@ -1,0 +1,90 @@
+{
+    "course": "ascent",
+    "student": "Jim",
+    "kind": "session",
+    "session": "w2s1",
+    "title": "The Sequence Detective",
+    "when": "2026-08-09T15:06:50.949Z",
+    "detail": [
+        {
+            "q": "d1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "5",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "27",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "d2",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": " -7",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "12",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "d3",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "3",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "17",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "d4",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "52",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "252",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "d5",
+            "tries": 5,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "-80",
+                    "mark": "incorrect"
+                },
+                {
+                    "part": "b",
+                    "raw": "Yes",
+                    "mark": "review"
+                }
+            ]
+        }
+    ]
+}

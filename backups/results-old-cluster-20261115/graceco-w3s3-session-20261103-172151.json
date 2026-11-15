@@ -1,0 +1,100 @@
+{
+    "course": "graceco",
+    "student": "Grace",
+    "kind": "session",
+    "session": "w3s3",
+    "title": "The 0% Offer",
+    "when": "2026-11-03T17:21:48.046Z",
+    "detail": [
+        {
+            "q": "c1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£5",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "£15",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "c2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£515",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "£30",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "c3",
+            "tries": 4,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "%20",
+                    "mark": "review"
+                },
+                {
+                    "part": "b",
+                    "raw": "£480",
+                    "mark": "incorrect"
+                }
+            ]
+        },
+        {
+            "q": "c4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£515",
+                    "mark": "incorrect"
+                },
+                {
+                    "part": "b",
+                    "raw": "£15",
+                    "mark": "incorrect"
+                },
+                {
+                    "part": "c",
+                    "raw": "£105",
+                    "mark": "incorrect"
+                }
+            ]
+        },
+        {
+            "q": "c5",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£600",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "£120",
+                    "mark": "incorrect"
+                },
+                {
+                    "part": "c",
+                    "raw": "dandangerous",
+                    "mark": "review"
+                }
+            ]
+        }
+    ]
+}

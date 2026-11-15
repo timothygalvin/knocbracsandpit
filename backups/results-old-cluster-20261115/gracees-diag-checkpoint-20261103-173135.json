@@ -1,0 +1,478 @@
+{
+    "course": "gracees",
+    "student": "Grace",
+    "kind": "checkpoint",
+    "session": "diag",
+    "title": "The Suitcase",
+    "when": "2026-11-03T17:31:30.503Z",
+    "detail": [
+        {
+            "q": "s1q1",
+            "level": "A0",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "hola means…",
+                    "raw": "hello",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s1q2",
+            "level": "A0",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "thank you in Spanish",
+                    "raw": "grasias ",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s1q3",
+            "level": "A0",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "adiós means…",
+                    "raw": "good bye",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s1q4",
+            "level": "A0",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "por favor means…",
+                    "raw": "please",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s1q5",
+            "level": "A0",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "sí means…",
+                    "raw": "yes",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "no means…",
+                    "raw": "no",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s1q6",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "hello in Spanish",
+                    "raw": "hola",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s2q1",
+            "level": "A0",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«chocolate»",
+                    "raw": "chocolate ",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«limonada»",
+                    "raw": "lemonade ",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "«tomate»",
+                    "raw": "tomato",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s2q2",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«helado»",
+                    "raw": "ice cream",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«agua»",
+                    "raw": "water",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "«leche»",
+                    "raw": "milk",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s2q3",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "water in Spanish",
+                    "raw": "agua",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s2q4",
+            "level": "A1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "zumo de naranja is…",
+                    "raw": "orange ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s2q5",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "la cuenta is…",
+                    "raw": "the cheque ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s3q1",
+            "level": "A0",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«uno»",
+                    "raw": "1",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«dos»",
+                    "raw": "2",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "«cinco»",
+                    "raw": "5????",
+                    "mark": "correct"
+                },
+                {
+                    "part": "d",
+                    "label": "«diez»",
+                    "raw": "8???",
+                    "mark": "incorrect"
+                }
+            ]
+        },
+        {
+            "q": "s3q2",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "3 in Spanish",
+                    "raw": "tres",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "9 in Spanish",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s3q3",
+            "level": "A1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "euros",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s3q4",
+            "level": "A1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "quince",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s3q5",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "cien euros is how many euros?",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s4q1",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "el playa or la playa?",
+                    "raw": "el",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s4q2",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "she's telling you…",
+                    "raw": "my name is carmen",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s4q3",
+            "level": "A1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "she's telling you…",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s4q4",
+            "level": "A1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "'I have 10 years' in Spanish",
+                    "raw": "tengo diez anos",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s4q5",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "what's being asked?",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s5q1",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Carmen is in…",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s5q2",
+            "level": "A1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "the weather is…",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s5q3",
+            "level": "A1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "every day she eats…",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s5q4",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "she goes in the…",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s5q5",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "football is played by…",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s6q1",
+            "level": "survey",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Words you've already got (1–5)",
+                    "raw": "5",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "The café menu (1–5)",
+                    "raw": "4",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "Numbers and euros (1–5)",
+                    "raw": "1",
+                    "mark": "correct"
+                },
+                {
+                    "part": "d",
+                    "label": "How Spanish fits together (1–5)",
+                    "raw": "3",
+                    "mark": "correct"
+                },
+                {
+                    "part": "e",
+                    "label": "The postcard (1–5)",
+                    "raw": "2",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s6q2",
+            "level": "survey",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "favourite question",
+                    "raw": "probably the one about Carmen even though I couldn't understand it i feel like it would realy set me up for real life",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s6q3",
+            "level": "survey",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "I want to…",
+                    "raw": "be able to talk to locals talk to kids and understand grammar better",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "s6q4",
+            "level": "survey",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "words I've got",
+                    "raw": "idk",
+                    "mark": "review"
+                }
+            ]
+        }
+    ]
+}

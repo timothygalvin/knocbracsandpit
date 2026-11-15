@@ -39,16 +39,16 @@ These are the ones that move the band line. Do them before any planning.
 - asked: Where does he suggest meeting?
 - he wrote: `bar next to the office`
 - accept list held: `a bar`, `bar`, `the bar`, `in a bar`, `at a bar`, `a bar near his office` … (9 total)
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** Meaning fully conveyed; 'next to the office' is a better answer than most of the accept list. Reading hit at A1.
 
 **v6q4.a** · level B1+ · engine said `review`
 
 - asked: if Friday doesn't work, you should…
 - he wrote: `if you don't want to do Friday, write me when you are free`
 - accept list held: `write when it suits you`, `text him when convenient`, `write when convenient`, `say when suits you`, `tell him when is convenient`, `tell him when suits` … (12 total)
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** All three content points (condition + write + when free). One nuance slip: сможешь = 'can't', he read 'don't want' — log as minor, not a comprehension miss.
 
 ### Cases — the old enemy
 
@@ -57,64 +57,64 @@ These are the ones that move the band line. Do them before any planning.
 - asked: «Я иду в ____ (бар)»
 - he wrote: `баре`
 - accept list held: `бар`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** Wrote баре: applied prepositional (location) to a direction — the exact в+acc/в+prep confusion the _working predicted. Teachable in one reveal.
 
 **v4q2.b** · level A1+ · engine said `review`
 
 - asked: «Я вижу ____ (Анна)»
 - he wrote: `Анна`
 - accept list held: `анну`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** Left nominative Анна; animate-accusative marking absent.
 
 **v4q3.b** · level A2 · engine said `review`
 
 - asked: «У меня нет ____ (работа)»
 - he wrote: `у меня работу`
 - accept list held: `работы`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** Reached for accusative (работу); нет+genitive not available. Genitive after a quantity word WAS right (вина, v4q3.a) — so genitive exists as a pattern, the нет trigger specifically is missing.
 
 **v4q4.a** · level B1 · engine said `review`
 
 - asked: «Я звоню ____ (друг)»
 - he wrote: `другие `
 - accept list held: `другу`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** Wrote другие ('others') — lexical confusion друг↔другой, on top of no dative. The same confusion recurs in v4q5.a: consistent, so it's one bug, not two.
 
 **v4q4.b** · level B1 · engine said `review`
 
 - asked: «Я работаю ____ (архитектор)»
 - he wrote: `архитектора `
 - accept list held: `архитектором`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** Declined it (архитектора) but to the wrong case — knows SOMETHING must change after работать, instrumental mapping absent. Priority fix: this is his forever-sentence.
 
 **v4q5.a** · level B1+ · engine said `review`
 
 - asked: «пять ____ (друг)»
 - he wrote: `другие `
 - accept list held: `друзей`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** другие again — same друг/другой bug as v4q4.a. Gen-pl untested by this answer as a result.
 
 **v4q5.b** · level B1+ · engine said `review`
 
 - asked: «много ____ (люди)»
 - he wrote: `много людей`
 - accept list held: `людей`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** людей is a correct genitive plural (suppletive, B1+!) — he re-typed the frame word много, which the accept list should have anticipated. Likely stored as the chunk 'много людей'. Chunks survive where rules fail — a course lever.
 
 **v4q6.a** · level B1+ · engine said `review`
 
 - asked: both missing words
 - he wrote: `новый рабочий `
 - accept list held: `новой работе`, `о новой работе`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** новый рабочий: no case agreement attempted AND lexical slip работа→рабочий ('worker'). B1+ out of reach, as designed.
 
 ### People — meeting and knowing them
 
@@ -123,24 +123,24 @@ These are the ones that move the band line. Do them before any planning.
 - asked: «разговор»
 - he wrote: `speech`
 - accept list held: `conversation`, `a conversation`, `talk`, `a talk`, `chat`, `a chat` … (7 total)
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** 'speech' sits in разговор's meaning field (next to речь). Generous-but-fair meaning hit; note possible разговор/речь blur.
 
 **v2q3.c** · level A2 · engine said `blank`
 
 - asked: to meet / get to know someone →
 - he wrote: `(left blank)`
 - accept list held: `познакомиться`, `знакомиться`, `встретиться`, `встретить`, `встречаться`, `познакомится` … (7 total)
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** Blank = true retrieval gap on the знакомиться family at A2 — ironic given the course's social emphasis, and exactly the vocabulary Unit 1 should plant.
 
 **v2q4.b** · level B1 · engine said `review`
 
 - asked: «собеседник»
 - he wrote: `converse `
 - accept list held: `conversation partner`, `interlocutor`, `the person you are talking to`, `person you're talking to`, `person you are talking to`, `the other person in a conversation`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** 'converse': root recognised (бесед-/convers-), word-class missed. Half-signal — the B1 nuance shelf is within sight, not in hand.
 
 ### The bar and the street
 
@@ -149,40 +149,40 @@ These are the ones that move the band line. Do them before any planning.
 - asked: «заказать»
 - he wrote: `finished`
 - accept list held: `to order`, `order`, `to book`, `book`, `to reserve`, `reserve` … (7 total)
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** 'finished' = закончить; classic заказать/закончить confusion. Lexical, high-value fix for the bar world.
 
 **v3q2.b** · level A2 · engine said `review`
 
 - asked: «рядом»
 - he wrote: `let's go`
 - accept list held: `nearby`, `near`, `close`, `close by`, `next to`, `beside` … (8 total)
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** 'let's go' — no meaning contact with рядом. True gap (and рядом was the planted word for Dima's message, which he then read right anyway via context — see v6q1.b).
 
 **v3q3.c** · level A2 · engine said `review`
 
 - asked: the bill, please →
 - he wrote: `чек, пожалуйста `
 - accept list held: `счёт пожалуйста`, `счет пожалуйста`, `счёт, пожалуйста`, `счет, пожалуйста`, `можно счёт`, `можно счет` … (10 total)
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** чек, пожалуйста is what half of Moscow actually says in a café. Real-world valid; teach счёт as the restaurant/bar register later. Full credit.
 
 **v3q4.a** · level B1 · engine said `review`
 
 - asked: «двор»
 - he wrote: `door`
 - accept list held: `courtyard`, `yard`, `the courtyard`, `the yard`, `court`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** 'door' — phonetic guess (dvor≈door). Note the strategy: he guesses by sound when stuck. Useful to know; wrong here.
 
 **v3q4.b** · level B1 · engine said `blank`
 
 - asked: «здание»
 - he wrote: `(left blank)`
 - accept list held: `building`, `a building`, `the building`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** Blank at B1, as designed — no action.
 
 ### Verbs — getting things moving
 
@@ -191,24 +191,24 @@ These are the ones that move the band line. Do them before any planning.
 - asked: «Она ____ (говорить) по-русски»
 - he wrote: `говорята`
 - accept list held: `говорит`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** говорята is a non-word blending говорит/говорят — the 2nd-conjugation table is scrambled at 3sg/3pl. Small, drillable.
 
 **v5q5.a** · level B1 · engine said `review`
 
 - asked: the verb that fits
 - he wrote: `звоню`
 - accept list held: `позвоню`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** звоню: perfective-future production not available — though the aspect CONCEPT tested intact in v5q4 (both forced choices right). Production lags concept: practice problem, not teaching problem.
 
 **v5q6.a** · level B1+ · engine said `review`
 
 - asked: the missing words
 - he wrote: `пойдем `
 - accept list held: `пошёл бы`, `пошел бы`, `бы пошёл`, `бы пошел`, `пошла бы`, `бы пошла`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** пойдем ('let's go') for the conditional; бы absent. B1+ out of reach as designed. (Second 'let's go' reflex of the test — see v3q2.b; he reaches for hortative under pressure, which is actually very bar-Russian of him.)
 
 ### Your turn to speak — on paper
 
@@ -217,16 +217,16 @@ These are the ones that move the band line. Do them before any planning.
 - asked: in Russian
 - he wrote: `Я живу в Москве `
 - accept list held: `я жил в москве`, `жил в москве`, `я жила в москве`, `я жил в россии`, `жил в россии`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** wrong-form
+- **note:** Я живу в Москве is a PERFECT sentence in the wrong tense (present for 'I lived'). Prepositional right. But see v7q4: he writes «Я жил в Москве два года» spontaneously and correctly — so v7q1 was a prompt misread, not a past-tense gap. Count the grammar as present.
 
 **v7q2.a** · level A2 · engine said `review`
 
 - asked: in Russian
 - he wrote: `Я хочу говорить на русском языке `
 - accept list held: `я хочу говорить по-русски`, `я хочу говорить по русски`, `хочу говорить по-русски`, `хочу говорить по русски`, `я хочу говорить порусски`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** Я хочу говорить на русском языке — fully grammatical ALTERNATIVE to по-русски, and harder: prepositional + adjective agreement, the exact construction he failed when elicited in v4q6. Headline finding: spontaneous grammar > elicited grammar.
 
 ## Designed free production — judge against the rubric
 
@@ -238,22 +238,22 @@ Written production and self-report. Never auto-markable by design.
 
 - asked: favourite question
 - he wrote: ` the response back because it offered the chance to be warm and humorous `
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** Survey. 'The response back… warm and humorous' = the Dima reply. He wants interaction, not exercises.
 
 **v8q3.a** · level survey · engine said `review`
 
 - asked: the fond memory
 - he wrote: `overall, how Russians - if you make an effort to speak Russian - are forgiving of the poor language skills.  My friend Sasha and I used to have great drunken conversations at the Schwartzkeiser.  even though neither of us spoke each others language very well, we understood each other.  Russian is a language you have to feel.  this is what I like the most.`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** Survey, and the motherlode: Sasha, the Schwartzkeiser, 'Russian is a language you have to feel', Russians forgiving effort. The course now has its bar, its second NPC, and its tone instruction.
 
 **v8q4.a** · level survey · engine said `review`
 
 - asked: what broke
 - he wrote: `grammar,  tenses in particular.  not being able to understand people when they spoke to me.`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** Survey. Self-report: grammar/tenses + listening. Measurement DISAGREES on tenses (aspect concept intact, past tense available in chunks) and says CASES are the structural gap — classic confidence-vs-knowledge split, rubric Step 2b. Listening: unassessed here, must be a workstream.
 
 **v8q5.a** · level survey · engine said `review`
 
@@ -261,8 +261,8 @@ Written production and self-report. Never auto-markable by design.
 - he wrote: `Geopolitics.
 Being able ask people about themselves (and understand the answers).
 Tell jokes and funny stories `
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** Survey. Syllabus targets: geopolitics; asking about people and understanding answers; jokes and stories. Note all three are LISTENING-heavy — reinforces the listening workstream.
 
 ### Your turn to speak — on paper
 
@@ -270,14 +270,14 @@ Tell jokes and funny stories `
 
 - asked: your reply to Dima
 - he wrote: `пятница, да! сказать меня, твой компании нужен сотрудник? это хорошо места работет?`
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** Communicative SUCCESS with rough grammar: 'Friday, yes! Tell me, does your company need an employee? Is it a good place to work?' Dima understands every word of intent. Errors: сказать меня (→скажи мне), твой компании (gender+case), хорошо места (agreement), работет (typo/conj). And he asked the data company for a JOB — the theme is self-fuelling.
 
 **v7q4.a** · level B1 · engine said `review`
 
 - asked: your introduction
 - he wrote: `привет! но, Дима, я Ирландии.  Вы, украинцы, вечно путаете Англию с Ирландией!
 так, я работаю в Лондоне (да, и знаю, на Англиа). Я архитектор информацию, credit markets - интересно работа.   Я жил в Москве два года.   Я хочу вернуться. `
-- **verdict (Fable):** 
-- **note:** 
+- **verdict (Fable):** right
+- **note:** Communicative success, humour LANDS, and «вечно путаете Англию с Ирландией» is genuinely idiomatic (accusative + с+instrumental both right inside a joke). «Я жил в Москве два года» perfect. Errors: я Ирландии (из missing), архитектор информацию, интересно работа (agreement). Range: identity, origin, profession, history, intention — the full introduction, understandable throughout. This paragraph is the best single datum in the file.
 

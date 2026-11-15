@@ -1,0 +1,100 @@
+{
+    "course": "graceco",
+    "student": "Grace",
+    "kind": "session",
+    "session": "w3s1",
+    "title": "Rent on Money",
+    "when": "2026-11-03T17:07:53.387Z",
+    "detail": [
+        {
+            "q": "i1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "20",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "220",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "i2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "15",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "315",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "i3",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "100",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "500",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "i4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£30",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "£40",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "raw": "down",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "i5",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "",
+                    "mark": "blank"
+                },
+                {
+                    "part": "b",
+                    "raw": "",
+                    "mark": "blank"
+                },
+                {
+                    "part": "c",
+                    "raw": "",
+                    "mark": "blank"
+                }
+            ]
+        }
+    ]
+}

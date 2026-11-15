@@ -1,0 +1,736 @@
+{
+    "course": "vozvrat",
+    "student": "Timothy",
+    "kind": "checkpoint",
+    "session": "diag",
+    "title": "Walking the Old Streets",
+    "when": "2026-10-19T21:21:29.105Z",
+    "detail": [
+        {
+            "q": "v1q1",
+            "level": "A0",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«БАНК»",
+                    "raw": "Bank",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«МЕТРО»",
+                    "raw": "Metro ",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "«КАФЕ»",
+                    "raw": "Cafe",
+                    "mark": "correct"
+                },
+                {
+                    "part": "d",
+                    "label": "«ТАКСИ»",
+                    "raw": "Taxi",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v1q2",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«РЕСТОРАН»",
+                    "raw": "Restaurant",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«ВЫХОД»",
+                    "raw": "Exit",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "«ЦЕНТР»",
+                    "raw": "Center",
+                    "mark": "correct"
+                },
+                {
+                    "part": "d",
+                    "label": "«ВОКЗАЛ»",
+                    "raw": "Station",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v1q3",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "internet →",
+                    "raw": "Интернет",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "vodka →",
+                    "raw": "водка",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v2q1",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«друг»",
+                    "raw": "Friend",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«работа»",
+                    "raw": "Work",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "«город»",
+                    "raw": "City",
+                    "mark": "correct"
+                },
+                {
+                    "part": "d",
+                    "label": "«дом»",
+                    "raw": "Home",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v2q2",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«встреча»",
+                    "raw": "Meeting",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«сосед»",
+                    "raw": "Neighbour",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "«разговор»",
+                    "raw": "speech",
+                    "mark": "review"
+                },
+                {
+                    "part": "d",
+                    "label": "«вопрос»",
+                    "raw": "Question",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v2q3",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "friend →",
+                    "raw": "друг",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "name →",
+                    "raw": "имя",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "to meet / get to know someone →",
+                    "raw": "",
+                    "mark": "blank"
+                }
+            ]
+        },
+        {
+            "q": "v2q4",
+            "level": "B1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«знакомый» (as a noun: мой знакомый)",
+                    "raw": "acquaintance",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«собеседник»",
+                    "raw": "converse ",
+                    "mark": "review"
+                },
+                {
+                    "part": "c",
+                    "label": "«общаться»",
+                    "raw": "communicate",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v3q1",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«пиво»",
+                    "raw": "beer",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«вино»",
+                    "raw": "wine",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "«счёт»",
+                    "raw": "bill",
+                    "mark": "correct"
+                },
+                {
+                    "part": "d",
+                    "label": "«улица»",
+                    "raw": "road",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v3q2",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«заказать»",
+                    "raw": "finished",
+                    "mark": "review"
+                },
+                {
+                    "part": "b",
+                    "label": "«рядом»",
+                    "raw": "let's go",
+                    "mark": "review"
+                },
+                {
+                    "part": "c",
+                    "label": "«налево»",
+                    "raw": "left",
+                    "mark": "correct"
+                },
+                {
+                    "part": "d",
+                    "label": "«ещё»",
+                    "raw": "more",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v3q3",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "beer →",
+                    "raw": "пиво ",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "please →",
+                    "raw": "пожалуйста ",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "the bill, please →",
+                    "raw": "чек, пожалуйста ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v3q4",
+            "level": "B1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«двор»",
+                    "raw": "door",
+                    "mark": "review"
+                },
+                {
+                    "part": "b",
+                    "label": "«здание»",
+                    "raw": "",
+                    "mark": "blank"
+                },
+                {
+                    "part": "c",
+                    "label": "«закуска»",
+                    "raw": " snack ",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v4q1",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "the missing word",
+                    "raw": "Москве ",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v4q2",
+            "level": "A1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«Я иду в ____ (бар)»",
+                    "raw": "баре",
+                    "mark": "review"
+                },
+                {
+                    "part": "b",
+                    "label": "«Я вижу ____ (Анна)»",
+                    "raw": "Анна",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v4q3",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«бутылка ____ (вино)»",
+                    "raw": "вина",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«У меня нет ____ (работа)»",
+                    "raw": "у меня работу",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v4q4",
+            "level": "B1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«Я звоню ____ (друг)»",
+                    "raw": "другие ",
+                    "mark": "review"
+                },
+                {
+                    "part": "b",
+                    "label": "«Я работаю ____ (архитектор)»",
+                    "raw": "архитектора ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v4q5",
+            "level": "B1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«пять ____ (друг)»",
+                    "raw": "другие ",
+                    "mark": "review"
+                },
+                {
+                    "part": "b",
+                    "label": "«много ____ (люди)»",
+                    "raw": "много людей",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v4q6",
+            "level": "B1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "both missing words",
+                    "raw": "новый рабочий ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v5q1",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«Я ____ (работать) в Москве»",
+                    "raw": "работаю ",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«Она ____ (говорить) по-русски»",
+                    "raw": "говорята",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v5q2",
+            "level": "A1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "the missing word",
+                    "raw": "был",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v5q3",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«Сейчас я ____ на работу пешком (иду / еду)»",
+                    "raw": "иду",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«Завтра я ____ в Петербург на поезде (иду / еду)»",
+                    "raw": "еду",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v5q4",
+            "level": "B1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "«Вчера я наконец ____ эту книгу (читал / прочитал)»",
+                    "raw": "прочитал",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "«Я ____ письмо два часа (писал / написал)»",
+                    "raw": "писал",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v5q5",
+            "level": "B1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "the verb that fits",
+                    "raw": "звоню",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v5q6",
+            "level": "B1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "the missing words",
+                    "raw": "пойдем ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v6q1",
+            "level": "A1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Who wrote the message?",
+                    "raw": "dima",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "Where does he suggest meeting?",
+                    "raw": "bar next to the office",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v6q2",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "When is the bar trip?",
+                    "raw": "friday",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "What does Dima's company make?",
+                    "raw": "data platforms",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v6q3",
+            "level": "B1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "What does he complain about?",
+                    "raw": "not enough time",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "What does he promise to do at the bar?",
+                    "raw": "introduce me to his colleagues ",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v6q4",
+            "level": "B1+",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "if Friday doesn't work, you should…",
+                    "raw": "if you don't want to do Friday, write me when you are free",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v7q1",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "in Russian",
+                    "raw": "Я живу в Москве ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v7q2",
+            "level": "A2",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "in Russian",
+                    "raw": "Я хочу говорить на русском языке ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v7q3",
+            "level": "B1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "your reply to Dima",
+                    "raw": "пятница, да! сказать меня, твой компании нужен сотрудник? это хорошо места работет?",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v7q4",
+            "level": "B1",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "your introduction",
+                    "raw": "привет! но, Дима, я Ирландии.  Вы, украинцы, вечно путаете Англию с Ирландией!\nтак, я работаю в Лондоне (да, и знаю, на Англиа). Я архитектор информацию, credit markets - интересно работа.   Я жил в Москве два года.   Я хочу вернуться. ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v8q1",
+            "level": "survey",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "The signs (1–5)",
+                    "raw": "3",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "People words (1–5)",
+                    "raw": "4",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "The bar and the street (1–5)",
+                    "raw": "4",
+                    "mark": "correct"
+                },
+                {
+                    "part": "d",
+                    "label": "Cases (1–5)",
+                    "raw": "3",
+                    "mark": "correct"
+                },
+                {
+                    "part": "e",
+                    "label": "Verbs and aspect (1–5)",
+                    "raw": "2",
+                    "mark": "correct"
+                },
+                {
+                    "part": "f",
+                    "label": "Dima's message (1–5)",
+                    "raw": "4",
+                    "mark": "correct"
+                },
+                {
+                    "part": "g",
+                    "label": "Writing back (1–5)",
+                    "raw": "5",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "v8q2",
+            "level": "survey",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "favourite question",
+                    "raw": " the response back because it offered the chance to be warm and humorous ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v8q3",
+            "level": "survey",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "the fond memory",
+                    "raw": "overall, how Russians - if you make an effort to speak Russian - are forgiving of the poor language skills.  My friend Sasha and I used to have great drunken conversations at the Schwartzkeiser.  even though neither of us spoke each others language very well, we understood each other.  Russian is a language you have to feel.  this is what I like the most.",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v8q4",
+            "level": "survey",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "what broke",
+                    "raw": "grammar,  tenses in particular.  not being able to understand people when they spoke to me.",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "v8q5",
+            "level": "survey",
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "three topics",
+                    "raw": "Geopolitics.\nBeing able ask people about themselves (and understand the answers).\nTell jokes and funny stories ",
+                    "mark": "review"
+                }
+            ]
+        }
+    ]
+}

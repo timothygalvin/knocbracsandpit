@@ -1,0 +1,314 @@
+{
+    "course": "graceco",
+    "student": "Grace",
+    "kind": "checkpoint",
+    "session": "cp1",
+    "title": "Checkpoint 1: The Audit",
+    "when": "2026-10-18T14:56:46.867Z",
+    "detail": [
+        {
+            "q": "t1",
+            "level": 1,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "10% of £80 (£)",
+                    "raw": "8",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "5% of £80 (£)",
+                    "raw": "4",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "t2",
+            "level": 1,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "10% of £300 (£)",
+                    "raw": "30",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "1% of £300 (£)",
+                    "raw": "3",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "t3",
+            "level": 2,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "25% of £60 (£)",
+                    "raw": "15",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "75% of £60 (£)",
+                    "raw": "45",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "t4",
+            "level": 3,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "15% of £80 (£)",
+                    "raw": "12",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "95% of £140 (£)",
+                    "raw": "133",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s1",
+            "level": 1,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Money off (£)",
+                    "raw": "£10",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "What you actually pay (£)",
+                    "raw": "£30",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s2",
+            "level": 2,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Money off (£)",
+                    "raw": "£20",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "So what percentage off is that? (%)",
+                    "raw": "60%",
+                    "mark": "incorrect"
+                }
+            ]
+        },
+        {
+            "q": "s3",
+            "level": 2,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Shop A's price (£)",
+                    "raw": "£70",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "Shop B's price (£)",
+                    "raw": "£75",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "Which shop is cheaper — A or B?",
+                    "raw": "A",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s4",
+            "level": 3,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "The real discount (%)",
+                    "raw": "20%",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "Is the sign telling the truth? (yes/no)",
+                    "raw": "no",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "p1",
+            "level": 1,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Monday's profit (£)",
+                    "raw": "£53",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "p2",
+            "level": 1,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Tuesday's profit (£, use a minus sign)",
+                    "raw": "-£5",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "p3",
+            "level": 2,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "The whole week's profit, Monday to Friday (£)",
+                    "raw": "£120",
+                    "mark": "incorrect"
+                }
+            ]
+        },
+        {
+            "q": "p4",
+            "level": 3,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Saturday's revenue (£)",
+                    "raw": "83",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "In one sentence, how did you work that out?",
+                    "raw": "I add 45 and 38",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "m1",
+            "level": 1,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Profit (£)",
+                    "raw": "£10",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "Margin (%)",
+                    "raw": "20%",
+                    "mark": "incorrect"
+                }
+            ]
+        },
+        {
+            "q": "m2",
+            "level": 2,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Ana's margin (%)",
+                    "raw": "20%",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "Ben's margin (%)",
+                    "raw": "5%",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "Whose money is working harder — Ana or Ben?",
+                    "raw": "ana",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "m3",
+            "level": 2,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Business A's profit (£)",
+                    "raw": "30",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "Business B's profit (£)",
+                    "raw": "40",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "label": "Which one puts more money in the till — A or B?",
+                    "raw": "b",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "m4",
+            "level": 3,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Both years added together, what is the total profit? (£, use a minus sign)",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "In one sentence — would you put your own money into it, and why?",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        }
+    ]
+}

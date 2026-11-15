@@ -4,37 +4,36 @@ Priority-ordered within sections. (i) = infrastructure, (c) = content,
 (o) = ops. Owner column: T = Timothy, F = Fable/senior agent,
 A = content agent.
 
-## Hosting / transport — BLOCKED on 34sp
-- (o/T) **knocbrac.com is on 34sp's OLD cluster, which has no ssh/sftp.**
-  Confirmed 18 Oct 2026: `mkdir .ssh` over sftp returns "Permission denied"
-  on `/`, so there is no writable home and key auth was never possible —
-  independently of the OpenSSH 5.3 / ssh-rsa signature problem found on
-  11 Oct. Migration to the newer cluster (the one hosting
-  agileintegrator.com) has been REQUESTED; waiting on 34sp.
-  Until then: **plain FTP is the only transport.** site.json is back to
-  `transport: "ftp"`, with the ready-made sftpcli block parked in
-  `_sftp_when_migrated` — swap it in and delete `use_tls` once the move
-  lands, then re-run the readiness test recorded there.
-  Consequences while we wait, all accepted deliberately:
-  * the FTP password travels in clear text (FTPS login 530s on this host);
-  * `site_url` stays `http://` because the certificate does not cover
-    www.knocbrac.com — so the kids' traffic is unencrypted too;
-  * no `php -l` on the host, no server-side shell, no rsync.
-  The migration also unblocks: TLS for the kids, a PHP newer than 5.6.36,
-  and the rsync-over-ssh transport wanted for agileintegrator.com.
+## Hosting / transport — migration DONE by 34sp, CUTOVER PENDING
+- (o/T+A) **Run the cutover: docs/plans/migration-cutover.md.** 34sp
+  finished copying the site to the new cluster on 15 Nov 2026 (185.114.98.6,
+  SFTP/SSH, OpenSSH 9.9, PHP 8.5.12). DNS still points at the OLD cluster
+  (80.82.113.174, plain FTP, now PHP 7.4.33), which takes all live traffic,
+  so site.json stays on `transport: "ftp"`. The new-cluster block is parked
+  in `_sftp_when_migrated`, updated to the probed facts, with the ssh-rsa
+  workaround dropped as no longer needed.
+  **Data risk:** the new cluster's copy is a snapshot from about 11 Oct. It
+  is 10 results files behind (34 vs 44), its state store stops at 11 Oct,
+  and it serves content r7 / code 1.1.0. Runbook step C (deploy `--all` +
+  results/ re-sync old→new, verified) must run immediately before the DNS
+  flip, and D3 (delta sync) runs after it.
+  Timothy-only steps: SSH key install (B), Chyrp returns 500 on new (A7),
+  where the DNS zone is edited (it is on ns.34sp.com despite the 34sp page
+  saying "another provider") and the record change (D), Let's Encrypt (E1),
+  tablet checks (G5), and when to decommission the old cluster (H).
+  Until cutover, the accepted consequences stand: clear-text FTP password,
+  http-only `site_url`, and no shell on the live host.
 
 ## Blocking before the next code deploy
-- (o/T) **`php -l` submit.php somewhere with PHP before shipping code 1.1.0.**
-  No PHP or container runtime exists on this machine, so the state endpoint
-  in submit.php is UNLINTED and all 10 php-cgi receiver tests skip. A parse
-  error renders blank pages (invariant 1). The logic is verified via the
-  Python twin (UC6) and the file is structurally balanced + PHP5.6-token
-  clean, but that is not a substitute. `brew install php` locally, or lint a
-  staged copy on the host over ssh, then run run_tests.py again and expect
-  10 more passes.
+- DONE 15 Nov 2026: `php -l` submit.php. PHP 8.5.11 + php-cgi are now
+  installed locally (Homebrew). Lint is clean and the 10 php-cgi receiver
+  tests run and pass (59 pass, 3 skip: node x2, sftpcli). An E_ALL sweep
+  found no PHP 8.5 deprecations (runbook A4). Local lint is 8.5, so 5.6/7.4
+  syntax safety still rests on the php56 token check.
 - (o/T) Delete the live `/learn/README.md` by hand. It is now excluded from
   deployment (it leaked the .htpasswd example password `lemonade` and the
-  receiver setup), but deploy only uploads — it never deletes.
+  receiver setup), but deploy only uploads — it never deletes. It is present
+  on BOTH clusters (HTTP 200 on each, 15 Nov). See runbook A8.
 
 ## Now / next
 - (c/A) Jim Unit 2 remainder: w2s2 The Position Machine, w2s3 Summit

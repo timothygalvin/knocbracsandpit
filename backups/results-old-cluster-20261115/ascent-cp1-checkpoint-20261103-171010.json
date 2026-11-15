@@ -1,0 +1,351 @@
+{
+    "course": "ascent",
+    "student": "Jim",
+    "kind": "checkpoint",
+    "session": "cp1",
+    "title": "Checkpoint 1: Everything So Far",
+    "when": "2026-11-03T17:10:05.312Z",
+    "detail": [
+        {
+            "q": "n1",
+            "level": 1,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "−6 + 10",
+                    "raw": "4",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "4 − 11",
+                    "raw": "7",
+                    "mark": "incorrect"
+                }
+            ]
+        },
+        {
+            "q": "n2",
+            "level": 2,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "−5 − (−9)",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "12 − (−8)",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "c",
+                    "label": "−9 + 20 − (−5)",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "n3",
+            "level": 2,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "(−7) × (−5)",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "(−36) ÷ (−9)",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "c",
+                    "label": "24 ÷ (−6)",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "n4",
+            "level": 3,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Level it finishes on",
+                    "raw": "3 ",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "Total levels travelled, as the cable counter reads it",
+                    "raw": "16",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s1",
+            "level": 1,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Common difference",
+                    "raw": "5",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "label": "Next term",
+                    "raw": "26",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s2",
+            "level": 2,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Common difference",
+                    "raw": "7",
+                    "mark": "incorrect"
+                },
+                {
+                    "part": "b",
+                    "label": "Next term",
+                    "raw": "22",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s3",
+            "level": 2,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "20th term",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "50th term",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "s4",
+            "level": 3,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "15th term",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "Does it land on zero exactly? (yes or no)",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "c",
+                    "label": "In your own words, how can you be certain it never lands on zero? (Write as much or as little as you like.)",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "p1",
+            "level": 1,
+            "skipped": false,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "1st term",
+                    "raw": "3",
+                    "mark": "incorrect"
+                },
+                {
+                    "part": "b",
+                    "label": "10th term",
+                    "raw": "43",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "p2",
+            "level": 2,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "20th term",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "100th term",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "p3",
+            "level": 2,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "5, 9, 13, 17, …",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "2, 9, 16, 23, …",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "p4",
+            "level": 2,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "The nth term rule",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "p5",
+            "level": 3,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "101 is which term?",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "Is 100 in this sequence? (yes or no)",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "c",
+                    "label": "In your own words: how do you tell that a number is NOT in a sequence? (Write as much or as little as you like.)",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "t1",
+            "level": 1,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Blocks in a 5-step staircase",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "Blocks in a 6-step staircase",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "t2",
+            "level": 2,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Blocks in a 20-step staircase",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "Handrail for a 20-step staircase (units)",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "c",
+                    "label": "A handrail of 48 units fits a staircase of how many steps?",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "t3",
+            "level": 3,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "1 + 2 + 3 + … + 60",
+                    "raw": "",
+                    "mark": "skipped"
+                },
+                {
+                    "part": "b",
+                    "label": "A staircase uses exactly 36 blocks. How many steps has it?",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        },
+        {
+            "q": "t4",
+            "level": 3,
+            "skipped": true,
+            "parts": [
+                {
+                    "part": "a",
+                    "label": "Number of steps",
+                    "raw": "",
+                    "mark": "skipped"
+                }
+            ]
+        }
+    ]
+}

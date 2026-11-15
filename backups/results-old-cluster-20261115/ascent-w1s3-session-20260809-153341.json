@@ -1,0 +1,65 @@
+{
+    "course": "ascent",
+    "student": "Jim",
+    "kind": "session",
+    "session": "w1s3",
+    "title": "The Mine Lift",
+    "when": "2026-08-09T14:33:39.869Z",
+    "detail": [
+        {
+            "q": "L1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "2",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "L2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "-7",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "L3",
+            "tries": 3,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "13",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "L4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "4",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "L5",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "24",
+                    "mark": "correct"
+                }
+            ]
+        }
+    ]
+}

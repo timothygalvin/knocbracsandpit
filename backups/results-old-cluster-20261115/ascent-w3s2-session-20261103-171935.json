@@ -1,0 +1,100 @@
+{
+    "course": "ascent",
+    "student": "Jim",
+    "kind": "session",
+    "session": "w3s2",
+    "title": "Scaling the Recipe",
+    "when": "2026-11-03T17:19:31.151Z",
+    "detail": [
+        {
+            "q": "f1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "200",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "1200",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "f2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "3",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "6",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "f3",
+            "tries": 5,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "4.5",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "45",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "f4",
+            "tries": 0,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "",
+                    "mark": "blank"
+                },
+                {
+                    "part": "b",
+                    "raw": "",
+                    "mark": "blank"
+                },
+                {
+                    "part": "c",
+                    "raw": "",
+                    "mark": "blank"
+                }
+            ]
+        },
+        {
+            "q": "f5",
+            "tries": 0,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "",
+                    "mark": "blank"
+                },
+                {
+                    "part": "b",
+                    "raw": "",
+                    "mark": "blank"
+                },
+                {
+                    "part": "c",
+                    "raw": "",
+                    "mark": "blank"
+                }
+            ]
+        }
+    ]
+}

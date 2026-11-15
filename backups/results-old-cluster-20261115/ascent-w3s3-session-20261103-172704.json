@@ -1,0 +1,111 @@
+{
+    "course": "ascent",
+    "student": "Jim",
+    "kind": "session",
+    "session": "w3s3",
+    "title": "The Oxygen Mix",
+    "when": "2026-11-03T17:27:00.851Z",
+    "detail": [
+        {
+            "q": "x1",
+            "tries": 4,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "4",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "16",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "x2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "8",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "28",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "x3",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "2",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "4",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "x4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "9",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "3",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "x5",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "No",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "60",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "x6",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "21",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "2",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "raw": "3",
+                    "mark": "correct"
+                }
+            ]
+        }
+    ]
+}

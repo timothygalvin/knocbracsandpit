@@ -1,0 +1,74 @@
+{
+    "course": "graceco",
+    "student": "Grace",
+    "kind": "session",
+    "session": "w1s3",
+    "title": "The Sale-Sign Trick",
+    "when": "2026-08-09T14:39:36.003Z",
+    "detail": [
+        {
+            "q": "s1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "45",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "same",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s2",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "70",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "75",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "raw": "a",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s3",
+            "tries": 5,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "25",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "20",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "no",
+                    "mark": "correct"
+                }
+            ]
+        }
+    ]
+}

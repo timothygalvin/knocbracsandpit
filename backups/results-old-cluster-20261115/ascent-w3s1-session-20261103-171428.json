@@ -1,0 +1,116 @@
+{
+    "course": "ascent",
+    "student": "Jim",
+    "kind": "session",
+    "session": "w3s1",
+    "title": "The Mixing Room",
+    "when": "2026-11-03T17:14:23.987Z",
+    "detail": [
+        {
+            "q": "r1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "20",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "30",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "r2",
+            "tries": 3,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "6",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "15",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "r3",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "2:3",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "3:7",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "raw": "5:4",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "r4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "10",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "50",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "r5",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "40",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "60",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "raw": "100",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "r6",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "30",
+                    "mark": "incorrect"
+                },
+                {
+                    "part": "b",
+                    "raw": "48",
+                    "mark": "incorrect"
+                }
+            ]
+        }
+    ]
+}

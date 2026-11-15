@@ -1,0 +1,116 @@
+{
+    "course": "graceco",
+    "student": "Grace",
+    "kind": "session",
+    "session": "w3s2",
+    "title": "The Snowball",
+    "when": "2026-11-03T17:14:38.457Z",
+    "detail": [
+        {
+            "q": "s1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": " £10",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "£110",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£11",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "£121",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s3",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£220",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "£242",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "s4",
+            "tries": 6,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£110",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "£111",
+                    "mark": "incorrect"
+                }
+            ]
+        },
+        {
+            "q": "s5",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£605",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "",
+                    "mark": "blank"
+                },
+                {
+                    "part": "c",
+                    "raw": "",
+                    "mark": "blank"
+                }
+            ]
+        },
+        {
+            "q": "s6",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "£120",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "£121",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "raw": "£1 first offer",
+                    "mark": "correct"
+                }
+            ]
+        }
+    ]
+}

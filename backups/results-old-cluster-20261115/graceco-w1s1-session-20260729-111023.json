@@ -1,0 +1,75 @@
+{
+    "course": "graceco",
+    "student": "Grace",
+    "kind": "session",
+    "session": "w1s1",
+    "title": "The 10% Machine",
+    "when": "2026-07-29T10:10:21.971Z",
+    "detail": [
+        {
+            "q": "p1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "6",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "p2",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "25",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "p3",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "3",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "10",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "p4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "3",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "9",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "p5",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "224",
+                    "mark": "correct"
+                }
+            ]
+        }
+    ]
+}

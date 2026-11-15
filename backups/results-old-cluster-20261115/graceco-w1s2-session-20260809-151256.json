@@ -1,0 +1,90 @@
+{
+    "course": "graceco",
+    "student": "Grace",
+    "kind": "session",
+    "session": "w1s2",
+    "title": "Halve It, Tenth It",
+    "when": "2026-08-09T14:12:51.790Z",
+    "detail": [
+        {
+            "q": "h1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "14",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "7",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "h2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "15",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "i dont know this one ",
+                    "mark": "review"
+                }
+            ]
+        },
+        {
+            "q": "h3",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "32",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "30",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "h4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "9",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "36",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "h5",
+            "tries": 0,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "i don't know this one",
+                    "mark": "review"
+                },
+                {
+                    "part": "b",
+                    "raw": "i don't know this one",
+                    "mark": "review"
+                }
+            ]
+        }
+    ]
+}

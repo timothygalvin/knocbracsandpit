@@ -1,0 +1,80 @@
+{
+    "course": "graceco",
+    "student": "Grace",
+    "kind": "session",
+    "session": "w2s1",
+    "title": "Profit, Properly",
+    "when": "2026-08-09T15:05:46.600Z",
+    "detail": [
+        {
+            "q": "b1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "53",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "b2",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "-5",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "b3",
+            "tries": 3,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "36",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "0",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "raw": "58",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "b4",
+            "tries": 6,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "142j",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "b5",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "friday",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "third",
+                    "mark": "correct"
+                }
+            ]
+        }
+    ]
+}

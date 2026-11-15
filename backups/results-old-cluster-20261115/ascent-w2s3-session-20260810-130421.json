@@ -1,0 +1,106 @@
+{
+    "course": "ascent",
+    "student": "Jim",
+    "kind": "session",
+    "session": "w2s3",
+    "title": "The Staircase",
+    "when": "2026-08-10T12:04:16.968Z",
+    "detail": [
+        {
+            "q": "S1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "6",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "10",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "S2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "8",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "12",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "S3",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "100",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "15",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "S4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "21",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "28",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "S5",
+            "tries": 6,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "5050",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "5600",
+                    "mark": "incorrect"
+                }
+            ]
+        },
+        {
+            "q": "S6",
+            "tries": 3,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "25",
+                    "mark": "incorrect"
+                },
+                {
+                    "part": "b",
+                    "raw": "25",
+                    "mark": "incorrect"
+                }
+            ]
+        }
+    ]
+}

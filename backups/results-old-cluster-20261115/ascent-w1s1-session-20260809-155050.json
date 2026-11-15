@@ -1,0 +1,64 @@
+{
+    "course": "ascent",
+    "student": "Jim",
+    "kind": "session",
+    "session": "w1s1",
+    "title": "Below Zero",
+    "when": "2026-08-09T14:50:49.307Z",
+    "detail": [
+        {
+            "q": "n1",
+            "tries": 3,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "-5",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "n2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "5",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "-4",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "n3",
+            "tries": 2,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "10",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "4",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "n4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "13",
+                    "mark": "correct"
+                }
+            ]
+        }
+    ]
+}

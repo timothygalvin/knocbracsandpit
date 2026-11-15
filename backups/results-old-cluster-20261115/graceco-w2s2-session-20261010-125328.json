@@ -1,0 +1,111 @@
+{
+    "course": "graceco",
+    "student": "Grace",
+    "kind": "session",
+    "session": "w2s2",
+    "title": "The Margin",
+    "when": "2026-10-10T11:53:27.229Z",
+    "detail": [
+        {
+            "q": "g1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "10",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "g2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "10",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "50",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "g3",
+            "tries": 19,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "20",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "5",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "raw": "ana",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "g4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "15",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "45",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "g5",
+            "tries": 6,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "20",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "25",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "g6",
+            "tries": 3,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "20",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "40",
+                    "mark": "correct"
+                },
+                {
+                    "part": "c",
+                    "raw": "b",
+                    "mark": "correct"
+                }
+            ]
+        }
+    ]
+}

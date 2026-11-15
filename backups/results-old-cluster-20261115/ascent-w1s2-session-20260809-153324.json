@@ -1,0 +1,80 @@
+{
+    "course": "ascent",
+    "student": "Jim",
+    "kind": "session",
+    "session": "w1s2",
+    "title": "The Minus-Times-Minus Mystery",
+    "when": "2026-08-09T14:33:23.235Z",
+    "detail": [
+        {
+            "q": "m1",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "6",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "12",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "m2",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "24",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "m3",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "-15",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "49",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "m4",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "6",
+                    "mark": "correct"
+                },
+                {
+                    "part": "b",
+                    "raw": "-7",
+                    "mark": "correct"
+                }
+            ]
+        },
+        {
+            "q": "m5",
+            "tries": 1,
+            "parts": [
+                {
+                    "part": "a",
+                    "raw": "-24",
+                    "mark": "correct"
+                }
+            ]
+        }
+    ]
+}
